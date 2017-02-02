@@ -8,11 +8,14 @@ body {
 }
 
 header {
-	background-color: red;
 	color: black;
     font-family: 'Gabriela', serif;
 	height:100px;
+	width: 100%;
+	overflow:hidden;
 }
+
+.nav {width: 100%; height:auto;}
 
 h1 {
     font-size: 20px;
