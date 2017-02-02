@@ -62,4 +62,31 @@ h1 {
 	color:#000000;	
 }
 
+img{
+	width: 50px;
+	height: 50px;
+}
+
+#reseaux li{
+	list-style: none;
+	display: inline-block;
+}
+
+#reseaux{
+	text-align: right;
+}
+
+#menu_footer li{
+	list-style: none;
+	display: inline-block;
+}
+#menu_footer {
+	text-align: center;
+	color: black;
+	margin-bottom: 0px;
+}
+
+#auteurs li{
+	list-style: none;
+}
 
