@@ -5,7 +5,6 @@ pour un utilisateur connecté, la requête va récupérer ses préférences (gen
 pour un utilisateur qui n'est pas connecté, la requête se contente de récupérer des images de lieux cultes
 */
 
-coucou test 
   if (isset($_SESSION["genres"])){
     $sql = 'SELECT backdrop_path,series.id,series.name FROM series INNER JOIN seriesgenres ON series.id=seriesgenres.series_id INNER JOIN genres ON seriesgenres.genre_id=genres.id WHERE ';  
     for ($i=0; $i < count($_SESSION["genres"]) ; $i++){
