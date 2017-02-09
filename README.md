@@ -1,2 +1,0 @@
-# moviejourney
-Projet informatique
