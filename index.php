@@ -14,37 +14,36 @@
 	<body>
 		<header>
 			<nav class="navbar navbar-default">
-				<div class="container-fluid"> 
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar">Accueil</span>
-						<span class="icon-bar">Lieux cultes</span>
-						<span class="icon-bar">Mes circuits</span>
-						<span class="icon-bar">A propos</span>
-						<span class="icon-bar">Contact</span>
-					</button>
-					<div class="navbar-header"> <a class="navbar-brand" href="#">MOVIE JOURNEY</a> </div>
-					<!-- end navbar header
-					
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav navbar-left">
-							<li class="active"><a href="#">Accueil</a></li>
-							<li><a href="#">Lieux cultes</a></li>
-							<li><a href="#">Mes circuits</a></li>
-							<li><a href="#">A propos</a></li>
-							<li><a href="#">Contact</a></li>
-						</ul>
-						<ul class="nav nav-stacked navbar-right">
-							<li><a href="#"><img src="image/logout.png" alt="">déconnexion</a></li>
-							<li><a href="#"><img src="image/reglage.png" alt="">réglages</a></li>
-						</ul>
-					</div>
-					<!-- end navbar-collapse --> 
-				</div>
-				<!-- end container-fluid --> 
-			</nav>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="image/logo-movie-journey.gif" id="logo" class="img-responsive"/></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+        <li class="active"><a href="#">Accueil <span class="sr-only">(current)</span></a></li>
+		<li><a href="#">Lieux cultes</a></li>
+		<li><a href="#">Mes circuits</a></li>
+		<li><a href="#">A propos</a></li>
+		<li><a href="#">Contact</a></li>
+      </ul>
+      
+      <ul class="nav nav-stacked navbar-right">
+        <li><a href="#"><img src="image/logout.png" alt=""/>déconnexion</a></li>
+		<li><a href="#"><img src="image/reglage.png" alt=""/>réglages</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 		</header>
 
 		<!-- MAIN CONTAINER : all page is contained -->
@@ -65,23 +64,17 @@
 				    <div class="item active">
 				      <img src="image/Petra.png" alt="...">
 				      <div class="carousel-caption">
-				        <img class="descriptioncaroussel" src="image/fonddescriptionimg.png" alt="">
-						<form class="navbar-form text-center" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Search">
-							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
-						</form>
+				        <img class="descriptioncaroussel" src="image/fonddescriptionimg.png" alt=""/>
 				      </div>
 				    </div>
 				    <div class="item">
-				      <img src="image/Bali.jpg" alt="...">
+				      <img src="image/Bali.jpg" alt="..."/>
 				      <div class="carousel-caption">
 				        Bali
 				      </div>
 				    </div>
 				        <div class="item">
-				      <img src="image/Montagne.jpg" alt="...">
+				      <img src="image/Montagne.jpg" alt="..."/>
 				      <div class="carousel-caption">
 				        Montagne
 				      </div>
@@ -100,6 +93,21 @@
 				</div>
 			</div>
 			<!-- END OF CAROUSEL -->
+
+
+			<!-- search bar -->
+			<div id="searchbarDiv" class="row">
+<form class="form-inline col-lg-12">
+  <div class="form-group">
+    <label for="s" class="sr-only">Recherche</label>
+    <input type="search" class="form-control" id="searchbar" placeholder="Rechercher un film, un lieu, un thème..."/>
+  </div>
+  <button type="submit" class="btn btn-default"><img src="image/loupe.png" alt=""></button>
+</form>
+			 </div>
+			<!-- end of search bar -->
+
+
 
 			<!-- image 242x200 -->
 			<!-- WEBSITE DESCRIPTION -->
