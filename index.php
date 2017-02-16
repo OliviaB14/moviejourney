@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr"><!-- language -->
-
 	<head>
 		<!-- META TAGS -->
 		<!-- encoding --><meta charset="utf-8"/>
@@ -12,39 +11,10 @@
 	</head>
 
 	<body>
-		<header>
-			<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><img src="image/logo-movie-journey.gif" id="logo" class="img-responsive"/></a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-
-        <li class="active"><a href="#">Accueil <span class="sr-only">(current)</span></a></li>
-		<li><a href="#">Lieux cultes</a></li>
-		<li><a href="#">Mes circuits</a></li>
-		<li><a href="#">A propos</a></li>
-		<li><a href="#">Contact</a></li>
-      </ul>
-      
-      <ul class="nav nav-stacked navbar-right">
-        <li><a href="#"><img src="image/logout.png" alt=""/>déconnexion</a></li>
-		<li><a href="#"><img src="image/reglage.png" alt=""/>réglages</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-		</header>
+	
+		<?php
+		include('header.php')
+		?>
 
 		<!-- MAIN CONTAINER : all page is contained -->
 		<div class="container-fluid">
@@ -82,14 +52,14 @@
 				  </div>
 
 				  <!-- Controls -->
-				  <!--<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 				    <span class="sr-only">Previous</span>
 				  </a>
 				  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
 				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				    <span class="sr-only">Next</span>
-				  </a>-->
+				  </a>
 				</div>
 			</div>
 			<!-- END OF CAROUSEL -->
@@ -114,7 +84,6 @@
 			<div class="row" id="description">
 				<div class="col-xs-6 col-md-3 text-center">
 					<div class="thumbnail desc"> <img src="image/route.png" alt="..."> 
-						<!-- glyphicon glyphicon-road -->
 						<div class="caption">
 							<h4>Création de l'itinéraire</h4>
 							<p>Movie Journey vous propose des itinéraires en fonction du lieu que vous souhaitez visiter.</p>
@@ -123,7 +92,6 @@
 				</div>
 				<div class="col-xs-6 col-md-3 text-center">
 					<div class="thumbnail desc"> <img src="image/airplane.png" alt="..."> 
-						<!-- glyphicon glyphicon-plane -->
 						<div class="caption">
 							<h4>Réservation des billets d'avion</h4>
 							<p>Vous pouvez réserver votre billet d'avion directement sur le site grâce à nos partenaires.</p>
@@ -132,7 +100,6 @@
 				</div>
 				<div class="col-xs-6 col-md-3 text-center">
 					<div class="thumbnail"> <img src="image/hostel.png" alt="..."> 
-						<!-- image/home.png -->
 						<div class="caption">
 							<h4>Réservation des hôtels</h4>
 							<p>Nous vous proposons aussi de réserver directement l'hôtel le plus proche du lieu que vous souhaitez visiter.</p>
@@ -140,8 +107,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 text-center" >
-					<div class="thumbnail"> <img src="image/restaurants.png" alt="..."> 
-						<!-- glyphicon glyphicon-cutlery -->
+					<div class="thumbnail"> <img src="image/restaurant.png" alt="..."> 
 						<div class="caption">
 							<h4>Proposition de restaurants</h4>
 							<p>Movie Journey vous indique les restaurants les plus proches tout au long de votre circuit.</p>
@@ -198,46 +164,10 @@
 			</div>
 			<!-- END OF SELECTED ITENERARIES -->
 		</div>
-
 		
-
-		
-<!-- !!!!!!!!!!  faire un include footer.php à la place !!!!!!!!!! -->
-
-		<div class="container-fluid">
-		<footer>
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<h4>Navigation</h4>
-					<ul class="nav navbar-nav">
-						<li><a href="#">Accueil</a></li>
-						<li><a href="#">Lieux cultes</a></li>
-						<li><a href="#">Mes circuits</a></li>
-						<li><a href="#">A propos</a></li>
-						<li><a href="#">Contact</a></li>
-					</ul>
-				</div>
-				<div class="col-lg-4 col-xs-12">
-					<h4>Infos pratiques</h4>
-				</div>
-				<div class="social-inner col-lg-4 col-md-6">
-					<h4>Suivez Movie Journey</h4>
-					<ul class="social">
-						<li><a href="#">Image Facebook</a></li>
-						<li><a href="#">Image Twitter</a></li>
-						<li><a href="#">Image Instagram</a></li>
-					</ul>
-				</div>
-			</div>
-
-			<!-- copyright info -->
-			<div class="row">
-				<div class="copyright col-lg-12">
-					<p>Copyright © 2017 - Site réalisé par Sophie, Maud, Olivia, Hishem & Thomas</p>
-				</div>
-			</div>
-		</footer>
-		</div>
+		<?php
+		include('footer.php')
+		?>
 
 		<!-- SCRIPT FILES -->
 		<!-- jquery script --><script type="text/javascript" src="js/jquery-3.1.1.js"></script>
