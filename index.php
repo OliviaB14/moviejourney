@@ -117,7 +117,7 @@
 						<!-- glyphicon glyphicon-road -->
 						<div class="caption">
 							<h4>Création de l'itinéraire</h4>
-							<p>blablablablablablabla blablablablablablablabla blablablablablablablabla blablablablablablablabla</p>
+							<p>Movie Journey vous propose des itinéraires en fonction du lieu que vous souhaitez visiter.</p>
 						</div>
 					</div>
 				</div>
@@ -126,7 +126,7 @@
 						<!-- glyphicon glyphicon-plane -->
 						<div class="caption">
 							<h4>Réservation des billets d'avion</h4>
-							<p>blablablablablablabla blablablablablablablabla blablablablablablablabla blablablablablablablabla</p>
+							<p>Vous pouvez réserver votre billet d'avion directement sur le site grâce à nos partenaires.</p>
 						</div>
 					</div>
 				</div>
@@ -135,7 +135,7 @@
 						<!-- image/home.png -->
 						<div class="caption">
 							<h4>Réservation des hôtels</h4>
-							<p>blablablablablablabla blablablablablablablabla blablablablablablablabla blablablablablablablabla</p>
+							<p>Nous vous proposons aussi de réserver directement l'hôtel le plus proche du lieu que vous souhaitez visiter.</p>
 						</div>
 					</div>
 				</div>
@@ -144,7 +144,7 @@
 						<!-- glyphicon glyphicon-cutlery -->
 						<div class="caption">
 							<h4>Proposition de restaurants</h4>
-							<p>blablablablablablabla blablablablablablablabla blablablablablablablabla blablablablablablablabla</p>
+							<p>Movie Journey vous indique les restaurants les plus proches tout au long de votre circuit.</p>
 						</div>
 					</div>
 				</div>
