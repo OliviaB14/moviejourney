@@ -49,13 +49,16 @@ ul.navbar-nav {
 
 #searchbarDiv{
 	padding:1%;
-	border: 1px solid blue;
-	background:grey;
-	width:100%;
+	overflow: hidden;
 }
 
 footer {
 	background:#E3E3E3;
+}
+
+#searchTools{
+	overflow: visible;
+	z-index: 9999;
 }
 
 #searchbarDiv input[type="search"] {
@@ -63,8 +66,9 @@ footer {
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 110%;
-    width:100%;
+    width: 100%;
     padding: 1%;
+    height: 2%;
 }
 
 #logo {
@@ -77,3 +81,18 @@ footer {
 	padding-left:0px;
 }
 
+
+ul.social {
+    list-style: none;
+    text-align: center;
+}
+
+ul.social li {
+	display: inline-block;
+}
+
+ul.social li img {
+	width:32px;
+	height:auto;
+	margin:10px;
+}

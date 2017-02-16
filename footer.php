@@ -13,13 +13,16 @@
 			</div>
 			<div class="col-lg-4 col-xs-12">
 				<h4>Infos pratiques</h4>
+				<li>Qui sommes-nous ?</li>
+				<li>Découvrez notre brochure</li>
+				<li>Conditions générales de vente</li>
 			</div>
 			<div class="social-inner col-lg-4 col-md-6">
 				<h4>Suivez Movie Journey</h4>
 				<ul class="social">
-					<li><a href="#">Image Facebook</a></li>
-					<li><a href="#">Image Twitter</a></li>
-					<li><a href="#">Image Instagram</a></li>
+					<li><a href="https://www.facebook.com/MovieJourney2017/"><img src="image/facebook.png"/></a></li>
+					<li><a href="#"><img src="image/twitter.png"/></a></li>
+					<li><a href="#"><img src="image/instagram.png"/></a></li>
 				</ul>
 			</div>
 		</div>

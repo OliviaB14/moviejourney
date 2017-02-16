@@ -6,6 +6,7 @@
 		<!-- mobile friendly tag --><meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<!-- STYLESHEETS -->
 		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" /><!-- bootstrap -->
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"/><!-- font awesome -->
 		<link rel="stylesheet" href="style.css" type="text/css" /><!-- main stylesheet -->
 		<title>Movie Journey</title>
 	</head>
@@ -17,11 +18,11 @@
 		?>
 
 		<!-- MAIN CONTAINER : all page is contained -->
-		<div class="container-fluid">
+		<div class="container">
 
 			<!-- CAROUSEL built with images of famous places, films... -->
 			<div class="row">
-				<div id="carousel-example-generic" class="carousel slide col-lg-12" data-ride="carousel">
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 				  <!-- Indicators -->
 				  <ol class="carousel-indicators">
 				    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -67,13 +68,24 @@
 
 			<!-- search bar -->
 			<div id="searchbarDiv" class="row">
-<form class="form-inline col-lg-12">
-  <div class="form-group">
-    <label for="s" class="sr-only">Recherche</label>
-    <input type="search" class="form-control" id="searchbar" placeholder="Rechercher un film, un lieu, un thème..."/>
-  </div>
-  <button type="submit" class="btn btn-default"><img src="image/loupe.png" alt=""></button>
-</form>
+				<form class="form-inline">
+					<div class="dropdown col-lg-2 col-md-2" id="searchTools">
+						  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    Recherche par :
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+						    <li><a href="#">Film</a></li>
+						    <li><a href="#">Thème de film</a></li>
+						    <li><a href="#">Tous les lieux cultes</a></li>
+						  </ul>
+						</div>
+				  <div class="form-group col-lg-8 col-md-10">
+				    <label for="s" class="sr-only">Recherche</label>
+				    <input type="search" class="form-control" id="searchbar" placeholder="Rechercher un film, un lieu, un thème..."/>
+				  </div>
+				  <button type="submit" class="btn btn-default col-lg-2 col-md-hidden"><img src="image/loupe.png" alt=""></button>
+				</form>
 			 </div>
 			<!-- end of search bar -->
 
