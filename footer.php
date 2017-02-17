@@ -20,9 +20,9 @@
 			<div class="social-inner col-lg-4 col-md-6">
 				<h4>Suivez Movie Journey</h4>
 				<ul class="social">
-					<li><a href="https://www.facebook.com/MovieJourney2017/"><img src="image/facebook.png"/></a></li>
-					<li><a href="#"><img src="image/twitter.png"/></a></li>
-					<li><a href="#"><img src="image/instagram.png"/></a></li>
+					<li><a href="https://www.facebook.com/MovieJourney2017/"><img src="image/facebook.png" alt="Page Facebook Movie Journey"/></a></li>
+					<li><a href="#"><img src="image/twitter.png" alt="Page Twitter Movie Journey"/></a></li>
+					<li><a href="#"><img src="image/instagram.png" alt="Page Instagram Movie Journey"/></a></li>
 				</ul>
 			</div>
 		</div>

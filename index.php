@@ -18,7 +18,14 @@
 		?>
 
 		<!-- MAIN CONTAINER : all page is contained -->
-		<div class="container">
+		<div class="container-fluid">
+		<!--
+			
+			!!! ajouter un titre h1  +  slogan du site !!!
+		
+		<h2>Marchez sur les pas de vos acteurs préférés</h2>
+
+		!-->
 
 			<!-- CAROUSEL built with images of famous places, films... -->
 			<div class="row">
@@ -49,6 +56,9 @@
 				      <div class="carousel-caption">
 				        Montagne
 				      </div>
+				    </div>
+				    <div class="item">
+				      <img src="image/blabla.png" alt="..."/>
 				    </div>
 				  </div>
 
@@ -84,7 +94,7 @@
 				    <label for="s" class="sr-only">Recherche</label>
 				    <input type="search" class="form-control" id="searchbar" placeholder="Rechercher un film, un lieu, un thème..."/>
 				  </div>
-				  <button type="submit" class="btn btn-default col-lg-2 col-md-hidden"><img src="image/loupe.png" alt=""></button>
+				  <button type="submit" class="btn btn-default col-lg-2 col-md-hidden"><img src="image/loupe.png" alt="Rechercher"/></button>
 				</form>
 			 </div>
 			<!-- end of search bar -->
@@ -95,7 +105,7 @@
 			<!-- WEBSITE DESCRIPTION -->
 			<div class="row" id="description">
 				<div class="col-xs-6 col-md-3 text-center">
-					<div class="thumbnail desc"> <img src="image/route.png" alt="..."> 
+					<div class="thumbnail desc"> <img src="image/route.png" alt="..."/> 
 						<div class="caption">
 							<h4>Création de l'itinéraire</h4>
 							<p>Movie Journey vous propose des itinéraires en fonction du lieu que vous souhaitez visiter.</p>
@@ -103,7 +113,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 text-center">
-					<div class="thumbnail desc"> <img src="image/airplane.png" alt="..."> 
+					<div class="thumbnail desc"> <img src="image/airplane.png" alt="..."/> 
 						<div class="caption">
 							<h4>Réservation des billets d'avion</h4>
 							<p>Vous pouvez réserver votre billet d'avion directement sur le site grâce à nos partenaires.</p>
@@ -111,7 +121,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 text-center">
-					<div class="thumbnail"> <img src="image/hostel.png" alt="..."> 
+					<div class="thumbnail"> <img src="image/hostel.png" alt="..."/> 
 						<div class="caption">
 							<h4>Réservation des hôtels</h4>
 							<p>Nous vous proposons aussi de réserver directement l'hôtel le plus proche du lieu que vous souhaitez visiter.</p>
@@ -119,7 +129,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 text-center" >
-					<div class="thumbnail"> <img src="image/restaurant.png" alt="..."> 
+					<div class="thumbnail"> <img src="image/restaurants.png" alt="..."/> 
 						<div class="caption">
 							<h4>Proposition de restaurants</h4>
 							<p>Movie Journey vous indique les restaurants les plus proches tout au long de votre circuit.</p>
@@ -136,7 +146,7 @@
 				<div class="row">
 					<div class="col-xs-6 col-md-3">
 					</div>
-					<div class="col-xs-6 col-md-2 text-center"> <img src="..." alt="...">
+					<div class="col-xs-6 col-md-2 text-center"> <img src="..." alt="..."/>
 						<p>Circuit 1</p>
 						<a href="#" class="thumbnail">
 						<p>En savoir plus</p>
@@ -144,7 +154,7 @@
 					</div>
 					<div class="col-xs-6 col-md-2">
 					</div>
-					<div class="col-xs-6 col-md-2 text-center"> <img src="..." alt="...">
+					<div class="col-xs-6 col-md-2 text-center"> <img src="..." alt="..."/>
 						<p>Circuit 2</p>
 						<a href="#" class="thumbnail">
 						<p>En savoir plus</p>
@@ -175,11 +185,17 @@
 				</div>
 			</div>
 			<!-- END OF SELECTED ITENERARIES -->
+
+			<!-- FOOTER -->
+			<?php
+				include('footer.php')
+			?>
+			<!-- END OF FOOTER -->
+
+			<!-- END OF THE MAIN CONTAINER -->
 		</div>
 		
-		<?php
-		include('footer.php')
-		?>
+		
 
 		<!-- SCRIPT FILES -->
 		<!-- jquery script --><script type="text/javascript" src="js/jquery-3.1.1.js"></script>
