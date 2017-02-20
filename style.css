@@ -49,9 +49,10 @@ ul.navbar-nav {
 	font-weight:bold;
 }
 
-#searchbarDiv{
-	padding:1%;
-	overflow: hidden;
+#searchbarDiv {
+    padding: 1%;
+    overflow: hidden;
+    margin-left: 15px;
 }
 
 footer {
@@ -126,10 +127,6 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
 	height:50px;
 }
 
-button#dropdownMenu1 {
-    height: 50px;
-}
-
 #description {
 	background:#F8F8F8;	
 }
@@ -137,3 +134,20 @@ button#dropdownMenu1 {
 .thumbnail {
 	background:#F8F8F8;	
 }
+
+#styled-select {
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: #F0F0F0;
+    color: #333;
+    height: 50px;
+}
+
+#styled-select select {
+    background: #F0F0F0;
+    height: 50px;
+    width: 127.95px;
+    left: -15px;
+    position: relative;
+}
+

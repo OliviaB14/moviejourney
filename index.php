@@ -40,13 +40,13 @@
 			<!-- search bar -->
 			<div id="searchbarDiv" class="row">
 				<form class="form-inline">
-					<div class="dropdown col-lg-2 col-md-2" id="searchTools">
-						<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Recherche <span class="caret"></span> </button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-							<li><a href="#">Film</a></li>
-							<li><a href="#">Thème de film</a></li>
-							<li><a href="#">Tous les lieux cultes</a></li>
-						</ul>
+					<div class="dropdown col-lg-2 col-md-2" id="styled-select">
+					  <select>
+					  	<option>Recherche<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
+						<option>Film</option>
+						<option>Thème de film</option>
+						<option>Lieux cultes</option>
+					  </select>
 					</div>
 					<div class="form-group col-lg-8 col-md-10">
 						<label for="s" class="sr-only">Recherche</label>
