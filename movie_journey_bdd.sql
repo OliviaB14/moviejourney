@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.5.1
+-- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 16 Février 2017 à 08:42
--- Version du serveur :  5.7.14
--- Version de PHP :  5.6.25
+-- Généré le :  Lun 20 Février 2017 à 14:49
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -162,7 +162,7 @@ INSERT INTO `place` (`id`, `name`, `description`, `photo_path`, `latitude`, `lon
 (7, 'Le château de Beynac', 'Le château de Beynac est situé sur la commune de Beynac-et-Cazenac, dans le département de la Dordogne (Périgord noir). Ce château est l\'un des mieux conservés et l\'un des plus réputés de la région. Il a été classé Monument historique le 11 février 1944.', 'http://ancienneauberge.fr/wp-content/uploads/2013/12/Ch%C3%A2teau-de-Beynac.jpg', 44.840278, 1.145278),
 (8, 'Maison des McCallister', 'La maison où habite Kevin est bien située Avenue Lincoln (comme dans le film), mais au numéro 671 dans le village de Winnetka, en proche banlieue de Chicago dans l\'Illinois. Elle a été louée pour les besoins du tournage.', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQKKksmebvVZJjEUwkhkwojK1MtX3w7IuVwXecxNfkZzEHFKxmd8Q', 42.106111, -87.737778),
 (9, 'Ville fantôme d\'Hashima', 'L\'evergreen plantation se trouve à Edgard, en Louisiane. Si vous y allez, vous pourrez ainsi marcher sur les pas de Jamie Foxx, qui interprète Django dans le film de Quentin Tarantino. Ce lieu n’est pas un décor de studio mais une vraie plantation, qui fait partie du Sentier de l’héritage afro-américain de la Louisiane.', 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR3GjtXwoumKEff4dDxe81Zzea6-ct3q3Oey5ItrGIJgQnFZwAoNQ', 32.627837, 129.73845),
-(10, 'La prison d\'Alcatraz', 'La prison d\'Alcatraz est une célèbre prison située sur l&rsquo;île d&rsquo;Alcatraz, dans la baie de San Francisco. Un lieu réel qui a inspiré de nombreux films, dont « Lorsqu\'Évadé drsquo;Alcatraz » avec Clint Eastwood.', 'http://will-on-board.fr/wp-content/uploads/2012/12/DSC00636-1024x768.jpg', 37.826944, -122.423055),
+(10, 'La prison d\'Alcatraz', 'La prison d\'Alcatraz est une célèbre prison située sur l\'île d\'Alcatraz, dans la baie de San Francisco. Un lieu réel qui a inspiré de nombreux films, dont « L\'Évadé d\'Alcatraz » avec Clint Eastwood.', 'http://will-on-board.fr/wp-content/uploads/2012/12/DSC00636-1024x768.jpg', 37.826944, -122.423055),
 (11, 'La base rebelle de Yavin 4', 'Cette scène a été tournée au Parc national de Tikal au Guatemala, un site protégé par l’UNESCO.', 'http://i.imgur.com/918SjrJ.jpg', 17.222094, -89.623614),
 (12, 'La maison de Luke Skywalker', 'La maison du petit Luke est en fait l\'hôtel Sidi Driss à Matmata, en Tunisie.', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcThKuTpWsuUJQYSoXSWxsGMqaRJOlASsIwkkFYTnCVdAZd3tRB7', 33.546698, 9.96854),
 (13, 'Le Wilshire Hotel', 'Dans le film, Edward Lewis (Richard Gere), un millionnaire, emmène Vivian Ward (Julia Robert), une prostituée de Beverly Hills, à l’hôtel Beverly Wilshire (dont on voit la vraie façade dans le film).', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRnposVbD5x3Jm4gx04Mcs2BiAXLYIMtQToz263N_GO-MGKe4p9', 34.067691, -118.400706),
@@ -172,7 +172,7 @@ INSERT INTO `place` (`id`, `name`, `description`, `photo_path`, `latitude`, `lon
 (17, 'Le sphinx de Gizeh', 'Le sphinx de Gizeh est la statue thérianthrope qui se dresse devant les grandes piramides du plateau de Gizeh, en amont du delta du Nil. ', 'http://img.over-blog-kiwi.com/0/63/13/07/201307/ob_33e3e67f998bbc88ef3ab6d4c35ad55c_sphinx-al-gizeh.jpg', 29.97528, 31.13778),
 (18, 'Le plage de Gateholm Island', 'La scène finale du film « Blanche Neige et le chasseur » a été tournée sur la sublime plage de Gateholm Island au sud-ouest des côtes du Pays de Galle (le château de la reine maléfique y a été ajouté par ordinateur en post-production).', 'http://www.secretbeaches.co.uk/uploads/2/3/8/9/2389023/6698137_orig.jpg', 51.718056, -5.231389),
 (19, 'Le café des 2 moulins', 'Le café où travaille Amélie dans le film se situe au croisement de la rue Lepic et de la rue Cauchois dans le 18e à Paris.', 'http://www.eatdrinktravel.com/wp-content/uploads/2015/05/Cafe-des-Deux-Moulins-by-Amanda-e1432675591484.jpg', 48.885667, 2.33375),
-(20, 'Hobbiton', 'Pour les fans du « Seigneur des Anneaux » et du « Hobbit », sachez qu’il est possible de visiter Hobbiton, le lieu de tournage du village où vit Frodon, à 150km d’Auckland.', 'https://www.google.fr/imgres?imgurl=http%3A%2F%2Fwww.hobbitontours.com%2Fmedia%2F1177%2Fhobbiton-movie-set-4.jpg%3Fcrop%3D0%2C0.066587744517729308%2C0%2C0.09007218930253863%26cropmode%3Dpercentage%26width%3D1272%26height%3D716%26rnd%3D131196316230000000&imgrefurl=http%3A%2F%2Fwww.hobbitontours.com%2F&docid=IqHTQmSc1KZA2M&tbnid=rPWd2SXiRltTlM%3A&vet=1&w=1272&h=716&hl=fr&bih=638&biw=1366&q=hobbiton&ved=0ahUKEwi-0I3p-ILSAhXIWhoKHaRjDoUQMwgaKAAwAA&iact=mrc&uact=8#h=716&imgrc=rPWd2SXiRltTlM:&vet=1&w=1272', -37.871414, 175.683061),
+(20, 'Hobbiton', 'Pour les fans du « Seigneur des Anneaux » et du « Hobbit », sachez qu’il est possible de visiter Hobbiton, le lieu de tournage du village où vit Frodon, à 150km d’Auckland.', 'http://farm1.nzstatic.com/_proxy/imageproxy_1y/serve/hobbiton-movie-set.jpg', -37.871414, 175.683061),
 (21, 'La salle à manger de Poudlard', 'Le Christ Church College à Oxford a inspiré la fameuse salle à manger gigantesque et féerique de Poudlard.', 'http://www.inseec-travel-tips.com/wp-content/uploads/2014/10/1_christ_church_hall_2012.jpg', 51.751944, -1.257778),
 (22, 'L\'île de Jurassic Park', 'Elle se trouve à Kauai dans l\'archipel d\'Hawaï. Il existe des Jurassic Tour à faire en hélico.', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQl2PULGx6CbwRYb-BdxneFWpOactfzuN-2mxzCoE47atUt4_RhIQ', 22.083333, -159.5),
 (23, 'La librairie de Hugh Grant', 'La librairie est situé au 13-15 Blenheim Crescent.', 'http://cdn3-elle.ladmedia.fr/var/plain_site/storage/images/loisirs/evasion/lieu-de-tournage/la-librairie-situee-au-13-15-blenheim-crescent-a-londres/63442318-1-fre-FR/La-librairie-situee-au-13-15-Blenheim-Crescent-a-Londres.jpg', 51.516629, -0.205555),
