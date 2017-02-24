@@ -1,3 +1,10 @@
+<?php
+  // Connect to the database
+  require 'base.php';
+
+  // Character encoding of the database
+  $connection->exec("SET NAMES 'utf8'");
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <!-- language -->
@@ -59,6 +66,16 @@
 		</div>
 		<!-- end of inner-container-carousel -->
 		
+		<?php
+			// création de la requête pour récupérer les informations nécessaire pour le carroussel
+            $sql = 'SELECT * FROM place;';  
+
+			// on lance la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
+			$req = $connection->prepare($sql); 
+			$req->execute();
+			$rows = $req->fetchAll();
+		?>
+
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -68,19 +85,25 @@
 		
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
-			<div class="item active"> <img src="image/petra2.jpg" alt="...">
+			<div class="item active"> 
+				<?php $ligne = $rows[rand(0,sizeof($rows))]; ?>
+				<img src="<?php echo $ligne["photo_path"]; ?>" alt="Photo lieu carroussel 1">
 				<div class="carousel-caption">
-					<p>Petra - Indiana Jones</p>
+					<p><?php echo $ligne["name"]; ?></p>
 				</div>
 			</div>
-			<div class="item"> <img src="image/Bali.jpg" alt="..."/>
+			<div class="item"> 
+				<?php $ligne = $rows[rand(0,sizeof($rows))]; ?>
+				<img src="<?php echo $ligne["photo_path"]; ?>" alt="Photo lieu carroussel 2">
 				<div class="carousel-caption">
-					<p>Bali</p>
+					<p><?php echo $ligne["name"]; ?></p>
 				</div>
 			</div>
-			<div class="item"> <img src="image/Montagne.jpg" alt="..."/>
+			<div class="item"> 
+				<?php $ligne = $rows[rand(0,sizeof($rows))]; ?>
+				<img src="<?php echo $ligne["photo_path"]; ?>" alt="Photo lieu carroussel 3">
 				<div class="carousel-caption">
-					<p>Montagne</p>
+					<p><?php echo $ligne["name"]; ?></p>
 				</div>
 			</div>
 		</div>
