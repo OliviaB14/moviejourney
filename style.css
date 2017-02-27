@@ -114,11 +114,11 @@ ul.social li img {
     background: url(image/fondform.png);
 }
 
-.overlay-h1 {
+.overlay-h1, .jumbotron h1 {
 	font-weight:700;
 }
 
-.overlay-h2 {
+.overlay-h2, .jumbotron p {
 	font-family: Uni-Sans-book;
 }
 
@@ -149,5 +149,31 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
     width: 127.95px;
     left: -15px;
     position: relative;
+	border:none;
 }
 
+.jumbotron {
+	background-image:url(image/Fond_contact.jpg);	
+    margin-top: -20px;
+	text-align: center;
+    color: white;
+	background-size: 100% 100%;
+}
+
+#input-message {
+	height:150px;	
+}
+
+.infos {
+    -moz-box-shadow: 5px 5px 5px #656565;
+    -webkit-box-shadow: 5px 5px 5px #656565;
+    -o-box-shadow: 5px 5px 5px #656565;
+    box-shadow: 5px 5px 5px #656565;
+	height: 295px;
+    text-align: center;
+}
+
+.infos-blue {
+	color:blue;
+	font-weight:600;
+}
