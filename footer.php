@@ -4,11 +4,11 @@
 			<div class="col-lg-4 col-md-6">
 				<h4>Navigation</h4>
 				<ul class="nav navbar-nav">
-					<li><a href="#">Accueil</a></li>
-					<li><a href="#">Lieux cultes</a></li>
-					<li><a href="#">Mes circuits</a></li>
-					<li><a href="#">A propos</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="index.php">Accueil</a></li>
+					<li><a href="lieux.php">Lieux cultes</a></li>
+					<li><a href="usercircuits.php">Mes circuits</a></li>
+					<li><a href="apropos.php">A propos</a></li>
+					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-4 col-xs-12">

@@ -108,7 +108,7 @@ ul.social li img {
     padding-right: 20px;
     text-align: center;
     color: white;
-    background: url(image/fondform.png);
+    background-image:url(../image/fondform.png);
 }
 
 .overlay-h1, .jumbotron h1 {
@@ -150,7 +150,7 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
 }
 
 .jumbotron {
-	background-image:url(image/Fond_contact.jpg);	
+	background-image:url(../image/Fond_contact.jpg);
     margin-top: -20px;
 	text-align: center;
     color: white;
