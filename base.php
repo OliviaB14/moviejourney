@@ -6,7 +6,7 @@
   $dbname = "movie_journey_bdd";
   
   // User name
-  $dbuser = "";
+  $dbuser = "root";
   
   // Password (not used here)
   $dbpass = "";

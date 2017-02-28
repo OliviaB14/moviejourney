@@ -5,9 +5,6 @@ body{
 	font-family:url('https://www.fontify.me/wf/0cdbacad7fd241378c8726431c6f3964');
 }
 
-
-
-
 header{
 	width:100%;
 }
@@ -177,3 +174,31 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
 	color:blue;
 	font-weight:600;
 }
+
+.img-carrousel {
+    width: 100%;
+    max-height: 775px;
+}
+
+.nom-lieu-carousel {
+	font-size:20px;
+}
+
+.nom-film-carousel {
+	font-size:15px;
+	font-weight:700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
