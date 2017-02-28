@@ -9,7 +9,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		  </button>
-		  <a class="navbar-brand" href="#"><img src="image/logo-movie-journey.gif" id="logo" class="img-responsive"/></a>
+		  <a class="navbar-brand" href="index.php"><img src="image/logo-movie-journey.gif" id="logo" class="img-responsive"/></a>
 		</div>
 	
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -19,7 +19,6 @@
 			<li><a href="index.php">Accueil <span class="sr-only">(current)</span></a></li>
 			<li><a href="lieux.php">Lieux cultes</a></li>
 			<li><a href="usercircuits.php">Mes circuits</a></li>
-			<li><a href="apropos.php">A propos</a></li>
 			<li><a href="contact.php">Contact</a></li>
 		  </ul>
 		  
