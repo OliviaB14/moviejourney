@@ -1,3 +1,21 @@
+<?php
+	try{
+
+		//open connection
+		$bdd = new PDO(
+			"mysql:host=localhost;dbname=movie_journey_bdd",
+			"root",
+			""
+		);
+
+		$bdd->exec("SET NAMES 'UTF8'");
+	} 
+
+	catch(PDOException $e){
+		echo $e->getMessage();
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="fr"><!-- language -->
 	<head>
@@ -15,6 +33,85 @@
 	
 		<?php
 		include('header.php')
+		?>
+
+		<!-- MAIN CONTAINER : all page is contained -->
+		<div class="container-fluid">
+
+			<div class="row">
+				<!-- search entry -->
+				<div class="col-md-12">
+					<h2>Vous avez recherché : 
+					<?php 
+						/* test recherche */ $search = "Astérix";
+						echo $search;//$_GET["s"]; 
+					?></h2>
+				</div>
+			</div>
+
+			<?php
+				$requete = "SELECT * FROM movie WHERE name LIKE '%$search%'";
+					$query = $bdd->prepare($requete);
+					$query->execute();
+					
+			?>
+			<div class="row">
+				<div class="col-xs-12">
+					<!-- cette colonne contiendra image du film ou lieu culte -->
+					<?php
+						for($i=0; $row=$query->fetch(); $i++){
+						echo "<img src='". $row['backdrop_path'] . " ' class='img-responsive img-rounded'/>";
+					?>
+				</div>
+				<div class="col-xs-hidden col-md-12">
+					<!-- cette colonne contiendra une description sur un grand écran seulement -->
+					<?php
+						
+						echo $row['name'];
+					}
+					?>
+				</div>
+				<div class="col-lg-4">
+				<!-- liens rapides -->
+				</div>
+			</div>
+
+		</div>
+
+		<?php
+		include('footer.php');
+
+		requete_bdd($bdd,$requete);
+
+		function requete_bdd($bdd, $req){
+			/* 
+				exercice 1 solution:
+				will return all data from the database as json data
+				
+				------- ARGUMENTS
+				$req is a string
+				$bdd is the database
+
+			*/
+			$query = $bdd->prepare($req);
+			$query->execute();
+			$row = $query->fetchAll();
+			print $row;
+			
+		}
+
+		function phptojson($data){
+			/*
+				will transform a php table into a json content
+
+				$data : array
+			*/
+			return json_encode($data, JSON_UNESCAPED_SLASHES);
+		}
+
+
+		// close connection
+		$bdd = null;
 		?>
 	</body>
 </html>
