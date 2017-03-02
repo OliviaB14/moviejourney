@@ -84,7 +84,7 @@
 		<div class="carousel-inner" role="listbox">
 			<div class="item active"> 
 				<?php $rows = $req->fetch(); ?>
-				<img class="img-carrousel" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 1">
+				<img class="img-carrousel-index" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 1">
 				<div class="carousel-caption">
 					<p class="nom-lieu-carousel"><?php echo $rows[0]; ?></p>
 					<p class="nom-film-carousel"><?php echo $rows[2]; ?></p>
@@ -92,7 +92,7 @@
 			</div>
 			<div class="item"> 
 				<?php $rows = $req->fetch(); ?>
-				<img class="img-carrousel" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 2">
+				<img class="img-carrousel-index" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 2">
 				<div class="carousel-caption">
 					<p class="nom-lieu-carousel"><?php echo $rows[0]; ?></p>
 					<p class="nom-film-carousel"><?php echo $rows[2]; ?></p>
@@ -100,7 +100,7 @@
 			</div>
 			<div class="item"> 
 				<?php $rows = $req->fetch(); ?>
-				<img class="img-carrousel" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 3">
+				<img class="img-carrousel-index" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 3">
 				<div class="carousel-caption">
 					<p class="nom-lieu-carousel"><?php echo $rows[0]; ?></p>
 					<p class="nom-film-carousel"><?php echo $rows[2]; ?></p>

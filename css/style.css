@@ -175,7 +175,7 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
 	font-weight:600;
 }
 
-.img-carrousel {
+.img-carrousel-index {
     width: 100%;
     max-height: 475px;
 }
@@ -194,15 +194,56 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
 	letter-spacing:2px;
 }
 
+.more-film-lieux {
+    font-size: 10px;
+    text-decoration: underline;
+}
 
+.desc-image-film-lieux {
+	background:aliceblue;	
+}
 
+.nom-film-lieux {
+    font-weight: 600;
+}
 
+.image-film-lieux {
+    height: 84.5%;
+    width: 100%;
+	max-height: 373px;
+}
 
+#nav-recherche-film {
+    width: 100%;
+    background: #fbfafa;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
 
+.item-recherche {
+    text-align: center;
+	width:3.5%;
+}
 
+.lettre-recherche-film  {
+	color:#979292;	
+}
 
+.first-item-recherche {
+    width: 5%;
+    text-align: center;
+    color:#1A2384;
+	background:#C8CDF7;
+	border-right:1px solid #1A2384;
+}
 
+.nom-film-h2-lieux {
+    color: #24809c;
+	text-transform:uppercase;
+	text-align:center;
+}
 
-
-
+p.nom-lieu-lieux {
+    font-weight: 700;
+}
 
