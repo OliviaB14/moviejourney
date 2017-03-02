@@ -17,9 +17,7 @@
 <!-- STYLESHEETS -->
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <!-- bootstrap -->
-<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"/>
-<!-- font awesome -->
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 <!-- main stylesheet -->
 <title>Movie Journey</title>
 </head>
@@ -68,12 +66,11 @@
 		
 		<?php
 			// création de la requête pour récupérer les informations nécessaire pour le carroussel
-            $sql = 'SELECT * FROM place;';  
+            $sql = "SELECT place.name, place.photo_path, movie.name FROM place, movie, placemovie WHERE place.id = placemovie.place_id AND placemovie.movie_id = movie.id ORDER BY rand()";  
 
 			// on lance la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
 			$req = $connection->prepare($sql); 
 			$req->execute();
-			$rows = $req->fetchAll();
 		?>
 
 		<!-- Indicators -->
@@ -86,24 +83,27 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active"> 
-				<?php $ligne = $rows[rand(0,sizeof($rows))]; ?>
-				<img src="<?php echo $ligne["photo_path"]; ?>" alt="Photo lieu carroussel 1">
+				<?php $rows = $req->fetch(); ?>
+				<img class="img-carrousel" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 1">
 				<div class="carousel-caption">
-					<p><?php echo $ligne["name"]; ?></p>
+					<p class="nom-lieu-carousel"><?php echo $rows[0]; ?></p>
+					<p class="nom-film-carousel"><?php echo $rows[2]; ?></p>
 				</div>
 			</div>
 			<div class="item"> 
-				<?php $ligne = $rows[rand(0,sizeof($rows))]; ?>
-				<img src="<?php echo $ligne["photo_path"]; ?>" alt="Photo lieu carroussel 2">
+				<?php $rows = $req->fetch(); ?>
+				<img class="img-carrousel" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 2">
 				<div class="carousel-caption">
-					<p><?php echo $ligne["name"]; ?></p>
+					<p class="nom-lieu-carousel"><?php echo $rows[0]; ?></p>
+					<p class="nom-film-carousel"><?php echo $rows[2]; ?></p>
 				</div>
 			</div>
 			<div class="item"> 
-				<?php $ligne = $rows[rand(0,sizeof($rows))]; ?>
-				<img src="<?php echo $ligne["photo_path"]; ?>" alt="Photo lieu carroussel 3">
+				<?php $rows = $req->fetch(); ?>
+				<img class="img-carrousel" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 3">
 				<div class="carousel-caption">
-					<p><?php echo $ligne["name"]; ?></p>
+					<p class="nom-lieu-carousel"><?php echo $rows[0]; ?></p>
+					<p class="nom-film-carousel"><?php echo $rows[2]; ?></p>
 				</div>
 			</div>
 		</div>
