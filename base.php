@@ -6,10 +6,10 @@
   $dbname = "movie_journey_bdd";
   
   // User name
-  $dbuser = "";
+  $dbuser = "ascgukp";
   
   // Password (not used here)
-  $dbpass = "";
+  $dbpass = "qwsefvgy7uk";
  
   try {
     $connection = new PDO('mysql:host='.$dbhost.';dbname='.$dbname, $dbuser, $dbpass);
