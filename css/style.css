@@ -247,3 +247,26 @@ p.nom-lieu-lieux {
     font-weight: 700;
 }
 
+#infos li{
+    list-style: none;
+    margin-top: 20px;
+    margin-left: 120px
+}
+
+#infos h4{
+    margin-left: 120px;
+
+}
+
+#social li {
+    text-decoration: none;
+    margin-left: 50px;
+}
+
+#social h4{
+    margin-left: 40px;
+}
+
+#img_social{
+    margin-left: -270px;
+}
