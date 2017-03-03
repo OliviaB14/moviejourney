@@ -1,0 +1,21 @@
+/*
+
+SEARCH.PHP STYLESHEET
+
+*/
+
+h1{
+	text-align: center;
+	padding:1%;
+}
+
+/* search span */ 
+
+span.search{
+    font-style: italic;
+}
+
+/* search error message */
+.search_error{
+    text-align:center;
+}

@@ -44,7 +44,7 @@
 			
 			<!-- search bar -->
 			<div id="searchbarDiv" class="row">
-				<form class="form-inline">
+				<form class="form-inline" method="GET" action="search.php" id="searchinput">
 					<div class="dropdown col-lg-2 col-md-2" id="styled-select">
 					  <select>
 					  	<option>Recherche<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
@@ -55,7 +55,7 @@
 					</div>
 					<div class="form-group col-lg-8 col-md-10">
 						<label for="s" class="sr-only">Recherche</label>
-						<input type="search" class="form-control" id="searchbar" placeholder="Rechercher un film, un lieu, un thème..."/>
+						<input type="search" class="form-control" id="searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
 					</div>
 					<button type="submit" class="btn btn-default col-lg-2 col-md-hidden">Rechercher 	<img src="image/loupe.png" alt="Rechercher"/></button>
 				</form>
