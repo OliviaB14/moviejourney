@@ -19,3 +19,14 @@ span.search{
 .search_error{
     text-align:center;
 }
+
+.movieDesc{
+	font-style: italic;
+	color:#494A4A;
+}
+
+.movieTitle{
+	font-weight: bold;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}

@@ -37,6 +37,11 @@
 						if(!empty($_GET["search"])){
 							/* if the search input is fufilled by the user, $search is the variable that will contain the words */
 							$search = $_GET["search"];
+
+							/* $option is the search option selected by the user for their research  - they have the choice between four options : 'search (all categories)' 'movie' 'theme' 'famous places' */
+							//$option = $_GET['opt'];
+
+							/* print search input */
 							echo "<h1>Vous avez recherché : <span class='search'>" . $search . "</span></h1>";
 						?>
 				</div>
@@ -49,7 +54,29 @@
 			<div class="row">
 						<?php
 							/* sql request to search for the film */
-							$requete = "SELECT * FROM movie WHERE name LIKE '%$search%'";
+							//$requete == "";
+							/*if($option == "Recherche"){
+								// search for movies in all categories : name, theme, resume...
+								$requete = 
+									"SELECT * FROM movie, type, place 
+									WHERE movie.name LIKE '%$search%'
+									OR WHERE type.type LIKE '%$search%'
+									OR WHERE place.name LIKE '%$search%'
+									OR WHERE place.description LIKE '%$search%'";
+
+							}else if($option == 'Film'){
+								$requete = 
+									"SELECT * FROM movie 
+									WHERE name LIKE '%$search%'";
+							} else if ($option == "Thème de film"){
+								$requete = 
+									"SELECT * FROM type,  
+									WHERE name LIKE '%$search%'";
+							}*/
+
+
+							$requete = "SELECT * FROM movie  
+									WHERE name LIKE '%$search%'";
 							$query = requete_bdd($connection, $requete);
 							$query->execute();
 
@@ -88,21 +115,24 @@
 					<div class='col-xs-6 col-lg-2 search-r'>
 					<!-- this column will contain the movie poster -->
 					<?php
-						echo "<img src='" . $row['backdrop_path'] . "' class='img-responsive img-rounded search-img'/>";
+						echo "<img src='" . $row['backdrop_path'] . "' class='thumbnail img-responsive search-img'/>";
 					?>
 					</div>
 
-					<div class="hidden-xs col-lg-2">
+					<div class="hidden-xs hidden-md col-lg-2">
 					<!-- this column will contain the movie resume only on a big screen -->
+					<p class="movieTitle">
 					<?php
 						echo $row['name'];
 					?>
+					</p>
+					<p class="movieDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta, odio vel suscipit ornare, odio odio finibus turpis, ut rutrum tortor dolor ac lacus. Sed elementum est volutpat suscipit congue. Praesent nec viverra lorem, non dignissim libero. </p>
 					</div>
 
 					<div class="col-lg-2 col-xs-6">
 					<!-- quick links to add the corresponding movie to user favorites and to see its detailed descriptions -->
-						<div class="btn">Voir plus...</div>
-						<div class="btn">Ajouter aux favoris</div>
+						<a href="<?php echo 'movies.php?title=' . $row['name'] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
+						<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
 					</div>
 					<?php
 							}
@@ -117,8 +147,7 @@
 
 
 
-					rajouter directementla recherche avancée !
-
+					ajouter le bouton de proposition de film ici !!
 
 
 					 -->
