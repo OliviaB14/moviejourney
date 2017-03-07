@@ -16,11 +16,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
 function initialize() { 
     directionsDisplay = new google.maps.DirectionsRenderer();
     var mapOptions = {
-        zoom: 12,
+        zoom: 5,
         center: nancy
     }
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     directionsDisplay.setMap(map);
+processPath() 
 
 function processPath() {
     // Build the request

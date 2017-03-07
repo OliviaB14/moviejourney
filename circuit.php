@@ -23,8 +23,7 @@
 <div id="circuit1"> 
 	Circuit français :
 	<div id="map-canvas"></div>
-	
-
+</div>
 
 <!-- Lien pour Maps --> <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
 <!-- jquery script --> <script type="text/javascript" src="js/jquery-3.1.1.js"></script> 
