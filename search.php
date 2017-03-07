@@ -47,60 +47,40 @@
 						?>
 				</div>
 			</div>
-
-			<?php
-				
-					
-			?>
 			<div class="row">
 						<?php
 							if($option == "Recherche"){
 								// search for movies in all categories : name, theme, resume...
 								$requete = 
-									"SELECT movie.name, movie.backdrop_path FROM movie, type, place, movietype, placemovie 
+									"SELECT DISTINCT movie.name, movie.backdrop_path FROM movie, type, place, movietype																
 									WHERE movie.name LIKE '%$search%'
-									OR ((type.type LIKE '%$search%' AND type.id = movietype.type_id) AND (movietype.movie_id = movie.id))
-									OR ((place.name LIKE '%$search%' AND place.id = placemovie.place_id) AND (placemovie.movie_id = movie.id))
-									";
+									OR (type.type LIKE '%$search%' AND type.id = movietype.type_id AND movietype.movie_id = movie.id)
+									OR (place.name LIKE '%$search%' AND place.id = placemovie.place_id AND placemovie.movie_id = movie.id)";
 
 							} else if($option == 'Film'){
-
-
-								/* SEUL TRUC QUI MARCHE */
-
-
 								//search happens in the movie table, name column
 								$requete = 
-									"SELECT * FROM movie 
+									"SELECT name, backdrop_path FROM movie 
 									WHERE name LIKE '%$search%'";
-
 							} else if ($option == "Thème de film"){
 								// search happens in the type table, type column and use joints to return movies
 								$requete = 
 									"SELECT movie.name, movie.backdrop_path FROM type, movie, movietype 
 									WHERE type.type LIKE '%$search%'
-									AND WHERE type.id = movietype.type_id
-									AND WHERE movietype.movie_id = movie.id";
+									AND type.id = movietype.type_id
+									AND movietype.movie_id = movie.id";
 							} else{
-								// $option = "Lieux cultes"
-								// search happens in the place table, name column
-								/*$requete = 
-									"SELECT  FROM type, movie, movietype 
-									WHERE type.type LIKE '%$search%'
-									AND WHERE type.id = movietype.type_id
-									AND WHERE movietype.movie_id = movie.id";
-							}*/
-
-
-							$requete = "SELECT * FROM movie  
+								$option = "Lieux cultes";
+								//search happens in the place table, name column
+								$requete = 
+									"SELECT name, photo_path, description FROM place
 									WHERE name LIKE '%$search%'";
-								}
+							}
 							$query = requete_bdd($connection, $requete);
 							$query->execute();
 
 
-							$var = $query->fetch();
-							print_r($var);
+							$var = $query->fetchAll();
 
 							/* if the movie isn't in the database, it shows an error message */ 
 							if(empty($var)){
@@ -122,40 +102,49 @@
 					</div>
 				</form>
 					</div>
+					</div>
 					<?php
 							} else{
 								/* this will re-execute the search request since the first result is contained in $var */
 								$query = requete_bdd($connection, $requete);
 								$query->execute();
 								/* this boucle will create the bootstrap grid for each movie */
-								for($i=0; $row=$query->fetch(); $i++){
+								$row=$query->fetchAll();
+								$int = 0;
+								foreach($row as $value) {
+									$int++;
+									if ($int % 2 != 0) {
+										echo "<div class='row'>";
+									}
+					?>
+						<div class='col-xs-6 col-lg-2 search-r'>
+						<!-- this column will contain the movie poster -->
+						<?php
+							echo "<img src='" . $value[1] . "' class='thumbnail img-responsive search-img'/>";
 						?>
-
-					<div class='col-xs-6 col-lg-2 search-r'>
-					<!-- this column will contain the movie poster -->
+						</div>
+	
+						<div class="hidden-xs hidden-md col-lg-2">
+						<!-- this column will contain the movie resume only on a big screen -->
+						<p class="movieTitle">
+						<?php
+							echo $value[0];
+						?>
+						</p>
+						<p class="movieDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta, odio vel suscipit ornare, odio odio finibus turpis, ut rutrum tortor dolor ac lacus. Sed elementum est volutpat suscipit congue. Praesent nec viverra lorem, non dignissim libero. </p>
+						</div>
+	
+						<div class="col-lg-2 col-xs-6">
+						<!-- quick links to add the corresponding movie to user favorites and to see its detailed descriptions -->
+							<a href="<?php echo 'movies.php?title=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
+							<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+						</div>
 					<?php
-						echo "<img src='" . $row['backdrop_path'] . "' class='thumbnail img-responsive search-img'/>";
-					?>
-					</div>
-
-					<div class="hidden-xs hidden-md col-lg-2">
-					<!-- this column will contain the movie resume only on a big screen -->
-					<p class="movieTitle">
-					<?php
-						echo $row['name'];
-					?>
-					</p>
-					<p class="movieDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta, odio vel suscipit ornare, odio odio finibus turpis, ut rutrum tortor dolor ac lacus. Sed elementum est volutpat suscipit congue. Praesent nec viverra lorem, non dignissim libero. </p>
-					</div>
-
-					<div class="col-lg-2 col-xs-6">
-					<!-- quick links to add the corresponding movie to user favorites and to see its detailed descriptions -->
-						<a href="<?php echo 'movies.php?title=' . $row['name'] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
-						<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
-					</div>
-					<?php
-							}
-							}
+								if ($int % 2 == 0) {
+									echo "</div>";
+								}
+								}
+								}
 						}else {
 							/* if the search input isn't completed
 							it will show a search form */
