@@ -33,13 +33,14 @@
 				<!-- search entry -->
 				<div class="col-md-12"> 
 					<?php 
-						
+
 						if(!empty($_GET["search"])){
 							/* if the search input is fufilled by the user, $search is the variable that will contain the words */
 							$search = $_GET["search"];
 
 							/* $option is the search option selected by the user for their research  - they have the choice between four options : 'search (all categories)' 'movie' 'theme' 'famous places' */
-							//$option = $_GET['opt'];
+							$option = $_GET['opt'];
+							echo ($_GET['opt']);
 
 							/* print search input */
 							echo "<h1>Vous avez recherché : <span class='search'>" . $search . "</span></h1>";
@@ -53,35 +54,53 @@
 			?>
 			<div class="row">
 						<?php
-							/* sql request to search for the film */
-							//$requete == "";
-							/*if($option == "Recherche"){
+							if($option == "Recherche"){
 								// search for movies in all categories : name, theme, resume...
 								$requete = 
-									"SELECT * FROM movie, type, place 
+									"SELECT movie.name, movie.backdrop_path FROM movie, type, place, movietype, placemovie 
 									WHERE movie.name LIKE '%$search%'
-									OR WHERE type.type LIKE '%$search%'
-									OR WHERE place.name LIKE '%$search%'
-									OR WHERE place.description LIKE '%$search%'";
+									OR ((type.type LIKE '%$search%' AND type.id = movietype.type_id) AND (movietype.movie_id = movie.id))
+									OR ((place.name LIKE '%$search%' AND place.id = placemovie.place_id) AND (placemovie.movie_id = movie.id))
+									";
 
-							}else if($option == 'Film'){
+							} else if($option == 'Film'){
+
+
+								/* SEUL TRUC QUI MARCHE */
+
+
+								//search happens in the movie table, name column
 								$requete = 
 									"SELECT * FROM movie 
 									WHERE name LIKE '%$search%'";
+
 							} else if ($option == "Thème de film"){
+								// search happens in the type table, type column and use joints to return movies
 								$requete = 
-									"SELECT * FROM type,  
-									WHERE name LIKE '%$search%'";
+									"SELECT movie.name, movie.backdrop_path FROM type, movie, movietype 
+									WHERE type.type LIKE '%$search%'
+									AND WHERE type.id = movietype.type_id
+									AND WHERE movietype.movie_id = movie.id";
+							} else{
+								// $option = "Lieux cultes"
+								// search happens in the place table, name column
+								/*$requete = 
+									"SELECT  FROM type, movie, movietype 
+									WHERE type.type LIKE '%$search%'
+									AND WHERE type.id = movietype.type_id
+									AND WHERE movietype.movie_id = movie.id";
 							}*/
 
 
 							$requete = "SELECT * FROM movie  
 									WHERE name LIKE '%$search%'";
+								}
 							$query = requete_bdd($connection, $requete);
 							$query->execute();
 
 
 							$var = $query->fetch();
+							print_r($var);
 
 							/* if the movie isn't in the database, it shows an error message */ 
 							if(empty($var)){
