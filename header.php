@@ -9,7 +9,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		  </button>
-		  <a class="navbar-brand" href="index.php"><img src="image/logo-movie-journey.gif" id="logo" class="img-responsive"/></a>
+		  <a class="navbar-brand" href="index.php"><img src="image/logo-movie-journey.png" id="logo" class="img-responsive"/></a>
 		</div>
 	
 		<!-- Collect the nav links, forms, and other content for toggling -->
