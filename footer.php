@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 	<footer>
 		<div class="row">
-			<div class="col-lg-4 col-md-6">
+			<div class="col-lg-4 col-md-6"; id="naviguation">
 				<h4>Navigation</h4>
 				<ul class="nav navbar-nav">
 					<li><a href="index.php">Accueil</a></li>
@@ -29,7 +29,7 @@
 		</div>
 			<!-- copyright info -->
 		<div class="row">
-			<div class="copyright col-lg-12"; id="">
+			<div class="copyright col-lg-12"; id="copyright">
 				<p>Copyright © 2017 - Site réalisé par Sophie, Maud, Olivia, Hishem & Thomas</p>
 			</div>
 		</div>

@@ -250,23 +250,35 @@ p.nom-lieu-lieux {
 #infos li{
     list-style: none;
     margin-top: 20px;
-    margin-left: 120px
+    margin-left: 150px;
 }
 
 #infos h4{
-    margin-left: 120px;
+    text-align: center;
 
 }
 
 #social li {
     text-decoration: none;
-    margin-left: 50px;
+    margin: auto;
 }
 
 #social h4{
-    margin-left: 40px;
+    text-align: center;
 }
 
 #img_social{
-    margin-left: -270px;
+    margin-left: -60px;
+}
+#naviguation h4 {
+    text-align: center;
+    margin-bottom: -10px;
+}
+#naviguation li{
+    margin-left: 90px;
+    margin-bottom: -15px;
+}
+#copyright{
+    margin-top: 10px;
+    text-align: center;
 }
