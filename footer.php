@@ -6,7 +6,7 @@
 				<h4>Navigation</h4>
 				<ul class="nav navbar-nav">
 					<li><a href="index.php">Accueil</a></li>
-					<li><a href="lieux.php">Lieux cultes</a></li>
+					<li><a href="movies.php">Lieux cultes</a></li>
 					<li><a href="usercircuits.php">Mes circuits</a></li>
 					<li><a href="apropos.php">A propos</a></li>
 					<li><a href="contact.php">Contact</a></li>

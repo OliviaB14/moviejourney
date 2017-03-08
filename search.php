@@ -40,7 +40,6 @@
 
 							/* $option is the search option selected by the user for their research  - they have the choice between four options : 'search (all categories)' 'movie' 'theme' 'famous places' */
 							$option = $_GET['opt'];
-							echo ($_GET['opt']);
 
 							/* print search input */
 							echo "<h1>Vous avez recherché : <span class='search'>" . $search . "</span></h1>";
@@ -49,15 +48,7 @@
 			</div>
 			<div class="row">
 						<?php
-							if($option == "Recherche"){
-								// search for movies in all categories : name, theme, resume...
-								$requete = 
-									"SELECT DISTINCT movie.name, movie.backdrop_path FROM movie, type, place, movietype																
-									WHERE movie.name LIKE '%$search%'
-									OR (type.type LIKE '%$search%' AND type.id = movietype.type_id AND movietype.movie_id = movie.id)
-									OR (place.name LIKE '%$search%' AND place.id = placemovie.place_id AND placemovie.movie_id = movie.id)";
-
-							} else if($option == 'Film'){
+							if($option == 'Film'){
 								//search happens in the movie table, name column
 								$requete = 
 									"SELECT name, backdrop_path FROM movie 
@@ -86,22 +77,23 @@
 							if(empty($var)){
 								echo "<div class='alert alert-warning search_error' role='alert'>" . $search . " ne correspond à aucun résultat... Réessayez.</div>";
 							?>
-							<div class="row">
-						<form class="form-inline" method="GET" action="search.php">
-					<div class="dropdown col-lg-2 col-md-2">
-					  <select>
-					  	<option>Recherche<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
-						<option>Film</option>
-						<option>Thème de film</option>
-						<option>Lieux cultes</option>
-					  </select>
-					</div>
-					<div class="form-group col-lg-8 col-md-10">
-						<label for="s" class="sr-only">Recherche</label>
-						<input type="search" class="form-control" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
-					</div>
-				</form>
-					</div>
+							<!-- search bar -->
+						<div id="searchbarDiv" class="row">
+							<form class="form-inline" method="GET" action="search.php" id="searchinput">
+								<div class="dropdown col-lg-2 col-md-2" id="styled-select">
+								  <select name="opt">
+									<option>Film<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
+									<option>Thème de film</option>
+									<option>Lieux cultes</option>
+								  </select>
+								</div>
+								<div class="form-group col-lg-8 col-md-10">
+									<label for="s" class="sr-only">Recherche</label>
+									<input type="search" class="form-control" id="searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
+								</div>
+								<button type="submit" class="btn btn-default col-lg-2 col-md-hidden">Rechercher <img src="image/loupe.png" alt="Rechercher"/></button>
+							</form>
+						</div>
 					</div>
 					<?php
 							} else{
@@ -136,7 +128,7 @@
 	
 						<div class="col-lg-2 col-xs-6">
 						<!-- quick links to add the corresponding movie to user favorites and to see its detailed descriptions -->
-							<a href="<?php echo 'movies.php?title=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
+							<a href="<?php echo 'movies.php?page=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
 							<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
 						</div>
 					<?php

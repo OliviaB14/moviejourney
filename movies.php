@@ -36,9 +36,9 @@
 				
 				foreach($alphabet as $lettre){
 					if (!empty($_GET['page']) && ($_GET['page'] == $lettre)) {
-						echo '<li role="presentation" class="active item-recherche"><a class="lettre-recherche-film" href="lieux.php?page='.$lettre.'">'.$lettre.'</a></li>';
+						echo '<li role="presentation" class="active item-recherche"><a class="lettre-recherche-film" href="movies.php?page='.$lettre.'">'.$lettre.'</a></li>';
 					} else {
-						echo '<li role="presentation" class="item-recherche"><a class="lettre-recherche-film" href="lieux.php?page='.$lettre.'">'.$lettre.'</a></li>';
+						echo '<li role="presentation" class="item-recherche"><a class="lettre-recherche-film" href="movies.php?page='.$lettre.'">'.$lettre.'</a></li>';
 					}
 				}
 				?>
@@ -68,7 +68,7 @@
 				<img class="image-film-lieux" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 				<div class="caption desc-image-film-lieux">
 					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
-					<a href="lieux.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
+					<a href="movies.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
 				</div>
 			</div>
 		</div>
@@ -82,7 +82,7 @@
 				<img class="image-film-lieux" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 				<div class="caption desc-image-film-lieux">
 					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
-					<a href="lieux.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
+					<a href="movies.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
 				</div>
 			</div>
 		</div>
@@ -96,7 +96,7 @@
 				<img class="image-film-lieux" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 				<div class="caption desc-image-film-lieux">
 					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
-					<a href="lieux.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
+					<a href="movies.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
 				</div>
 			</div>
 		</div>
@@ -110,7 +110,7 @@
 				<img class="image-film-lieux" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 				<div class="caption desc-image-film-lieux">
 					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
-					<a href="lieux.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
+					<a href="movies.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
 				</div>
 			</div>
 		</div>
@@ -133,7 +133,7 @@
 					<img class="image-film-lieux" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
 					<div class="caption desc-image-film-lieux">
 						<p class="nom-film-lieux"><?php echo $value[0]; ?></p>
-						<a href="lieux.php?page=<?php echo $value[0]; ?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieu">Lieux cultes associés</p></a>
+						<a href="movies.php?page=<?php echo $value[0]; ?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieu">Lieux cultes associés</p></a>
 					</div>
 				</div>
 			</div>
