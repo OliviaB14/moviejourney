@@ -282,3 +282,8 @@ p.nom-lieu-lieux {
     margin-top: 10px;
     text-align: center;
 }
+#map-canvas{
+  height: 400px;
+  width: 400px;
+  margin-right: 10px;
+} 
