@@ -47,8 +47,7 @@
 				<form class="form-inline" method="GET" action="search.php" id="searchinput">
 					<div class="dropdown col-lg-2 col-md-2" id="styled-select">
 					  <select name="opt">
-					  	<option>Recherche<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
-						<option>Film</option>
+						<option>Film<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
 						<option>Thème de film</option>
 						<option>Lieux cultes</option>
 					  </select>
