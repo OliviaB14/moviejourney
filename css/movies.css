@@ -44,7 +44,6 @@
     width: 100%;
     background: #fbfafa;
     margin-top: -10px;
-    margin-bottom: 10px;
 }
 
 .lettre-recherche-film  {
@@ -59,4 +58,8 @@
 
 p.nom-lieu-movies, p.nom-film-movies {
     font-weight: 700;
+}
+
+.inner-form-search-movies {
+	width:80%;
 }

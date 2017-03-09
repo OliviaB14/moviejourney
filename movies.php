@@ -18,7 +18,7 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/breadcrumb.css" rel="stylesheet" type="text/css">
 <link href="css/movies.css" rel="stylesheet" type="text/css">
-
+<link href="js/fixed-movie.js" rel="stylesheet" type="text/javascript">
 </head>
 
 <body>
@@ -56,8 +56,8 @@
 				}
 				?>
 			</ul>
-			<div class="col-xs-6 col-md-2">
-				<form class="form-inline" method="GET" action="search.php">
+			<div class="col-xs-6 col-md-2 form-search-movies">
+				<form class="form-inline inner-form-search-movies" method="GET" action="search.php">
 					<div class="input-group">
 					  <input type="search" class="form-control" name="search" placeholder="Rechercher...">
 					  <span class="input-group-btn">
