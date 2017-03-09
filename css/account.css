@@ -1,9 +1,11 @@
 #connection, #subscription{
 	background:#fff;
+	height:350px;
 }
 
-#panels {
+.advertisement {
 	background: url('../image/banner.jpeg');
+	height:100px;
 }
 
 .panel{

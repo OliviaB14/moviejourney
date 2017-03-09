@@ -29,9 +29,12 @@
 
 	<!-- MAIN CONTAINER : all page is contained -->
 	<div class="container-fluid">
+
+		<!-- advertisement or movies -->
+		<div class="row advertisement">
+		</div>
+
 		<div class="row" id="panels">
-
-
 			<!-- 
 
 			Panel for connection 
@@ -44,35 +47,31 @@
 					  <div class="form-group">
 					    <label for="identifier1" class="col-sm-3 control-label">Adresse e-mail</label>
 					    <div class="col-sm-9">
-					      <input type="email" class="form-control" id="identifier1" placeholder="Email">
+					      <input type="email" class="form-control" name="identifier1" id="identifier1" placeholder="Email">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <label for="password1" class="col-sm-3 control-label">Mot de passe</label>
 					    <div class="col-sm-9">
-					      <input type="password" class="form-control" id="password1" placeholder="Mot de passe">
+					      <input type="password" class="form-control" name="password1" id="password1" placeholder="Mot de passe">
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
 					      <div class="checkbox">
 					        <label>
-					          <input type="checkbox"> Se souvenir de moi
+					          <input type="checkbox" name="rememberCookie"> Se souvenir de moi
 					        </label>
 					      </div>
 					    </div>
 					  </div>
 					  <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
-					      <button type="submit" class="btn btn-default">Connexion</button>
+					      <button type="submit" class="btn btn-default" name="con-btn">Connexion</button>
 					    </div>
 					  </div>
 					</form>
 				  </div>
-			</div>
-
-			<div class="col-sm-offset-1 col-sm-1 col-hidden-xs">
-				colonne vide
 			</div>
 
 			<!-- 
@@ -80,37 +79,37 @@
 			Panel for subscription 
 			
 			-->
-			<div class="col-lg-5 col-xs-12" id="subscription">
+			<div class="col-lg-6 col-xs-12" id="subscription">
 				<h3>Pas encore inscrit ?</h3>
 				  <div class="panel">
-				    <form class="form-horizontal">
-					  <div class="form-group">
+				    <form class="form-horizontal" method="POST" action="create-account.php">
+					  <div class="form-group"> <!-- choosen email address -->
 					    <label for="identifier2" class="col-sm-3 control-label">Adresse e-mail</label>
 					    <div class="col-sm-9">
-					      <input type="email" class="form-control" id="identifier2" placeholder="Email">
+					      <input type="email" class="form-control" name="identifier2" id="identifier2" placeholder="Email">
 					    </div>
 					  </div>
-					  <div class="form-group">
+					  <div class="form-group"> <!-- email address confirmation -->
 					    <label for="identifier3" class="col-sm-3 control-label"></label>
 					    <div class="col-sm-9">
-					      <input type="email" class="form-control" id="identifier3" placeholder="Confirmer votre adresse e-mail">
+					      <input type="email" class="form-control" name="identifier3" id="identifier3" placeholder="Confirmer votre adresse e-mail">
 					    </div>
 					  </div>
-					  <div class="form-group">
+					  <div class="form-group"> <!-- choosen password -->
 					    <label for="password2" class="col-sm-3 control-label">Mot de passe</label>
 					    <div class="col-sm-9">
-					      <input type="password" class="form-control" id="password2" placeholder="Mot de passe">
+					      <input type="password" class="form-control" name="password2" id="password2" placeholder="Mot de passe">
 					    </div>
 					  </div>
-					  <div class="form-group">
+					  <div class="form-group"> <!-- password confirmation -->
 					    <label for="confPassword2" class="col-sm-3 control-label"></label>
 					    <div class="col-sm-9">
-					      <input type="password" class="form-control" id="password2" placeholder="Confirmer le mot de passe">
+					      <input type="password" class="form-control" name="confPassword2" id="confPassword2" placeholder="Confirmer le mot de passe">
 					    </div>
 					  </div>
-					  <div class="form-group">
+					  <div class="form-group"> <!-- subscription button -->
 					    <div class="col-sm-offset-2 col-sm-10">
-					      <button type="submit" class="btn btn-default">S'inscrire</button>
+					      <button type="submit" class="btn btn-default" name="sub-btn">S'inscrire</button>
 					    </div>
 					  </div>
 					</form>
