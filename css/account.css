@@ -1,0 +1,12 @@
+#connection, #subscription{
+	background:#fff;
+}
+
+#panels {
+	background: url('../image/banner.jpeg');
+}
+
+.panel{
+	margin:0 auto;
+	vertical-align: 50%;
+}
