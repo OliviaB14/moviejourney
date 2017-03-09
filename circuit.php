@@ -24,26 +24,28 @@
 	<div id="Itinéraires">
 		<ul>
 		<?php 
-			$ville1 = "Le pont de Bir Hakeim";
+			$ville1 = "Le pont de Bir Hakeim";	//Trouver un moyen de générer les villes automatiquement 
 			$ville2 = "La cité médiévale de Carcassonne";
 			$ville3 = "Le château de Beynac";
-			$strSQL="SELECT `latitude`, `longitude` FROM `place` WHERE name = '$ville1'"; 
-			$statement = $connection->prepare($strSQL);
-			$statement->execute();
-			$result = $statement->fetchAll();
-			$strSQL1="SELECT `latitude`, `longitude` FROM `place` WHERE name = '$ville2'"; 
-			$statement1 = $connection->prepare($strSQL1);
-			$statement1->execute();
-			$result1 = $statement1->fetchAll();
-			echo "<li lat=".$result[0]['latitude']." long=".$result[0]['longitude'].">".$ville1."</li>
-				  <li lat=".$result1[0]['latitude']." long=".$result1[0]['longitude'].">".$ville2."</li>
-				  <li>".$ville3."</li>";
+
+			function getLatLong($ville, $connection){ //Fonction qui va chercher les coordonnées de la ville entrée en paramètres.
+				$strSQL="SELECT `latitude`, `longitude` FROM `place` WHERE name = '$ville'"; 
+				$statement = $connection->prepare($strSQL);
+				$statement->execute();
+				$result = $statement->fetchAll();
+				return $result;	//Retourne un tableau sous la forme $result[0][latitude][longitude]
+			}
+
+			echo "<li lat=".getLatLong($ville1,$connection)[0]['latitude']." long=".getLatLong($ville1,$connection)[0]['longitude'].">".$ville1."</li>
+				  <li lat=".getLatLong($ville2,$connection)[0]['latitude']." long=".getLatLong($ville2,$connection)[0]['longitude'].">".$ville2."</li>
+				  <li lat=".getLatLong($ville3,$connection)[0]['latitude']." long=".getLatLong($ville2,$connection)[0]['longitude'].">".$ville3."</li>";
+				  //Affiche les villes, la première sur laquelle on clique sera le point de départ, la seconde le point d'arrivée.
 		?>
 		</ul>
 	</div>
 	<div id="map-canvas"></div>
-	<p>
-		Départ : <span id="fromspan"></span><br/>
+	<p> <!-- Affiche la ville de départ séléctionnée au dessus ainsi que la distance entre les deux -->
+		Départ : <span id="fromspan"></span><br/> 
 		Arrivée : <span id="tospan"></span><br/>
 		Distance : <span id="distspan"></span>
 	</p>

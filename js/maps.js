@@ -39,6 +39,7 @@ function processPath() {
             // Display the path on the map
             directionsDisplay.setDirections(response);
         }
+        document.getElementById('distspan').innerHTML = (response.routes[0].legs[0].distance.value /1000)  + " kilomètres";
     });
 }
 
@@ -47,20 +48,18 @@ $("li").click(function () {
     pointtype = $(this).parent().parent().parent().attr("id");
     if (!(pointtype == undefined)){
         lat = this.getAttribute("lat");
-        lng = this.getAttribute("long")
-        if (pointtype == "from"){
+        lng = this.getAttribute("long");
+        if (from==""){
             from = new google.maps.LatLng(lat, lng);
     // Build the request
             document.getElementById("fromspan").innerHTML = $(this).text()
         }
         else{
-            if (pointtype == "to"){
-                to = new google.maps.LatLng(lat, lng);
-                document.getElementById("tospan").innerHTML = $(this).text()
-            }
+            to = new google.maps.LatLng(lat, lng);
+            document.getElementById("tospan").innerHTML = $(this).text()
         }
-        if ((from != "") && (to != "")){
-            processPath()	
-        }
+    }
+    if ((from != "") && (to != "")){
+        processPath()	
     }
 });
