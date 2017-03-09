@@ -287,3 +287,8 @@ p.nom-lieu-lieux {
   width: 400px;
   margin-right: 10px;
 } 
+
+.breadcrumb {
+    margin-bottom: 10px; 
+    background-color: white; 
+}

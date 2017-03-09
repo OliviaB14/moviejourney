@@ -25,6 +25,16 @@
 
 <!-- MAIN CONTAINER : all page is contained -->
 <div class="container-fluid">
+	<ol class="breadcrumb">
+		<?php if (empty($_GET['page'])) {
+			  	echo '<li class="active">Lieux cultes</li>';
+			  } else {
+				echo '<li><a href="movies.php" title="Lieux Cultes">Lieux cultes</a></li>';
+	    		echo '<li class="active">'.$_GET["page"].'</li>';
+			  }
+		?>
+	</ol>
+
 	<div class="row">
 		<!-- Affichage de l'alphabet pour la navigation dans les lieux cultes 
 		Génération de chaque letre/lien à partir d'un tableau contenant l'alphabet -->
@@ -36,9 +46,9 @@
 				
 				foreach($alphabet as $lettre){
 					if (!empty($_GET['page']) && ($_GET['page'] == $lettre)) {
-						echo '<li role="presentation" class="active item-recherche"><a class="lettre-recherche-film" href="lieux.php?page='.$lettre.'">'.$lettre.'</a></li>';
+						echo '<li role="presentation" class="active item-recherche"><a class="lettre-recherche-film" href="movies.php?page='.$lettre.'">'.$lettre.'</a></li>';
 					} else {
-						echo '<li role="presentation" class="item-recherche"><a class="lettre-recherche-film" href="lieux.php?page='.$lettre.'">'.$lettre.'</a></li>';
+						echo '<li role="presentation" class="item-recherche"><a class="lettre-recherche-film" href="movies.php?page='.$lettre.'">'.$lettre.'</a></li>';
 					}
 				}
 				?>
@@ -65,10 +75,10 @@
 				$rows = $req->fetch();
 				?>
 				<!-- Affichage de l'image du lieu -->
-				<img class="image-film-lieux" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
+				<img class="image-film-lieux img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 				<div class="caption desc-image-film-lieux">
 					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
-					<a href="lieux.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
+					<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 				</div>
 			</div>
 		</div>
@@ -79,10 +89,10 @@
 				$rows = $req->fetch();
 				?>
 				<!-- Affichage de l'image du lieu -->
-				<img class="image-film-lieux" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
+				<img class="image-film-lieux img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 				<div class="caption desc-image-film-lieux">
 					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
-					<a href="lieux.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
+					<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 				</div>
 			</div>
 		</div>
@@ -93,10 +103,10 @@
 				$rows = $req->fetch();
 				?>
 				<!-- Affichage de l'image du lieu -->
-				<img class="image-film-lieux" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
+				<img class="image-film-lieux img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 				<div class="caption desc-image-film-lieux">
 					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
-					<a href="lieux.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
+					<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 				</div>
 			</div>
 		</div>
@@ -107,10 +117,10 @@
 				$rows = $req->fetch();
 				?>
 				<!-- Affichage de l'image du lieu -->
-				<img class="image-film-lieux" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
+				<img class="image-film-lieux img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 				<div class="caption desc-image-film-lieux">
 					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
-					<a href="lieux.php?page=<?php echo $rows['name'];?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieux">Lieux cultes associés</p></a>
+					<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 				</div>
 			</div>
 		</div>
@@ -130,10 +140,10 @@
 			<div class="col-xs-6 col-md-3 text-center">	
 				<div class="thumbnail film-lieux"> 
 					<!-- Affichage de l'image du lieu -->
-					<img class="image-film-lieux" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
+					<img class="image-film-lieux img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
 					<div class="caption desc-image-film-lieux">
 						<p class="nom-film-lieux"><?php echo $value[0]; ?></p>
-						<a href="lieux.php?page=<?php echo $value[0]; ?>" data-toggle="modal" data-target="#myModal2"><p class="more-film-lieu">Lieux cultes associés</p></a>
+						<a href="movies.php?page=<?php echo $value[0];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 					</div>
 				</div>
 			</div>
@@ -157,7 +167,7 @@
 				<div class="col-xs-10 col-md-8 text-center">	
 					<div class="thumbnail film-lieux"> 
 						<!-- Affichage de l'image du lieu -->
-						<img class="image-film-lieux" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
+						<img class="image-film-lieux img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
 						<div class="caption desc-image-film-lieux">
 							<p class="nom-lieu-lieux"><?php echo $value[0]; ?></p>
 							<p class="desc-lieu-lieux"><?php echo $value[2]; ?></p>
@@ -170,6 +180,7 @@
 		<?php
 		}
 	}
+	include ('footer.php');
 		?>
 	
 </div>

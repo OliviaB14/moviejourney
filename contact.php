@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Document sans titre</title>
+<title>Contact</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 </head>
@@ -25,13 +25,13 @@
 							<div class="col-lg-6 infos">
 								<div class="col-lg-12"> 
 									<div style="margin-top:40px">
-										<p class="infos-blue">Nous sommes une équipe à votre écoute</p>
+										<p class="infos-blue">Notre équipe est à l'écoute :</p>
 										<p>Si vous avez besoin de nous transmettre une opinion, une idée...</p>
-										<p>Hishem bosse un peu le community manager la !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</p>
+										<p>Nous sommes là pour vous apporter toute l'aide dont vous avez besoin.</p>
 										<p style="font-weight:700">Nos coordonnées :</p>
-										<p class="infos-blue">06.06.06.06.06</p>
-										<p class="infos-blue">olisomothomish@beaugosse.dumonde</p>
-										<p class="infos-blue">1 rue du dieu, 00000 PARADIS</p>
+										<p class="infos-blue">06.48.87.78.78</p>
+										<p class="infos-blue">moviejourney@gmail.com</p>
+										<p class="infos-blue">13 rue Michel Ney, 54000 Nancy</p>
 									</div>
 								</div>
 							</div>
