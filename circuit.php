@@ -1,7 +1,6 @@
 <?php
   // Connect to the database
   require 'base.php';
-
   // Character encoding of the database
   $connection->exec("SET NAMES 'utf8'");
 ?>
