@@ -1,0 +1,44 @@
+.row{
+	text-align: center;
+}
+
+h4{
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+#infos li{
+    list-style: none;
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+#infos h4{
+    text-align: center;
+
+}
+
+#social li {
+    text-decoration: none;
+    margin: auto;
+}
+
+#social h4{
+    text-align: center;
+}
+
+#img_social{
+    margin-left: -60px;
+}
+#navigation h4 {
+    text-align: center;
+    margin-bottom: -10px;
+}
+#navigation li{
+    margin-left: 90px;
+    margin-bottom: -15px;
+}
+#copyright{
+    margin-top: 10px;
+    text-align: center;
+}

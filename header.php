@@ -17,7 +17,7 @@
 		  <ul class="nav navbar-nav">
 	
 			<li><a href="index.php">Accueil <span class="sr-only">(current)</span></a></li>
-			<li><a href="movies.php">Lieux cultes</a></li>
+			<li><a href="movies.php">Films</a></li>
 			<li><a href="usercircuits.php">Mes circuits</a></li>
 			<li><a href="contact.php">Contact</a></li>
 		  </ul>
