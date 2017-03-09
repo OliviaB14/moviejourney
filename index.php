@@ -37,7 +37,7 @@
 		<div class="inner-container-carousel">
 			<!-- overlay -->
 			<div class="overlay">
-				<h1 class="overlay-h1">Hishem trouve nous un titre</h1>
+				<h1 class="overlay-h1" id="title">Hishem trouve nous un titre</h1>
 				<h2 class="overlay-h2">Marchez sur les pas de vos acteurs préférés</h2>
 			</div>
 			<!-- end of overlay --> 

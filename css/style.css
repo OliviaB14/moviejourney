@@ -9,6 +9,10 @@ header{
 	width:100%;
 }
 
+#title{
+    @font-face {font-family: 'PetitFormalScript-Regular'; src:url"fonts/Petit_Formal_Script/PetitFormalScript-Regular.ttf";}
+}
+
 .thumbnail {
 	border:none;	
 }
