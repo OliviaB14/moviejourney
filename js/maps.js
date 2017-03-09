@@ -7,8 +7,8 @@ var obj;
 //1 : 48.8562697, 2.2871275999999625
 //6 : 43.20667, 2.36361
 //7 : 44.840278, 1.145278
-var from = nancy;
-var to = new google.maps.LatLng(48.8562697, 2.2871275);
+var from = "";
+var to = "";
 // Event listener to initialize the map once the window has been loaded
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -34,6 +34,16 @@ function processPath() {
         travelMode: google.maps.TravelMode["DRIVING"]
     };
 
+    directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            // Display the path on the map
+            directionsDisplay.setDirections(response);
+
+            // Get and display the distance
+            document.getElementById('distspan').innerHTML = response.routes[0].legs[0].distance.value + " mètres";
+        }
+    });
+
     // Send it
     directionsService.route(request, function(response, status) {
         if (status == google.maps.DirectionsStatus.OK) {
@@ -41,5 +51,26 @@ function processPath() {
             directionsDisplay.setDirections(response);
         }
     });
+
+$("li").click(function () {
+    pointtype = $(this).parent().parent().parent().attr("id");
+    if (!(pointtype == undefined)){
+        lat = this.getAttribute("lat");
+        lng = this.getAttribute("long")
+        if (pointtype == "from"){
+            from = new google.maps.LatLng(lat, lng);
+            document.getElementById("fromspan").innerHTML = $(this).text()
+        }
+        else{
+            if (pointtype == "to"){
+                to = new google.maps.LatLng(lat, lng);
+                document.getElementById("tospan").innerHTML = $(this).text()
+            }
+        }
+        if ((from != "") && (to != "")){
+            processPath()	
+        }
+    }
+});
 }
 }
