@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*search bar*/
+.item-recherche {
+    text-align: center;
+	width:3.5%;
+	margin-left:0;
+}
+
+.first-item-recherche {
+	width:4%;
+    text-align: center;
+    color:#1A2384;
+	background:#C8CDF7;
+	border-right:1px solid #1A2384;
+}
+
+.inner-nav-recherche-film {
+    margin-bottom: 15px;
+}
+
+/* */
+.desc-image-film-movies, .desc-image-lieu-movies {
+	background:aliceblue;	
+}
+
+.nom-film-movies, .nom-lieu-movies {
+    font-weight: 600;
+}
+
+.image-film-movies {
+    height: 84.5%;
+    width: 100%;
+	max-height:373px;
+}
+
+.image-lieu-movies {
+	height:auto;
+	width:73%;	
+}
+
+#nav-recherche-film {
+    width: 100%;
+    background: #fbfafa;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.lettre-recherche-film  {
+	color:#979292;	
+}
+
+.nom-film-h2-movies, .nom-lieu-h2-movies {
+    color: #24809c;
+	text-transform:uppercase;
+	text-align:center;
+}
+
+p.nom-lieu-movies, p.nom-film-movies {
+    font-weight: 700;
+}

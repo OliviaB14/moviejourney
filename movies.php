@@ -16,6 +16,9 @@
 <title>Lieux cultes</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/breadcrumb.css" rel="stylesheet" type="text/css">
+<link href="css/movies.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -27,9 +30,9 @@
 <div class="container-fluid">
 	<ol class="breadcrumb">
 		<?php if (empty($_GET['page'])) {
-			  	echo '<li class="active">Lieux cultes</li>';
+			  	echo '<li class="active">Films</li>';
 			  } else {
-				echo '<li><a href="movies.php" title="Lieux Cultes">Lieux cultes</a></li>';
+				echo '<li><a href="movies.php" title="Lieux Cultes">Films</a></li>';
 	    		echo '<li class="active">'.$_GET["page"].'</li>';
 			  }
 		?>
@@ -39,7 +42,7 @@
 		<!-- Affichage de l'alphabet pour la navigation dans les lieux cultes 
 		Génération de chaque letre/lien à partir d'un tableau contenant l'alphabet -->
 		<div id="nav-recherche-film">
-			<ul class="nav nav-pills inner-nav-recherche-film">
+			<ul class="nav nav-pills inner-nav-recherche-film hidden-xs col-md-10">
 				<li role="presentation" class="first-item-recherche"><a class="ancre-recherche-film" href="#"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a></li>
 				<?php
 				$alphabet = range("A","Z");
@@ -53,6 +56,16 @@
 				}
 				?>
 			</ul>
+			<div class="col-xs-6 col-md-2">
+				<form class="form-inline" method="GET" action="search.php">
+					<div class="input-group">
+					  <input type="search" class="form-control" name="search" placeholder="Rechercher...">
+					  <span class="input-group-btn">
+						<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+					  </span>
+					</div><!-- /input-group -->
+				</form>
+			 </div>
 		</div>
 	</div>
 	
@@ -70,56 +83,56 @@
 	
 	<div class="row">
 		<div class="col-xs-6 col-md-3 text-center">	
-			<div class="thumbnail film-lieux"> 
+			<div class="thumbnail film-movies"> 
 				<?php
 				$rows = $req->fetch();
 				?>
 				<!-- Affichage de l'image du lieu -->
-				<img class="image-film-lieux img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
-				<div class="caption desc-image-film-lieux">
-					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
+				<img class="image-film-movies img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
+				<div class="caption desc-image-film-movies">
+					<p class="nom-film-movies"><?php echo $rows['name']; ?></p>
 					<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 				</div>
 			</div>
 		</div>
 			
 		<div class="col-xs-6 col-md-3 text-center">	
-			<div class="thumbnail film-lieux"> 
+			<div class="thumbnail film-movies"> 
 				<?php
 				$rows = $req->fetch();
 				?>
 				<!-- Affichage de l'image du lieu -->
-				<img class="image-film-lieux img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
-				<div class="caption desc-image-film-lieux">
-					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
+				<img class="image-film-movies img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
+				<div class="caption desc-image-film-movies">
+					<p class="nom-film-movies"><?php echo $rows['name']; ?></p>
 					<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 				</div>
 			</div>
 		</div>
 			
 		<div class="hidden-xs col-md-3 text-center">	
-			<div class="thumbnail film-lieux"> 
+			<div class="thumbnail film-movies"> 
 				<?php
 				$rows = $req->fetch();
 				?>
 				<!-- Affichage de l'image du lieu -->
-				<img class="image-film-lieux img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
-				<div class="caption desc-image-film-lieux">
-					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
+				<img class="image-film-movies img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
+				<div class="caption desc-image-film-movies">
+					<p class="nom-film-movies"><?php echo $rows['name']; ?></p>
 					<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 				</div>
 			</div>
 		</div>
 			
 		<div class="hidden-xs col-md-3 text-center">	
-			<div class="thumbnail film-lieux"> 
+			<div class="thumbnail film-movies"> 
 				<?php
 				$rows = $req->fetch();
 				?>
 				<!-- Affichage de l'image du lieu -->
-				<img class="image-film-lieux img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
-				<div class="caption desc-image-film-lieux">
-					<p class="nom-film-lieux"><?php echo $rows['name']; ?></p>
+				<img class="image-film-movies img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
+				<div class="caption desc-image-film-movies">
+					<p class="nom-film-movies"><?php echo $rows['name']; ?></p>
 					<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 				</div>
 			</div>
@@ -138,11 +151,11 @@
 		foreach($res as $value) {
 	?>	
 			<div class="col-xs-6 col-md-3 text-center">	
-				<div class="thumbnail film-lieux"> 
+				<div class="thumbnail film-movies"> 
 					<!-- Affichage de l'image du lieu -->
-					<img class="image-film-lieux img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
-					<div class="caption desc-image-film-lieux">
-						<p class="nom-film-lieux"><?php echo $value[0]; ?></p>
+					<img class="image-film-movies img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
+					<div class="caption desc-image-film-movies">
+						<p class="nom-film-movies"><?php echo $value[0]; ?></p>
 						<a href="movies.php?page=<?php echo $value[0];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 					</div>
 				</div>
@@ -158,19 +171,19 @@
 		// lancement de la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
 		$req = $connection->query($sql); 
 		$res = $req->fetchAll();
-		echo "<h2 class='nom-film-h2-lieux'>".$film."</h2>";
+		echo "<h2 class='nom-lieu-h2-movies'>".$film."</h2>";
 		foreach($res as $value) {
 		?>	
 			<div class='row'>
 				<div class="col-xs-10 col-md-2">
 				</div>
 				<div class="col-xs-10 col-md-8 text-center">	
-					<div class="thumbnail film-lieux"> 
+					<div class="thumbnail lieu-movies"> 
 						<!-- Affichage de l'image du lieu -->
-						<img class="image-film-lieux img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
-						<div class="caption desc-image-film-lieux">
-							<p class="nom-lieu-lieux"><?php echo $value[0]; ?></p>
-							<p class="desc-lieu-lieux"><?php echo $value[2]; ?></p>
+						<img class="image-lieu-movies img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
+						<div class="caption desc-image-lieu-movies">
+							<p class="nom-lieu-movies"><?php echo $value[0]; ?></p>
+							<p class="desc-lieu-movies"><?php echo $value[2]; ?></p>
 						</div>
 					</div>
 				</div>
