@@ -51,12 +51,12 @@
 							if($option == 'Film'){
 								//search happens in the movie table, name column
 								$requete = 
-									"SELECT name, backdrop_path FROM movie 
+									"SELECT name, backdrop_path, description FROM movie 
 									WHERE name LIKE '%$search%'";
 							} else if ($option == "Thème de film"){
 								// search happens in the type table, type column and use joints to return movies
 								$requete = 
-									"SELECT movie.name, movie.backdrop_path FROM type, movie, movietype 
+									"SELECT movie.name, movie.backdrop_path, movie.description FROM type, movie, movietype 
 									WHERE type.type LIKE '%$search%'
 									AND type.id = movietype.type_id
 									AND movietype.movie_id = movie.id";
@@ -123,7 +123,7 @@
 							echo $value[0];
 						?>
 						</p>
-						<p class="movieDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras porta, odio vel suscipit ornare, odio odio finibus turpis, ut rutrum tortor dolor ac lacus. Sed elementum est volutpat suscipit congue. Praesent nec viverra lorem, non dignissim libero. </p>
+						<p class="movieDesc"><?php echo $value[2] ?></p>
 						</div>
 	
 						<div class="col-lg-2 col-xs-6">

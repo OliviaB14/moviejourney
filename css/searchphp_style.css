@@ -23,6 +23,7 @@ span.search{
 .movieDesc{
 	font-style: italic;
 	color:#494A4A;
+	text-align:justify;
 }
 
 .movieTitle{
