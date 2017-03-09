@@ -33,13 +33,18 @@
 				<!-- search entry -->
 				<div class="col-md-12"> 
 					<?php 
+						/* if the search is done in the movies.php's input. the search is only about movies so 'opt' is empty. */
 
 						if(!empty($_GET["search"])){
 							/* if the search input is fufilled by the user, $search is the variable that will contain the words */
 							$search = $_GET["search"];
 
 							/* $option is the search option selected by the user for their research  - they have the choice between four options : 'search (all categories)' 'movie' 'theme' 'famous places' */
-							$option = $_GET['opt'];
+							if (empty($_GET['opt'])) {
+								$option = 'Film';
+							} else {
+								$option = $_GET['opt'];
+							}
 
 							/* print search input */
 							echo "<h1>Vous avez recherché : <span class='search'>" . $search . "</span></h1>";
@@ -70,11 +75,10 @@
 							$query = requete_bdd($connection, $requete);
 							$query->execute();
 
-
-							$var = $query->fetchAll();
+							$int = $query->rowCount();
 
 							/* if the movie isn't in the database, it shows an error message */ 
-							if(empty($var)){
+							if($int == 0){
 								echo "<div class='alert alert-warning search_error' role='alert'>" . $search . " ne correspond à aucun résultat... Réessayez.</div>";
 							?>
 							<!-- search bar -->
@@ -97,8 +101,7 @@
 					</div>
 					<?php
 							} else{
-								/* this will re-execute the search request since the first result is contained in $var */
-								$query = requete_bdd($connection, $requete);
+
 								$query->execute();
 								/* this boucle will create the bootstrap grid for each movie */
 								$row=$query->fetchAll();

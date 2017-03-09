@@ -21,9 +21,33 @@
 
 <div id="circuit1"> 
 	Circuit français :
+	<div id="Itinéraires">
+		<ul>
+		<?php 
+			$ville1 = "Le pont de Bir Hakeim";
+			$ville2 = "La cité médiévale de Carcassonne";
+			$ville3 = "Le château de Beynac";
+			$strSQL="SELECT `latitude`, `longitude` FROM `place` WHERE name = '$ville1'"; 
+			$statement = $connection->prepare($strSQL);
+			$statement->execute();
+			$result = $statement->fetchAll();
+			$strSQL1="SELECT `latitude`, `longitude` FROM `place` WHERE name = '$ville2'"; 
+			$statement1 = $connection->prepare($strSQL1);
+			$statement1->execute();
+			$result1 = $statement1->fetchAll();
+			echo "<li lat=".$result[0]['latitude']." long=".$result[0]['longitude'].">".$ville1."</li>
+				  <li lat=".$result1[0]['latitude']." long=".$result1[0]['longitude'].">".$ville2."</li>
+				  <li>".$ville3."</li>";
+		?>
+		</ul>
+	</div>
 	<div id="map-canvas"></div>
+	<p>
+		Départ : <span id="fromspan"></span><br/>
+		Arrivée : <span id="tospan"></span><br/>
+		Distance : <span id="distspan"></span>
+	</p>
 </div>
-
 <!-- Lien pour Maps --> <script type="text/javascript" src="http://maps.google.com/maps/api/js"></script>
 <!-- jquery script --> <script type="text/javascript" src="js/jquery-3.1.1.js"></script> 
 <!-- bootstrap file --> <script src="js/bootstrap.min.js"></script>
