@@ -9,7 +9,7 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		  </button>
-		  <a class="navbar-brand" href="index.php"><img src="image/logo-movie-journey.png" id="logo" class="img-responsive"/></a>
+		  <a class="navbar-brand" href="index.php"><img src="image/logo-movie-journey.gif" id="logo" class="img-responsive"/></a>
 		</div>
 	
 		<!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,8 +23,11 @@
 		  </ul>
 		  
 		  <ul class="nav nav-stacked navbar-right">
+		  <li id="connexion-button"><button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon compte</button></li>
+		  <!--
 			<li><a href="deconnexion.php"><img src="image/logout.png" alt=""/>déconnexion</a></li>
 			<li><a href="useraccount.php"><img src="image/reglage.png" alt=""/>réglages</a></li>
+			-->
 		  </ul>
 		</div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->

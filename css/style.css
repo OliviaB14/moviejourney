@@ -56,9 +56,7 @@ ul.navbar-nav {
     margin-left: 15px;
 }
 
-footer {
-	background:#E3E3E3;
-}
+
 
 #searchTools{
 	overflow: visible;
@@ -83,22 +81,6 @@ footer {
 .container-fluid {
 	padding-right:0px;
 	padding-left:0px;
-}
-
-
-ul.social {
-    list-style: none;
-    text-align: center;
-}
-
-ul.social li {
-	display: inline-block;
-}
-
-ul.social li img {
-	width:32px;
-	height:auto;
-	margin:10px;
 }
 
 .inner-container-carousel {

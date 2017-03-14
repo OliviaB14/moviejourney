@@ -162,36 +162,28 @@
 	<!-- SELECTED ITENERARIES -->
 	<div id="itinerary" class="row"> 
 		<!-- image 171x180 -->
-		<h3 class="text-center"><span class="label label-default">La sélection de l'équipe</span> </h3>
+		<h3 class="text-center lead"><span>La sélection de l'équipe</span> </h3>
 		<div class="row">
-			<div class="col-xs-6 col-md-3"> </div>
-			<div class="col-xs-6 col-md-2 text-center"> <img src="..." alt="..."/>
-				<p>Circuit 1</p>
-				<a href="#" class="thumbnail">
-				<p>En savoir plus</p>
-				</a> </div>
-			<div class="col-xs-6 col-md-2"> </div>
-			<div class="col-xs-6 col-md-2 text-center"> <img src="..." alt="..."/>
-				<p>Circuit 2</p>
-				<a href="#" class="thumbnail">
-				<p>En savoir plus</p>
-				</a> </div>
-			<div class="col-xs-6 col-md-3"> </div>
-		</div>
-		<div class="row">
-			<div class="col-xs-6 col-md-3"> </div>
-			<div class="col-xs-6 col-md-2 text-center"> <img src="..." alt="...">
-				<p>Circuit 3</p>
-				<a href="#" class="thumbnail">
-				<p>En savoir plus</p>
-				</a> </div>
-			<div class="col-xs-6 col-md-2"> </div>
-			<div class="col-xs-6 col-md-2 text-center"> <img src="..." alt="...">
-				<p>Circuit 4</p>
-				<a href="#" class="thumbnail">
-				<p>En savoir plus</p>
-				</a> </div>
-			<div class="col-xs-6 col-md-3"> </div>
+			<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/circuit-france.jpg" class="img-thumbnail img-responsive" alt="circuit movie journey france"/>
+				<a href="#">
+				<p class="caption">En savoir plus</p>
+				</a>
+			</div>
+			<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/circuit-england.jpg" class="img-thumbnail img-responsive" title="Réservez votre circuit en Angleterre avec Movie Journey !" alt="circuit movie journey england"/>
+				<a href="#">
+				<p class="caption">En savoir plus</p>
+				</a>
+			</div>
+			<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/circuit-japan.jpg" class="img-thumbnail img-responsive" alt="circuit movie journey japan">
+				<a href="#">
+				<p class="caption">En savoir plus</p>
+				</a>
+			</div>
+			<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/index-reservation.jpg" class="img-thumbnail img-responsive" alt="...">
+				<a href="#">
+				<p class="caption">Réservez</p>
+				</a>
+			</div>
 		</div>
 	</div>
 	<!-- END OF SELECTED ITENERARIES --> 

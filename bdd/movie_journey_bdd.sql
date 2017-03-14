@@ -287,7 +287,7 @@ CREATE TABLE `town` (
 -- Contenu de la table `town`
 --
 
-INSERT INTO `town` (`id`, `name`, `country`, `latitude`, `longitude`) VALUES
+INSERT INTO `town` (`id`, `country`, `name`, `latitude`, `longitude`) VALUES
 (20, 'Etats-Unis', 'Hulett', 44.6831, -104.6),
 (1, 'France', 'Paris', 48.8566, 2.35222),
 (2, 'Jordanie', 'Pétra', 30.3292, 35.4436),

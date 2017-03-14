@@ -1,6 +1,5 @@
 #connection, #subscription{
 	background:#fff;
-	height:350px;
 }
 
 .advertisement {
@@ -8,7 +7,6 @@
 	height:100px;
 }
 
-.panel{
-	margin:0 auto;
-	vertical-align: 50%;
+.movie_genres{
+	text-align:justify-all;
 }
