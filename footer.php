@@ -22,7 +22,7 @@
 					<li>Conditions générales de vente</li>
 				</ul>
 				<form>
-				  <div class="form-group row">
+				  <div class="form-group row" id="newsletterDiv">
 				    <label for="newsletter">S'inscrire à la newsletter</label>
 				    <div class="input-group">
 					    <input type="text" class="form-control" id="newsletter" placeholder="Adresse email">

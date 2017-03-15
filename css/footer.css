@@ -54,3 +54,12 @@ ul.footer-list li img {
 #copyright{
     margin-top: 10px;
 }
+
+/* infos column */
+
+#newsletterDiv{
+    background: #F53618;
+    color:#fff;
+
+    padding:5px;
+}

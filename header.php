@@ -18,16 +18,19 @@
 	
 			<li><a href="index.php">Accueil <span class="sr-only">(current)</span></a></li>
 			<li><a href="movies.php">Films</a></li>
+			<!-- if user is connected 
 			<li><a href="circuit.php">Mes circuits</a></li>
+			endif ./ -->
+			<li><a href="circuit.php">Sélection de circuits</a></li>
 			<li><a href="contact.php">Contact</a></li>
 		  </ul>
 		  
 		  <ul class="nav nav-stacked navbar-right">
 		  <li id="connexion-button"><button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon compte</button></li>
-		  <!--
+		  <!-- if user is connected :
 			<li><a href="deconnexion.php"><img src="image/logout.png" alt=""/>déconnexion</a></li>
 			<li><a href="useraccount.php"><img src="image/reglage.png" alt=""/>réglages</a></li>
-			-->
+			endif ./ -->
 		  </ul>
 		</div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
