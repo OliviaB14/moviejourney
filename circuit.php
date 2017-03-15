@@ -36,9 +36,9 @@
 				return $result;	//Retourne un tableau sous la forme $result[0][latitude][longitude]
 			}
 
-			echo "<li lat=".getLatLong($ville1,$connection)[0]['latitude']." long=".getLatLong($ville1,$connection)[0]['longitude'].">".$ville1."</li>
-				  <li lat=".getLatLong($ville2,$connection)[0]['latitude']." long=".getLatLong($ville2,$connection)[0]['longitude'].">".$ville2."</li>
-				  <li lat=".getLatLong($ville3,$connection)[0]['latitude']." long=".getLatLong($ville2,$connection)[0]['longitude'].">".$ville3."</li>";
+			echo "<li lat=".getLatLong($ville1,$connection)[0]['latitude']." long=".getLatLong($ville1,$connection)[0]['longitude']."><button>".$ville1."</button></li>
+				  <li lat=".getLatLong($ville2,$connection)[0]['latitude']." long=".getLatLong($ville2,$connection)[0]['longitude']."><button>".$ville2."</button></li>
+				  <li lat=".getLatLong($ville3,$connection)[0]['latitude']." long=".getLatLong($ville2,$connection)[0]['longitude']."><button>".$ville3."</button></li>";
 				  //Affiche les villes, la première sur laquelle on clique sera le point de départ, la seconde le point d'arrivée.
 		?>
 		</ul>

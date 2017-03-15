@@ -27,6 +27,8 @@ function processPath() {
     var request = {
         origin: from,
         destination: to,
+        waypoints: nancy,
+    	optimizeWaypoints: true,
         // Note that Javascript allows us to access the constant
         // using square brackets and a string value as its
         // "property."
