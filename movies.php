@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Lieux cultes</title>
+<title>Films</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/breadcrumb.css" rel="stylesheet" type="text/css">
@@ -167,7 +167,7 @@
 	} else {
 		$film = $_GET['page'];
 		// création de la requête
-        $sql = "SELECT place.name, place.photo_path, place.description FROM place, movie, placemovie WHERE movie.name = '$film' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id";
+        $sql = "SELECT place.name, place.photo_path FROM place, movie, placemovie WHERE movie.name = '$film' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id";
 		// lancement de la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
 		$req = $connection->query($sql); 
 		$res = $req->fetchAll();
@@ -183,7 +183,7 @@
 						<img class="image-lieu-movies img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
 						<div class="caption desc-image-lieu-movies">
 							<p class="nom-lieu-movies"><?php echo $value[0]; ?></p>
-							<p class="desc-lieu-movies"><?php echo $value[2]; ?></p>
+							<a href="place.php?place=<?php echo $value[0];?>" class="btn btn-xs btn-info" role="button" title="Voir lieu culte">En savoir plus</a>
 						</div>
 					</div>
 				</div>

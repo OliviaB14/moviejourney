@@ -131,7 +131,11 @@
 	
 						<div class="col-lg-2 col-xs-6">
 						<!-- quick links to add the corresponding movie to user favorites and to see its detailed descriptions -->
+						<?php if ($option == "Lieux cultes") { ?>
+							<a href="<?php echo 'place.php?place=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
+						<?php } else { ?>
 							<a href="<?php echo 'movies.php?page=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
+						<?php } ?>
 							<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
 						</div>
 					<?php

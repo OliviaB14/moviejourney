@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+.image-place-place, #gmap_canvas{
+    height: 400px;
+	width:100%;
+}
+
+.text-place, .pays-ville-place {
+	height:400px;
+	position:relative;
+	margin-bottom:30px;
+}
+
+.text-place {
+    border-left: 1px solid deepskyblue;
+}
+
+.pays-ville-place {
+    border-right: 1px solid deepskyblue;
+}
+
+
+.inner-text-place, .inner-pays-ville-place {
+	position: absolute;
+  	top: 50%; /* poussé de la moitié de hauteur du référent */
+  	transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
+	text-align: justify;
+}
+
+#gmap_canvas img{
+	max-width:none!important;
+	background:none!important;
+}
+
+h3 {
+    color: deepskyblue;
+}
+
+h4 {
+    color: cornflowerblue;
+    font-size: small;
+}
+
+.btn.btn-lg.btn-default {
+	margin-top: -20px;
+    margin-bottom: 30px;
+}
+
