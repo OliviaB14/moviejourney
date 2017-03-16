@@ -16,4 +16,19 @@
   } catch(PDOException $e) {
     echo $e->getMessage();
   }
+
+
+
+
+  /* checks if user is connected */
+  session_start();
+
+  /* checks if user exists */
+  if (isset($_SESSION['identifiant']) && isset($_SESSION['mdp'])) {
+    // this boolean variable will tell if the user is connected or just a visitor
+    $connect = true;
+  }else{
+    $connect = false;
+  }
+
 ?>

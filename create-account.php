@@ -12,13 +12,15 @@
 		<!-- encoding -->
 		<meta charset="utf-8"/>
 		<!-- mobile friendly tag -->
-		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="description" content="Créez votre compte Movie Journey et réservez votre circuit cinématographique !" />
+
 		<!-- STYLESHEETS -->
 		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
 		<!-- main stylesheet -->
 		<link rel="stylesheet" href="css/account.css" type="text/css" />
+		
 		<title>Créer un compte - Movie Journey</title>
 	</head>
 
