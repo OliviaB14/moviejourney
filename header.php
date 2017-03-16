@@ -34,7 +34,7 @@
 			<li><a href="useraccount.php"><img src="image/reglage.png" alt=""/>réglages</a></li>
 			endif ./ -->
 			<?php } else {?>
-			<li id="connexion-button"><button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon compte</button></li>
+			<li id="connexion-button"><button type="button" class="btn btn-default navbar-btn"><a href="account.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon compte</a></button></li>
 			<?php } ?>
 		  </ul>
 		</div><!-- /.navbar-collapse -->
