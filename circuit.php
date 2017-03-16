@@ -47,6 +47,7 @@
 	<p> <!-- Affiche la ville de départ séléctionnée au dessus ainsi que la distance entre les deux -->
 		Départ : <span id="fromspan"></span><br/> 
 		Arrivée : <span id="tospan"></span><br/>
+		En passant par : <span id="byspan"></span><br/>
 		Distance : <span id="distspan"></span>
 	</p>
 </div>

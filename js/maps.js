@@ -9,6 +9,7 @@ var obj;
 //7 : 44.840278, 1.145278
 var from = "";
 var to = "";
+var waypoints="";
 // Event listener to initialize the map once the window has been loaded
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -27,7 +28,7 @@ function processPath() {
     var request = {
         origin: from,
         destination: to,
-        waypoints: nancy,
+        waypoints: waypoints,
     	optimizeWaypoints: true,
         // Note that Javascript allows us to access the constant
         // using square brackets and a string value as its
@@ -55,13 +56,15 @@ $("li").click(function () {
             from = new google.maps.LatLng(lat, lng);
     // Build the request
             document.getElementById("fromspan").innerHTML = $(this).text()
-        }
-        else{
+        } else if (from !="" && to=""){
             to = new google.maps.LatLng(lat, lng);
             document.getElementById("tospan").innerHTML = $(this).text()
+        } else {
+        	waypoints = new google.maps.LatLng(lat,lng);
+        	document.getElementById("byspan").innerHTML = $(this).text()
         }
     }
-    if ((from != "") && (to != "")){
-        processPath()	
+    if ((from != "") && (to != "") && (waypoints !="")){
+        processPath()
     }
 });
