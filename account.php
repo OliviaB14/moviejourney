@@ -34,6 +34,15 @@
 		<div class="row advertisement">
 		</div>
 
+		<!-- if user is connected -->
+		<?php if($connect){ ?>
+
+		<div class="row">
+			
+		</div>
+
+		<?php } else{ ?>
+		<!-- if user isn't connected -->
 		<div class="row" id="panels">
 			<!-- 
 
@@ -116,6 +125,8 @@
 				  </div>
 			</div>
 		</div>
+
+		<?php } ?>
 	</div>
 
 	<?php

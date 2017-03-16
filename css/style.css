@@ -9,8 +9,14 @@ header{
 	width:100%;
 }
 
+
+@font-face {
+        font-family: 'Petit_Formal_Script';
+        src: url('fonts/Petit_Formal_Script/PetitFormalScript-Regular.tff') format('ttf');
+}
+
 #title{
-    @font-face {font-family: 'PetitFormalScript-Regular'; src:url"fonts/Petit_Formal_Script/PetitFormalScript-Regular.ttf";}
+    font-family: 'Parisienne';
 }
 
 .thumbnail {
