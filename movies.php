@@ -5,8 +5,6 @@
   // Character encoding of the database
   $connection->exec("SET NAMES 'utf8'");
   
-  //Démarrage ou restauration de la session
-  session_start();
 ?>
 
 <!doctype html>
