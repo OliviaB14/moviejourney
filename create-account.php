@@ -56,26 +56,26 @@
 					    </div>
 					  </div>
 					  <div class="form-group"> <!-- choosen email address -->
-					    <label for="identifier2" class="col-sm-3 control-label">Adresse e-mail*</label>
+					    <label for="email2" class="col-sm-3 control-label">Adresse e-mail*</label>
 					    <div class="col-sm-9">
-					      <input type="email" class="form-control" name="identifier2" id="identifier2" placeholder="Email"
+					      <input type="email" class="form-control" name="email2" id="email2" placeholder="Email"
 					      <?php
 					      	// if the user has begin fulfill the account.php page to subscribe, it will get its infos in this advanced subscription form
-					      	if(isset($_POST['identifier2'])){
-					      		echo "value='".$_POST['identifier2']."'";
+					      	if(isset($_POST['email2'])){
+					      		echo "value='".$_POST['email2']."'";
 					      	}
 					      ?>
 					      >
 					    </div>
 					  </div>
 					  <div class="form-group"> <!-- email address confirmation -->
-					    <label for="identifier3" class="col-sm-3 control-label"></label>
+					    <label for="email3" class="col-sm-3 control-label"></label>
 					    <div class="col-sm-9">
-					      <input type="email" class="form-control" name="identifier3" id="identifier3" placeholder="Confirmer votre adresse e-mail"
+					      <input type="email" class="form-control" name="email" id="email3" placeholder="Confirmer votre adresse e-mail"
 					      <?php
 					      	// if the user has begin fulfill the account.php page to subscribe, it will get its infos in this advanced subscription form
-					      	if(isset($_POST['identifier2'])){
-					      		echo "value='".$_POST['identifier2']."'";
+					      	if(isset($_POST['email2'])){
+					      		echo "value='".$_POST['email2']."'";
 					      	}
 					      ?>
 					      >
@@ -138,6 +138,8 @@
 		CUSTOMED PHP FUNCTIONS
 
 		========================================================== */
+
+		function check
 
 		function verifemail($input){
 		// goal => email verification
