@@ -50,14 +50,6 @@
 		$req = $connection->query($sql); 
 		$res = $req->fetch();
 	?>
-		<div class="add-fav">
-			<div class="row">
-				<div class="col-md-12">
-					<h4>Ce lieu vous plaît ? Vous désirez le visiter ? Ajoutez-le à vos favoris et organisez votre voyage !</h4>
-					<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
-				</div>
-			</div>
-		</div>
 		<div class="row">
 			<div class="description-place">
 				<div class="image-place col-md-9">
@@ -68,6 +60,14 @@
 						<h3><?php echo $res[0] ?></h3>
 						<p><?php echo $res[2] ?></p>
 					</div>
+				</div>
+			</div>
+		</div>
+		<div class="add-fav">
+			<div class="row">
+				<div class="col-md-12">
+					<h4>Ce lieu vous plaît ? Vous désirez le visiter ? Ajoutez-le à vos favoris et organisez votre voyage !</h4>
+					<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
 				</div>
 			</div>
 		</div>

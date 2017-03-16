@@ -5,26 +5,12 @@
   // Character encoding of the database
   $connection->exec("SET NAMES 'utf8'");
   
-  //Démarrage ou restauration de la session
-  session_start();
 ?>
 
 <!doctype html>
 <html>
-<<<<<<< HEAD
-<head>
-<meta charset="utf-8">
-<title>Films</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/breadcrumb.css" rel="stylesheet" type="text/css">
-<link href="css/movies.css" rel="stylesheet" type="text/css">
-<link href="js/fixed-movie.js" rel="stylesheet" type="text/javascript">
-</head>
-=======
 	<head>
 		<meta charset="utf-8"> <!-- encoding -->
->>>>>>> origin/master
 
 		<!-- STYLESHEETS FILES -->
 		<link href="css/style.css" rel="stylesheet" type="text/css"/>
@@ -113,25 +99,6 @@
 						</div>
 					</div>
 				</div>
-<<<<<<< HEAD
-			</div>
-			<?php
-		}
-		echo "</div>";
-		//l'utilisateur a choisi de regarder les lieux cultes d'un film
-	} else {
-		$film = $_GET['page'];
-		// création de la requête
-        $sql = "SELECT place.name, place.photo_path FROM place, movie, placemovie WHERE movie.name = '$film' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id";
-		// lancement de la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
-		$req = $connection->query($sql); 
-		$res = $req->fetchAll();
-		echo "<h2 class='nom-lieu-h2-movies'>".$film."</h2>";
-		foreach($res as $value) {
-		?>	
-			<div class='row'>
-				<div class="col-xs-10 col-md-2">
-=======
 					
 				<div class="col-xs-6 col-md-3 text-center">	
 					<div class="thumbnail film-movies"> 
@@ -145,7 +112,6 @@
 							<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
 						</div>
 					</div>
->>>>>>> origin/master
 				</div>
 					
 				<div class="hidden-xs col-md-3 text-center">	
@@ -154,17 +120,10 @@
 						$rows = $req->fetch();
 						?>
 						<!-- Affichage de l'image du lieu -->
-<<<<<<< HEAD
-						<img class="image-lieu-movies img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
-						<div class="caption desc-image-lieu-movies">
-							<p class="nom-lieu-movies"><?php echo $value[0]; ?></p>
-							<a href="place.php?place=<?php echo $value[0];?>" class="btn btn-xs btn-info" role="button" title="Voir lieu culte">En savoir plus</a>
-=======
 						<img class="image-film-movies img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 						<div class="caption desc-image-film-movies">
 							<p class="nom-film-movies"><?php echo $rows['name']; ?></p>
 							<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
->>>>>>> origin/master
 						</div>
 					</div>
 				</div>
@@ -228,7 +187,7 @@
 								<img class="image-lieu-movies img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
 								<div class="caption desc-image-lieu-movies">
 									<p class="nom-lieu-movies"><?php echo $value[0]; ?></p>
-									<p class="desc-lieu-movies"><?php echo $value[2]; ?></p>
+									<a href="place.php?place=<?php echo $value[0];?>" class="btn btn-xs btn-info" role="button" title="Voir lieu culte">En savoir plus</a>
 								</div>
 							</div>
 						</div>
