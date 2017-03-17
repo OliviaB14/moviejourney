@@ -24,6 +24,7 @@
 
 	<body>
 	<?php
+		$connect = true; //test de connexion
 		include('header.php')
 	?>
 
@@ -35,11 +36,53 @@
 		</div>
 
 		<!-- if user is connected -->
-		<?php if($connect){ ?>
+		<?php if($connect){ 
+			$_SESSION['fisrtname'] = "Olisomotomish"; //test de connexion
+		?>
 
 		<div class="row">
-			
+			<div class="useraccount col-sm-6 col-sm-offset-3 col-xs-12">
+				<h3>Bonjour <?php echo $_SESSION['firstname'];?></h3>
+			    <ul class="nav nav-tabs nav-justified" id="mytabs">
+			        <li class="active"><a href="#useracc"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon compte</a></li>
+			        <li><a href="#userpreferences"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Mes préférences</a></li>
+			    </ul>
+			</div>
 		</div>
+		<div class="row">
+		    <div class="tab-content useraccount col-sm-6 col-sm-offset-3 col-xs-12"">
+		        <div id="useracc" class="tab-pane fade in active text-justify">
+		            <h4>Mon compte</h4>
+		            <form method="POST">
+					  <div class="form-group row">
+					    <label for="modifEmail" class="col-xs-2"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></label>
+					    <div class="col-xs-10">
+					    <input type="email" class="form-control" name="modifEmail" id="modifEmail" placeholder="Modifier mon adresse e-mail">
+					    </div>
+					  </div>
+					  <div class="form-group row">
+					    <label class="col-xs-2" for="modifPassword"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
+					    <div class="col-sm-10">
+					    	<input type="password" name="modifPassword" class="form-control" id="modifPassword" placeholder="Modifier mon mot de passe">
+					    </div>
+					  </div>
+					  <div class="row">
+						  <button type="submit" name="modif_btn" class="btn btn-default col-sm-12">Modifier mes informations</button>
+					  </div>
+					</form>
+		        </div>
+		        <div id="userpreferences" class="tab-pane fade text-justify">
+		            <h4>Films préférés</h4>
+		            <p></p>
+		            <h4>Lieux cultes visités</h4>
+		            <p class=></p>
+		        </div>
+		    </div>
+		</div>
+			<?php
+				include ('settings.php');
+			?>
+	</div>
 
 		<?php } else{ ?>
 		<!-- if user isn't connected -->
@@ -132,6 +175,8 @@
 	<?php
 		include('footer.php')
 	?>
-
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script type="text/javascript" src="js/tabsmenu.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	</body>
 </html>

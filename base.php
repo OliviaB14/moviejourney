@@ -23,8 +23,18 @@
   /* checks if user is connected */
   session_start();
 
+  /* ==============================
+
+  session variables -
+  email : contains user email
+  pass : contains user password 
+  fisrtname, lastname
+
+  ============================== */
+
+
   /* checks if user exists */
-  if (isset($_SESSION['identifiant']) && isset($_SESSION['mdp'])) {
+  if (!empty($_SESSION['email']) && (!empty($_SESSION['pass']))) {
     // this boolean variable will tell if the user is connected or just a visitor
     $connect = true;
   }else{
