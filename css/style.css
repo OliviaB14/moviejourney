@@ -1,23 +1,23 @@
 @charset "utf-8";
 /* CSS Document */
 
-body{
-	font-family:url('https://www.fontify.me/wf/0cdbacad7fd241378c8726431c6f3964');
-}
+
 
 header{
 	width:100%;
 }
 
 
-@font-face {
-        font-family: 'Petit_Formal_Script';
-        src: url('fonts/Petit_Formal_Script/PetitFormalScript-Regular.tff') format('ttf');
-}
 
 #title{
-    font-family: 'Parisienne';
+    font-family: 'Courgette', cursive;
+
 }
+
+h4, #subtitle {
+    font-family: 'Amaranth', sans-serif;
+}
+
 
 .thumbnail {
 	border:none;	
@@ -38,7 +38,7 @@ ul.nav.nav-stacked.navbar-right {
 }
 
 .navbar-brand{
-	width:100%;
+	width: 100%;
 	height:auto;
 }
 

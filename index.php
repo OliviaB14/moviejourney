@@ -20,6 +20,9 @@
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
 		<!-- main stylesheet -->
 
+		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">		
+		<!--font-family title -->
 
 		<title>Movie Journey</title>
 	</head>
@@ -39,8 +42,8 @@
 				<div class="inner-container-carousel">
 					<!-- overlay -->
 					<div class="overlay">
-						<h1 class="overlay-h1" id="title">Hishem trouve nous un titre</h1>
-						<h2 class="overlay-h2">Marchez sur les pas de vos acteurs préférés</h2>
+						<h1 class="overlay-h1" id="title">Partez à l'aventure avec Movie Journey</h1>
+						<h2 class="overlay-h2" id="subtitle">Marchez sur les pas de vos acteurs préférés</h2>
 					</div>
 					<!-- end of overlay --> 
 					
