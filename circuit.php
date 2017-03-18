@@ -13,12 +13,10 @@
 <title>Nos circuits</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/breadcrumb.css" rel="stylesheet" type="text/css">
 <link href="css/circuit.css" rel="stylesheet" type="text/css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="js/gmaps.js"></script>
-<script src="js/maps.js"></script>
 </head>
 
 <body>
@@ -175,10 +173,56 @@ $(document).ready(function(){
 	  ?>
     },
     error: function(error){
-      alert('Geolocation failed: '+error.message);
+		map.setCenter(48.6896172, 6.1740439);
+			  <?php 
+	  while ($int < $nbre-1) {
+			  echo "map.drawRoute({
+				origin: [".$result[$int][1].", ".$result[$int][2]."],
+				destination: [".$result[$int+1][1].", ".$result[$int+1][2]."],
+				travelMode: 'driving',
+				strokeColor: 'blue',
+				strokeOpacity: 0.6,
+				strokeWeight: 6
+		     	});";
+		  		$int++;
+	  }
+	  foreach ($result as $value) {
+		$title = "'".$value[0]."'";
+		echo "map.addMarker({
+      		lat: ".$value[1].",
+      		lng: ".$value[2].",
+      		title: ".$title.",
+		    infoWindow: {
+			    content: ".$title."}  
+		});";
+	  }
+	  ?>
     },
     not_supported: function(){
-      alert("Your browser does not support geolocation");
+		map.setCenter(48.6896172, 6.1740439);
+		<?php 
+	  while ($int < $nbre-1) {
+			  echo "map.drawRoute({
+				origin: [".$result[$int][1].", ".$result[$int][2]."],
+				destination: [".$result[$int+1][1].", ".$result[$int+1][2]."],
+				travelMode: 'driving',
+				strokeColor: 'blue',
+				strokeOpacity: 0.6,
+				strokeWeight: 6
+		     	});";
+		  		$int++;
+	  }
+	  foreach ($result as $value) {
+		$title = "'".$value[0]."'";
+		echo "map.addMarker({
+      		lat: ".$value[1].",
+      		lng: ".$value[2].",
+      		title: ".$title.",
+		    infoWindow: {
+			    content: ".$title."}  
+		});";
+	  }
+	  ?>
     }
   });
 });
