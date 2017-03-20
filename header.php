@@ -20,9 +20,9 @@
 			<li><a href="movies.php">Films</a></li>
 			<!-- if user is connected -->
 				<?php if($connect){
-					echo "<li><a href='usercircuits.php'>Mes circuits</a></li>";
+					echo "<li><a href='circuit.php'>Mes circuits</a></li>";
 				} else {
-					echo "<li><a href='circuit.php'>Sélection de circuits</a></li>";
+					echo "<li><a href='selection.php'>Sélection de circuits</a></li>";
 				} ?>
 			<li><a href="contact.php">Contact</a></li>
 		  </ul>

@@ -17,7 +17,8 @@
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
 		<link href="css/breadcrumb.css" rel="stylesheet" type="text/css"/>
 		<link href="css/movies.css" rel="stylesheet" type="text/css"/>
-		<link href="js/fixed-movie.js" rel="stylesheet" type="text/javascript"/>
+		
+		<!--font-family title -->
 
 		<title>Liste de films</title> <!-- page title -->
 	</head>
@@ -201,6 +202,6 @@
 				?>
 			
 		</div>
-
+		<script src="js/fixed-movie.js" type="text/javascript"></script>
 	</body>
 </html>

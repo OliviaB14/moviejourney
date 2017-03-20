@@ -20,8 +20,11 @@
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
 		<!-- main stylesheet -->
 		<link rel="stylesheet" href="css/account.css" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">		
+		<!--font-family title -->
 		
-		<title>Créer un compte - Movie Journey</title>
+		<title>Créer mon compte - Movie Journey</title>
 	</head>
 
 	<body>

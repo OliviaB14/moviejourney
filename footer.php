@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <link rel="stylesheet" href="css/footer.css" type="text/css" />
 
+
 <div class="container-fluid">
 	<footer>
 		<div class="row">
@@ -9,7 +10,11 @@
 				<ul id="footer-nav">
 					<li><a href="index.php">Accueil</a></li>
 					<li><a href="movies.php">Lieux cultes</a></li>
-					<li><a href="usercircuits.php">Mes circuits</a></li>
+					<?php if($connect){ ?>
+					<li><a href="circuit.php">Mes circuits</a></li>
+					<?php } else { ?>
+					<li><a href="selection.php">Selection de circuits</a></li>
+					<?php } ?>
 					<li><a href="apropos.php">A propos</a></li>
 					<li><a href="contact.php">Contact</a></li>
 				</ul>

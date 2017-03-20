@@ -13,12 +13,17 @@
 		<meta charset="utf-8"/>
 		<!-- mobile friendly tag -->
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
 		<!-- STYLESHEETS -->
 		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
 		<!-- main stylesheet -->
 		<link rel="stylesheet" href="css/account.css" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">		
+		<!--font-family title -->
+
 		<title>Se connecter - Movie Journey</title>
 	</head>
 
@@ -37,12 +42,12 @@
 
 		<!-- if user is connected -->
 		<?php if($connect){ 
-			$_SESSION['fisrtname'] = "Olisomotomish"; //test de connexion
+			$_SESSION['firstname'] = "Olisomotomish"; //test de connexion
 		?>
 
 		<div class="row">
 			<div class="useraccount col-sm-6 col-sm-offset-3 col-xs-12">
-				<h3>Bonjour <?php echo $_SESSION['firstname'];?></h3>
+				<h3 id="username">Bonjour <strong><?php echo $_SESSION['firstname'];?></strong></h3>
 			    <ul class="nav nav-tabs nav-justified" id="mytabs">
 			        <li class="active"><a href="#useracc"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon compte</a></li>
 			        <li><a href="#userpreferences"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Mes préférences</a></li>
@@ -52,7 +57,7 @@
 		<div class="row">
 		    <div class="tab-content useraccount col-sm-6 col-sm-offset-3 col-xs-12"">
 		        <div id="useracc" class="tab-pane fade in active text-justify">
-		            <h4>Mon compte</h4>
+		            <h4>Modifier mes informations</h4>
 		            <form method="POST">
 					  <div class="form-group row">
 					    <label for="modifEmail" class="col-xs-2"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></label>
@@ -67,15 +72,19 @@
 					    </div>
 					  </div>
 					  <div class="row">
-						  <button type="submit" name="modif_btn" class="btn btn-default col-sm-12">Modifier mes informations</button>
+						  <button type="submit" name="modif_btn" class="btn btn-default col-sm-12">ENREGISTRER</button>
 					  </div>
 					</form>
 		        </div>
 		        <div id="userpreferences" class="tab-pane fade text-justify">
-		            <h4>Films préférés</h4>
+		            <h4>Genres de films préférés</h4>
 		            <p></p>
 		            <h4>Lieux cultes visités</h4>
-		            <p class=></p>
+		            <p></p>
+		        </div>
+
+		        <div id="newcircuit">
+		        <a href="circuit.php"><button class="btn btn-default col-xs-12" id="reservation">Nouvelle réservation <span class="glyphicon glyphicon-chevron-right text-right" aria-hidden="true"></span></button></a>
 		        </div>
 		    </div>
 		</div>

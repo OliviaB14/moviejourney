@@ -171,17 +171,17 @@
 				<h3 class="text-center lead"><span>La sélection de l'équipe</span> </h3>
 				<div class="row">
 					<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/circuit-france.jpg" class="img-thumbnail img-responsive" alt="circuit movie journey france"/>
-						<a href="circuit.php?country=France">
+						<a href="selection.php?country=France">
 						<p class="caption">En savoir plus</p>
 						</a>
 					</div>
 					<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/circuit-england.jpg" class="img-thumbnail img-responsive" title="Réservez votre circuit en Angleterre avec Movie Journey !" alt="circuit movie journey england"/>
-						<a href="circuit.php?country=Angleterre">
+						<a href="selection.php?country=Angleterre">
 						<p class="caption">En savoir plus</p>
 						</a>
 					</div>
 					<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/circuit-japan.jpg" class="img-thumbnail img-responsive" alt="circuit movie journey japan">
-						<a href="circuit.php?country=Japon">
+						<a href="selection.php?country=Japon">
 						<p class="caption">En savoir plus</p>
 						</a>
 					</div>

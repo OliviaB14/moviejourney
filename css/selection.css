@@ -9,13 +9,12 @@
 }
 
 img {
-	height:91.18px	
+	height:91.18px;	
 }
 
-h3 {
-    font-size: 40px;
+#pagetitle {
     text-align: center;
-    color: dodgerblue;
+    color: #1b1c1d;
     margin-bottom: 40px;
 }
 
@@ -24,14 +23,23 @@ p {
 }
 
 .hotels-restaurants {
-    border: 1px solid deepskyblue;
+    border: 1px solid #436b7d;
+    border-radius: 30px;
+    background: rgba(203, 241, 237, 0.56);
 }
 
-h4 {
+#sideInfos h4 {
     font-size: 25px;
     text-align: center;
     color: deepskyblue;
     border-bottom: 1px dashed deepskyblue;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
     padding: 10px;
+}
+
+.thumbnail_place{
+    border: 3px solid transparent;
+}
+.thumbnail_place:hover {
+    border:3px solid #eee;
 }

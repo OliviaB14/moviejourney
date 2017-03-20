@@ -10,3 +10,19 @@
 .movie_genres{
 	text-align:justify-all;
 }
+
+
+#username{
+	font-family: 'Amaranth', cursive;
+}
+#newcircuit{
+	margin: 10px 0px;
+}
+
+#reservation{
+	padding:20px;
+	text-align:left;
+	background: #FA644D;
+	color:#fff;
+	font-weight: bold;
+}
