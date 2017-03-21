@@ -7,13 +7,14 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-6" id="navigation">
 				<h4>Navigation</h4>
-				<ul id="footer-nav">
+				<ul id="footer-nav" class="footer-list">
 					<li><a href="index.php">Accueil</a></li>
 					<li><a href="movies.php">Lieux cultes</a></li>
 					<?php if($connect){ ?>
 					<li><a href="circuit.php">Mes circuits</a></li>
 					<?php } else { ?>
 					<li><a href="selection.php">Selection de circuits</a></li>
+					<li><a href="create-account.php">Créer un compte</a></li>
 					<?php } ?>
 					<li><a href="apropos.php">A propos</a></li>
 					<li><a href="contact.php">Contact</a></li>
@@ -25,6 +26,12 @@
 					<li>Qui sommes-nous ?</li>
 					<li>Découvrez notre brochure</li>
 					<li>Conditions générales de vente</li>
+				</ul>
+				<ul id="payment">
+					<li><img src="image/mastercard.png" alt="Mastercard"/></li>
+					<li><img src="image/visa.png" alt="Visa"/></li>
+					<li><img src="image/paypal.png" alt="Paypal"/></li>
+					<li><img src="image/maestro.png" alt="Maestro"/></li>
 				</ul>
 				<form>
 				  <div class="form-group row" id="newsletterDiv">

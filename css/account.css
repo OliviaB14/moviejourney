@@ -1,3 +1,4 @@
+
 #connection, #subscription{
 	background:#fff;
 }
@@ -15,8 +16,11 @@
 #username{
 	font-family: 'Amaranth', cursive;
 }
+
+
 #newcircuit{
 	margin: 10px 0px;
+	text-align: center;
 }
 
 #reservation{

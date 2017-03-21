@@ -29,7 +29,15 @@
 
 	<body>
 	<?php
-		$connect = true; //test de connexion
+		/* 
+
+
+
+		POUR TESTER LA CONNEXION UTILISATEUR METTRE $CONNECT A TRUE
+		$connect = false; //test de connexion 
+
+
+		*/
 		include('header.php')
 	?>
 
@@ -67,12 +75,12 @@
 					  </div>
 					  <div class="form-group row">
 					    <label class="col-xs-2" for="modifPassword"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
-					    <div class="col-sm-10">
+					    <div class="col-xs-10">
 					    	<input type="password" name="modifPassword" class="form-control" id="modifPassword" placeholder="Modifier mon mot de passe">
 					    </div>
 					  </div>
 					  <div class="row">
-						  <button type="submit" name="modif_btn" class="btn btn-default col-sm-12">ENREGISTRER</button>
+						  <button type="submit" name="modif_btn" id="modif_btn" class="btn btn-default col-lg-3 col-xs-12">ENREGISTRER</button>
 					  </div>
 					</form>
 		        </div>
@@ -84,10 +92,15 @@
 		        </div>
 
 		        <div id="newcircuit">
-		        <a href="circuit.php"><button class="btn btn-default col-xs-12" id="reservation">Nouvelle réservation <span class="glyphicon glyphicon-chevron-right text-right" aria-hidden="true"></span></button></a>
+		        <a href="circuit.php"><button class="btn btn-default col-xs-12" id="reservation">Nouvelle réservation <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></a>
 		        </div>
+		        <!-- deconnection button -->
+			<div class="btn deconnected col-xs-3">
+				<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Déconnexion
+			</div>
 		    </div>
 		</div>
+
 			<?php
 				include ('settings.php');
 			?>

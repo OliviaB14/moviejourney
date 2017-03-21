@@ -28,14 +28,7 @@
 		  </ul>
 		  
 		  <ul class="nav nav-stacked navbar-right">
-		  <!-- if user is connected : -->
-		  	<?php if($connect){ ?>
-			<li><a href="deconnexion.php"><img src="image/logout.png" alt=""/>déconnexion</a></li>
-			<li><a href="useraccount.php"><img src="image/reglage.png" alt=""/>réglages</a></li>
-			<!--endif ./ -->
-			<?php } else {?>
 			<li id="connexion-button"><button type="button" class="btn btn-default navbar-btn"><a href="account.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon compte</a></button></li>
-			<?php } ?>
 		  </ul>
 		</div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->

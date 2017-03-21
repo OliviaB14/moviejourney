@@ -7,6 +7,11 @@ footer {
     background:#E3E3E3;
 }
 
+footer ul, footer li {
+    list-style: none;
+    list-style-type: none;
+}
+
 .row{
 	text-align: center;
 }
@@ -14,13 +19,10 @@ footer {
 h4{
 	letter-spacing: 1px;
 	text-transform: uppercase;
-    margin: 2% 0%;
 }
 
 #navigation li, #social li, #infos li {
-    list-style: none;
-    margin-top: 5%;
-    margin-bottom: 10px;
+    margin-top: 2%;
 }
 
  
@@ -28,11 +30,9 @@ h4{
 
 ul.footer-list {
     margin-left: -10%;
-    list-style: none;
-    text-align: center;
 }
 
-#social li {
+#social li, ul#payment li {
     display: inline-block;
 }
 
@@ -44,9 +44,8 @@ ul.footer-list li img {
 
 /* navigation column */
  
-#navigation li{
-    margin-right: 15%;
-    text-transform: uppercase;
+#navigation li, ul#payment li {
+    margin-right: 1%;
 }
 
 /* copyright */
@@ -62,6 +61,16 @@ ul.footer-list li img {
     color:#fff;
 
     padding:5px;
+}
+
+ul#payment {
+    margin: 0 auto;
+    margin-left:-10%;
+}
+
+#payment img {
+    width: 42px;
+    height: auto;
 }
 
 

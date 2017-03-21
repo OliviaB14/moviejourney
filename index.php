@@ -61,7 +61,7 @@
 								<label for="search" class="sr-only">Recherche</label>
 								<input type="search" class="form-control" id="searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
 							</div>
-							<button type="submit" class="btn btn-default col-lg-2 col-md-hidden">Rechercher 	<img src="image/loupe.png" alt="Rechercher"/></button>
+							<button type="submit" class="btn btn-default col-lg-2 col-md-hidden"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Rechercher</button>
 						</form>
 					</div>
 					<!-- end of search bar --> 
@@ -88,26 +88,31 @@
 				<div class="carousel-inner" role="listbox">
 					<div class="item active"> 
 						<?php $rows = $req->fetch(); ?>
-						<img class="img-carrousel-index" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 1">
+						<!-- information  
+						$rows[0] : place name
+						$rows[1] : place's image path
+						$rows[2] : movie name 
+						-->
+						<a href="place.php?place=<?php echo $rows[0]; ?>"><img class="img-carrousel-index" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 1"></a>
 						<div class="carousel-caption">
-							<p class="nom-lieu-carousel"><?php echo $rows[0]; ?></p>
-							<p class="nom-film-carousel"><?php echo $rows[2]; ?></p>
+							<p class="nom-lieu-carousel"><a href="place.php?place=<?php echo $rows[0]; ?>"><?php echo $rows[0]; ?></a></p>
+							<p class="nom-film-carousel"><a href="movies.php?page=<?php echo $rows[2]; ?>"><?php echo $rows[2]; ?></a></p>
 						</div>
 					</div>
 					<div class="item"> 
 						<?php $rows = $req->fetch(); ?>
-						<img class="img-carrousel-index" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 2">
+						<a href="place.php?place=<?php echo $rows[0]; ?>"><img class="img-carrousel-index" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 2"></a>
 						<div class="carousel-caption">
-							<p class="nom-lieu-carousel"><?php echo $rows[0]; ?></p>
-							<p class="nom-film-carousel"><?php echo $rows[2]; ?></p>
+							<p class="nom-lieu-carousel"><a href="place.php?place=<?php echo $rows[0]; ?>"><?php echo $rows[0]; ?></a></p>
+							<p class="nom-film-carousel"><a href="movies.php?page=<?php echo $rows[2]; ?>"><?php echo $rows[2]; ?></a></p>
 						</div>
 					</div>
 					<div class="item"> 
 						<?php $rows = $req->fetch(); ?>
-						<img class="img-carrousel-index" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 3">
+						<a href="place.php?place=<?php echo $rows[0]; ?>"><img class="img-carrousel-index" src="<?php echo $rows[1]; ?>" alt="Photo lieu carroussel 3"></a>
 						<div class="carousel-caption">
-							<p class="nom-lieu-carousel"><?php echo $rows[0]; ?></p>
-							<p class="nom-film-carousel"><?php echo $rows[2]; ?></p>
+							<p class="nom-lieu-carousel"><a href="place.php?place=<?php echo $rows[0]; ?>"><?php echo $rows[0]; ?></a></p>
+							<p class="nom-film-carousel"><a href="movies.php?page=<?php echo $rows[2]; ?>"><?php echo $rows[2]; ?></a></p>
 						</div>
 					</div>
 				</div>
@@ -170,24 +175,28 @@
 				<!-- image 171x180 -->
 				<h3 class="text-center lead"><span>La sélection de l'équipe</span> </h3>
 				<div class="row">
-					<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/circuit-france.jpg" class="img-thumbnail img-responsive" alt="circuit movie journey france"/>
+					<div class="col-xs-6 col-md-3 text-center thumbnail">
 						<a href="selection.php?country=France">
-						<p class="caption">En savoir plus</p>
+							<img src="image/circuit-france.jpg" class="img-thumbnail img-responsive" alt="circuit movie journey france"/>
+							<p class="caption">En savoir plus</p>
 						</a>
 					</div>
-					<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/circuit-england.jpg" class="img-thumbnail img-responsive" title="Réservez votre circuit en Angleterre avec Movie Journey !" alt="circuit movie journey england"/>
+					<div class="col-xs-6 col-md-3 text-center thumbnail">
 						<a href="selection.php?country=Angleterre">
-						<p class="caption">En savoir plus</p>
+							<img src="image/circuit-england.jpg" class="img-thumbnail img-responsive" title="Réservez votre circuit en Angleterre avec Movie Journey !" alt="circuit movie journey england"/>
+							<p class="caption">En savoir plus</p>
 						</a>
 					</div>
-					<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/circuit-japan.jpg" class="img-thumbnail img-responsive" alt="circuit movie journey japan">
+					<div class="col-xs-6 col-md-3 text-center thumbnail">
 						<a href="selection.php?country=Japon">
-						<p class="caption">En savoir plus</p>
+							<img src="image/circuit-japan.jpg" class="img-thumbnail img-responsive" alt="circuit movie journey japan">
+							<p class="caption">En savoir plus</p>
 						</a>
 					</div>
-					<div class="col-xs-6 col-md-3 text-center thumbnail"> <img src="image/index-reservation.jpg" class="img-thumbnail img-responsive" alt="réservation de circuits">
+					<div class="col-xs-6 col-md-3 text-center thumbnail">
 						<a href="#">
-						<p class="caption">Réservez</p>
+							<img src="image/index-reservation.jpg" class="img-thumbnail img-responsive" alt="réservation de circuits">
+							<p class="caption">Réservez</p>
 						</a>
 					</div>
 				</div>

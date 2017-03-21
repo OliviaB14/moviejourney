@@ -1,13 +1,32 @@
 @charset "utf-8";
 /* CSS Document */
 
+/* ===============================
 
+ IMPORTANT AND GENERAL STYLE 
+
+ =============================== */
+
+.container-fluid {
+    padding-right:0px;
+    padding-left:0px;
+}
+
+.thumbnail {
+    border:none;    
+    background:#F8F8F8; 
+}
+
+/* ---------- header --------- */
 
 header{
 	width:100%;
 }
 
-
+#logo {
+    width:200px;
+    height:100px;   
+}
 
 #title{
     font-family: 'Courgette', cursive;
@@ -18,10 +37,7 @@ h4, #subtitle {
     font-family: 'Amaranth', sans-serif;
 }
 
-
-.thumbnail {
-	border:none;	
-}
+ /* navigation bar */
 
 .nav-stacked li {
 	font-size:12px;
@@ -56,17 +72,18 @@ ul.navbar-nav {
 	font-weight:bold;
 }
 
-.nav-stacked li #connexion-button{
-    margin-top:14%;
+.navbar-nav li a {
+    text-transform:uppercase;
+    letter-spacing:2px;
 }
+
+/* ---------- search bar index.php --------- */ 
 
 #searchbarDiv {
     padding: 1%;
     overflow: hidden;
     margin-left: 15px;
 }
-
-
 
 #searchTools{
 	overflow: visible;
@@ -83,15 +100,36 @@ ul.navbar-nav {
 	height:50px;
 }
 
-#logo {
-	width:200px;
-	height:100px;	
+#styled-select {
+    overflow: hidden;
+    background-color: #F0F0F0;
+    color: #333;
+    height: 50px;
+    text-align:center;
+    text-align-last: center;
+  /* webkit*/
 }
 
-.container-fluid {
-	padding-right:0px;
-	padding-left:0px;
+#styled-select select {
+    background: #F0F0F0;
+    height: 50px;
+    width: 127.95px;
+    left: -15px;
+    position: relative;
+    border:none;
 }
+
+/* search button */
+button.btn.btn-default.col-lg-2.col-md-hidden {
+    background-color: #008B8B;
+    height:50px;
+    border-radius: 1px;
+    color: #3e0b0b;
+}
+
+/*---------- end -------------- */
+
+/* ---------- carousel index.php --------- */ 
 
 .inner-container-carousel {
     position: absolute;
@@ -115,43 +153,46 @@ ul.navbar-nav {
 	font-family: Uni-Sans-book;
 }
 
-button.btn.btn-default.col-lg-2.col-md-hidden {
-    background-color: #008B8B;
-	height:50px;
+.img-carrousel-index {
+    width: 100%;
+    max-height: 475px;
 }
+
+.nom-lieu-carousel {
+    font-size:15px;
+}
+
+.nom-film-carousel {
+    font-size:12px;
+    font-weight:700;
+}
+
+.carousel-caption a {
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+}
+
+
 
 #description {
 	background:#F8F8F8;	
 }
 
-.thumbnail {
-	background:#F8F8F8;	
-}
+/*---------- end  -------------- */
 
-#styled-select {
-    overflow: hidden;
-    border-radius: 5px;
-    background-color: #F0F0F0;
-    color: #333;
-    height: 50px;
-}
 
-#styled-select select {
-    background: #F0F0F0;
-    height: 50px;
-    width: 127.95px;
-    left: -15px;
-    position: relative;
-	border:none;
-}
+/*---------- contact.php style  -------------- */
 
 .jumbotron {
-	background-image:url(../image/Fond_contact.jpg);
+	background-image:url('../image/contact.jpg');
     margin-top: -20px;
 	text-align: center;
     color: white;
-	background-size: 100% 100%;
+	background-size: cover;
 }
+
+/*---------- end  -------------- */
 
 #input-message {
 	height:150px;	
@@ -171,27 +212,26 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
 	font-weight:600;
 }
 
-.img-carrousel-index {
-    width: 100%;
-    max-height: 475px;
-}
-
-.nom-lieu-carousel {
-	font-size:15px;
-}
-
-.nom-film-carousel {
-	font-size:12px;
-	font-weight:700;
-}
-
-.navbar-nav li a {
-	text-transform:uppercase;
-	letter-spacing:2px;
-}
-
+/* ------------ selection.php style ---------- */
 #map-canvas{
   height: 400px;
   width: 400px;
   margin-right: 10px;
 } 
+/*---------- end  -------------- */
+
+
+
+/* ===========================
+
+MEDIA QUERIES 
+
+=========================== */
+
+@media all and (max-device-width: 480px)
+{
+    .overlay{
+        display:block;
+        position: relative;
+    }
+}
