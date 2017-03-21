@@ -1,6 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
 
+body {
+	position:relative;	
+}
+
 #geolocation_map {
     height: 400px;
     overflow: visible;
@@ -25,15 +29,15 @@ p {
 .hotels-restaurants {
     border: 1px solid #436b7d;
     border-radius: 30px;
-    background: rgba(203, 241, 237, 0.56);
+	height:590px;
 }
 
-#sideInfos h4 {
+#sideInfos h3 {
     font-size: 25px;
     text-align: center;
     color: deepskyblue;
     border-bottom: 1px dashed deepskyblue;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
     padding: 10px;
 }
 
@@ -42,4 +46,10 @@ p {
 }
 .thumbnail_place:hover {
     border:3px solid #eee;
+}
+
+.scrollspy-example {
+    position: relative;
+    overflow: scroll;
+    height: 480px;
 }

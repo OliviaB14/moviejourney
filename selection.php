@@ -9,8 +9,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8"><!-- encoding -->
-<title>Nos circuits - Movie Journey</title> <!-- page title -->
+<meta charset="utf-8">
+<!-- encoding -->
+<title>Nos circuits - Movie Journey</title>
+<!-- page title -->
 <link href="css/style.css" rel="stylesheet" type="text/css">
 
 <!-- STYLESHEETS -->
@@ -23,10 +25,10 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="js/gmaps.js"></script>
+<script src="js/bootstrap.js"></script>
 </head>
 
 <body>
-
 <?php
 	include('header.php');
 	
@@ -39,48 +41,86 @@
 	$int = 0;
 	
 ?>
- 
- <div class="container-fluid">
-     <div class="row">
-	   <section class="col-md-12">
-          <div class="row" id="sideInfos">
-            <article class="col-md-4 hotels-restaurants">
-            <h3 id="pagetitle"><strong><?php 
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<h2 id="pagetitle"> <strong>
+				<?php 
             	if(($pays =='Angleterre') || ($pays == 'France')){
             		echo "Partez à l'aventure en " . $pays; 
             	}else{
             		echo "Partez à l'aventure au " . $pays;
-            	}?></strong> <br/>avec Movie Journey !</strong></h3>
-			  <h4><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Nos bons plans</h4>
-              <div class="media">
-				  <div class="media-left media-middle">
-					  <img class="media-object" src="image/hotel.png" alt="...">
-				  </div>
-				  <div class="media-body">
-					<h5 class="media-heading">Hôtels de malade !</h5>
-				  </div>
-			  </div>
-			  <div class="media">
-				  <div class="media-left media-middle">
-					  <img class="media-object" src="..." alt="...">
-				  </div>
-				  <div class="media-body">
-					<h5 class="media-heading">Restaurant de la mort qui tue !</h5>
-				  </div>
-			  </div>
-			  <div class="media">
-				  <div class="media-left media-middle">
-					  <img class="media-object" src="..." alt="...">
-				  </div>
-				  <div class="media-body">
-					<h5 class="media-heading">Soirée pastéque !</h5>
-				  </div>
-			  </div>
-            </article>
-            <div class="col-md-8">
-              <div class="row">
-                <aside class="miniatures">
-                  <?php 
+            	}?>
+				</strong> </h2>
+		</div>
+		<section class="col-md-12">
+			<div class="row" id="sideInfos">
+				<div class="col-md-4 hotels-restaurants">
+					<h3><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Nos bons plans</h3>
+					<article data-spy="scroll" data-target="#scrollspy-nav" data-offset="0" class="scrollspy-example">
+						<h4 id="hôtels">Hôtels</h4>
+						<div class="media">
+							<div class="media-left media-middle"> <img class="media-object" src="image/hotel.png" alt="..."> </div>
+							<div class="media-body media-middle">
+								<h5 class="media-heading">Hôtel 1</h5>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-left media-middle"> <img class="media-object" src="image/hotel.png" alt="..."> </div>
+							<div class="media-body media-middle">
+								<h5 class="media-heading">Hôtel 2</h5>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-left media-middle"> <img class="media-object" src="image/hotel.png" alt="..."> </div>
+							<div class="media-body media-middle">
+								<h5 class="media-heading">Hôtel 3</h5>
+							</div>
+						</div>
+						<h4 id="restaurants">Restaurants</h4>
+						<div class="media">
+							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
+							<div class="media-body media-middle">
+								<h5 class="media-heading">Restaurant 1</h5>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
+							<div class="media-body media-middle">
+								<h5 class="media-heading">Restaurant 2</h5>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
+							<div class="media-body media-middle">
+								<h5 class="media-heading">Restaurant 3</h5>
+							</div>
+						</div>
+						<h4 id="autres">Autres</h4>
+						<div class="media">
+							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
+							<div class="media-body media-middle">
+								<h5 class="media-heading">Autre 1</h5>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
+							<div class="media-body media-middle">
+								<h5 class="media-heading">Autre 2</h5>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
+							<div class="media-body media-middle">
+								<h5 class="media-heading">Autre 3</h5>
+							</div>
+						</div>
+					</article>
+				</div>
+				<div class="col-md-8">
+					<div class="row">
+						<aside class="miniatures">
+							<?php 
 						foreach($result as $value) {
 							echo "<div class='col-xs-6 col-md-2'>
 									<a href='place.php?place=".$value[0]."' class='thumbnail thumbnail_place'>
@@ -92,22 +132,19 @@
 								</div>";
 						}
 					?>
-                </aside>
-                <aside id="geolocation_map">
-                </aside>
-              </div>
-            </div>
-          </div>
-        </section>
-     </div>
-	 
+						</aside>
+						<aside id="geolocation_map"> </aside>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 </div>
-
 <?php 
 	include ('footer.php');
 ?>
-
 <script>
+
 /**
   * Basic Map
   */
@@ -221,7 +258,5 @@ $(document).ready(function(){
   });
 });
 </script>
-
 </body>
 </html>
-
