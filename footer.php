@@ -16,16 +16,15 @@
 					<li><a href="selection.php">Selection de circuits</a></li>
 					<li><a href="create-account.php">Créer un compte</a></li>
 					<?php } ?>
-					<li><a href="apropos.php">A propos</a></li>
+					<li><a href="qui-sommes-nous.php">Qui sommes-nous ?</a></li>
 					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-4 col-xs-12" id="infos">
 				<h4>Infos pratiques</h4>
 				<ul class="footer-list">
-					<li>Qui sommes-nous ?</li>
 					<li>Découvrez notre brochure</li>
-					<li>Conditions générales de vente</li>
+					<li><a href="cgv.php">Conditions générales de vente</a></li>
 				</ul>
 				<ul id="payment">
 					<li><img src="image/mastercard.png" alt="Mastercard"/></li>

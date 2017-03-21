@@ -30,22 +30,25 @@
 			<div class="tableaudebord">
 				<div class='container'>
 						<div class="row">
+								<?php if(isset($_POST['msgSENT'])){ ?>
+									<div class="alert alert-success col-lg-12" role="alert">Votre message a bien été envoyé. Nous reviendrons vers vous dans les plus brefs délais.</div>
+								<?php
+									}
+								?>
 							<div class="col-lg-6 infos">
-								<div class="col-lg-12"> 
-									<div style="margin-top:40px">
-										<p class="infos-blue">Notre équipe est à l'écoute :</p>
-										<p>Si vous avez besoin de nous transmettre une opinion, une idée...</p>
-										<p>Nous sommes là pour vous apporter toute l'aide dont vous avez besoin.</p>
-										<p style="font-weight:700">Nos coordonnées :</p>
-										<p class="infos-blue">06.48.87.78.78</p>
-										<p class="infos-blue">moviejourney@gmail.com</p>
-										<p class="infos-blue">13 rue Michel Ney, 54000 Nancy</p>
-									</div>
+								<div style="margin-top:40px" class="col-lg-12">
+									<p class="infos-blue">Notre équipe est à l'écoute :</p>
+									<p>Si vous avez besoin de nous transmettre une opinion, une idée...</p>
+									<p>Nous sommes là pour vous apporter toute l'aide dont vous avez besoin.</p>
+									<p style="font-weight:700">Nos coordonnées :</p>
+									<p class="infos-blue">06.48.87.78.78</p>
+									<p class="infos-blue">moviejourney@gmail.com</p>
+									<p class="infos-blue">13 rue Michel Ney, 54000 Nancy</p>
 								</div>
 							</div>
 							<div class="col-lg-6 form">
 								<div class="col-lg-12"> 
-									<form style="margin-bottom:20px" class="form-horizontal" role="form">
+									<form style="margin-bottom:20px" class="form-horizontal" role="form" method="POST" action="contact.php">
 										<div class="form-group row">
 											<div class="col-10">
 												<input class="form-control" type="text" placeholder="Nom" id="input-nom">
@@ -66,7 +69,7 @@
 												<input class="form-control" type="text" placeholder="Votre message" id="input-message">
 									  		</div>
 										</div>
-										<button type="submit" class="btn btn-primary">Envoyer</button>
+										<button type="submit" class="btn btn-primary" name="msgSENT">Envoyer</button>
 									</form>
 								</div>
 							</div>

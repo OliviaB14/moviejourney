@@ -7,7 +7,6 @@
 ?>
 <!DOCTYPE html>
 <html>
-	<!-- language -->
 	<head>
 
 		<!-- META TAGS -->
@@ -193,7 +192,7 @@
 							<p class="caption">En savoir plus</p>
 						</a>
 					</div>
-					<div class="col-xs-6 col-md-3 text-center thumbnail">
+					<div class="col-xs-6 col-md-3 text-center thumbnail" id="img-reservation">
 						<a href="#">
 							<img src="image/index-reservation.jpg" class="img-thumbnail img-responsive" alt="réservation de circuits">
 							<p class="caption">Réservez</p>
@@ -202,10 +201,13 @@
 				</div>
 			</div>
 			<!-- END OF SELECTED ITENERARIES --> 
-			
-			<!-- FOOTER -->
+
+			<!-- back to top button -->
+			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+				<!-- FOOTER -->
 			<?php
-						include('footer.php')
+						include('footer.php');
 					?>
 			<!-- END OF FOOTER --> 
 			
@@ -215,5 +217,6 @@
 		<!-- SCRIPT FILES --> 
 		<!-- jquery script --><script type="text/javascript" src="js/jquery-3.1.1.js"></script> 
 		<!-- bootstrap file --> <script src="js/bootstrap.min.js"></script>
+		<!-- back to top button script --> <script type="text/javascript" src="js/backtotop.js"></script>
 	</body>
 </html>
