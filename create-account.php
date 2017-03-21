@@ -59,13 +59,13 @@
 					    </div>
 					  </div>
 					  <div class="form-group"> <!-- choosen email address -->
-					    <label for="email2" class="col-sm-3 control-label">Adresse e-mail*</label>
+					    <label for="email" class="col-sm-3 control-label">Adresse e-mail*</label>
 					    <div class="col-sm-9">
-					      <input type="email" class="form-control" name="email2" id="email2" placeholder="Email"
+					      <input type="email" class="form-control" name="email" id="email" placeholder="Email"
 					      <?php
 					      	// if the user has begin fulfill the account.php page to subscribe, it will get its infos in this advanced subscription form
-					      	if(isset($_POST['email2'])){
-					      		echo "value='".$_POST['email2']."'";
+					      	if(isset($_POST['email'])){
+					      		echo "value='".$_POST['email']."'";
 					      	}
 					      ?>
 					      >
@@ -74,26 +74,26 @@
 					  <div class="form-group"> <!-- email address confirmation -->
 					    <label for="email3" class="col-sm-3 control-label"></label>
 					    <div class="col-sm-9">
-					      <input type="email" class="form-control" name="email" id="email3" placeholder="Confirmer votre adresse e-mail"
+					      <input type="email" class="form-control" name="email1" id="email1" placeholder="Confirmer votre adresse e-mail"
 					      <?php
 					      	// if the user has begin fulfill the account.php page to subscribe, it will get its infos in this advanced subscription form
-					      	if(isset($_POST['email2'])){
-					      		echo "value='".$_POST['email2']."'";
+					      	if(isset($_POST['email1'])){
+					      		echo "value='".$_POST['email1']."'";
 					      	}
 					      ?>
 					      >
 					    </div>
 					  </div>
 					  <div class="form-group"> <!-- choosen password -->
-					    <label for="password2" class="col-sm-3 control-label">Mot de passe*</label>
+					    <label for="password" class="col-sm-3 control-label">Mot de passe*</label>
 					    <div class="col-sm-9">
-					      <input type="password" class="form-control" name="password2" id="password2" placeholder="Mot de passe">
+					      <input type="password" class="form-control" name="password" id="password" placeholder="Mot de passe">
 					    </div>
 					  </div>
 					  <div class="form-group"> <!-- password confirmation -->
-					    <label for="confPassword2" class="col-sm-3 control-label"></label>
+					    <label for="confPassword" class="col-sm-3 control-label"></label>
 					    <div class="col-sm-9">
-					      <input type="password" class="form-control" name="confPassword2" id="confPassword2" placeholder="Confirmer le mot de passe">
+					      <input type="password" class="form-control" name="confPassword" id="confPassword" placeholder="Confirmer le mot de passe">
 					    </div>
 					  </div>
 					  <div class="form-group"> <!-- user's favorite movie types -->
@@ -142,7 +142,33 @@
 
 		========================================================== */
 
-		function check
+	
+	if(!isset($_POST['password']) || strlen($_POST['password'])<8){
+		$html.="<p>Le mot de passe doit contenir au moins 8 caractères</p>";
+		$champOk=false;
+	} 
+	
+	if(isset($_POST['password']) and isset($_POST['confPassword'])){
+		if(strcmp($_POST["password"],$_POST["confPassword"])!==0){
+			$html.="<p>Les mots de passe ne sont pas identiques.</p>";
+			$champOk=false;
+		}
+	}
+	
+	if(isset($_POST['email'])){
+		if (!strstr($_POST['email'],"@") or (!strstr($_POST['email'],"."))){
+			$html.="<p>email invalide (ne contient pas de @ ou de .)</p>";
+			$champOk=false;
+		}
+	}
+	
+	$mdp = $_POST['password'];
+	$email = $_POST['email'];
+		
+	if ($champOk){
+		$html.="<p> Vos données ont été validées par le serveur.</p>";
+		addUser($lastname,$firstname,$birth_date,$email,$gets_emails,$password);
+	}
 
 		function verifemail($input){
 		// goal => email verification
@@ -154,17 +180,17 @@
 		return $bool;
 		// return true if the email is valid 
 		// false otherwise
-
 	}
 
-	function verifmdplong($input){
-		// goal => password length verification : 8 characters at least
-		$bool = strlen($input) >= 8;
+
+/*	function verifmdplong($input){
+		// goal => password length verification : 6 characters at least
+		$bool = strlen($input) >= 6;
 		if (!$bool){
-			echo "<p>Mot de passe inférieur à 8 caractères</p>";
+			echo "<p>Mot de passe inférieur à 6 caractères</p>";
 		}
 		return $bool;
-		// return true if password is at least eight charactères
+		// return true if password is at least six charactères
 		//false otherwise
 	}
 
@@ -182,29 +208,18 @@
 
 	}
 
-	function verifpseudo($input){
-		// goal => username length verification : 4 characters at least
-		$bool = strlen($input) >= 4;
-		if (!$bool){
-			echo "Le nom d'utilisateur est trop court";
-		}
-		return $bool;
-		// return true if the username contains at least 4 characters
-		// false otherwise
-	}
-
 	function verifgenres(){
 		// goal => if the user selected at least two music genres <=> two checkboxes
 		$bool = false;
 		// number of music genres selected
-		if(isset($_POST["music"])){
-			$bool = count($_POST["music"]) >= 2;
+		if(isset($_POST["type"])){
+			$bool = count($_POST["type"]) >= 2;
 			if(!$bool){
-				echo "<p>Sélectionnez au moins 2 genres musicaux</p>";
+				echo "<p>Sélectionnez au moins 2 genres.</p>";
 			}
 		}
 		else{
-			echo "<p>Sélectionnez au moins 2 genres musicaux</p>";
+			echo "<p>Sélectionnez au moins 2 genres.</p>";
 		}
 		return $bool;
 		// return true if user selected at least two checkboxes
@@ -258,7 +273,7 @@
 		return $saltpass;
 	}
 
-	function addUser($username, $email, $password, $news){
+	function addUser($name,$firstname,$birth_date, $email, $gets_emails,$password){
 		// add a new user to the database
 		// no value returned
 		global $bdd;
@@ -270,7 +285,7 @@
 		$random_key = salage();
 
 		// SQL request
-		$chaine = "INSERT INTO users (name, email, password, gets_emails, salt) VALUES (:name, :email, :pass, :news, :psalt)";
+		$chaine = "INSERT INTO users (name, firstname, birth_date, email, gets_emails, password, salt) VALUES (:name, :firstname, :birth_date, :email, :gets_emails, :password, :psalt)";
 		
 		//prepare request
 		$statement = $bdd->prepare($chaine);
@@ -303,7 +318,7 @@
 		}
 		
 		$statement->execute(); 
-	}
+	} */
 
 		function requete_bdd($bdd, $req){
 			/* will return all data from the database as json data
