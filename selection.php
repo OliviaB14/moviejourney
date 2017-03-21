@@ -60,59 +60,40 @@
 					<article data-spy="scroll" data-target="#scrollspy-nav" data-offset="0" class="scrollspy-example">
 						<h4 id="hôtels">Hôtels</h4>
 						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="image/hotel.png" alt="..."> </div>
+							<div class="media-left media-middle"> <img class="media-object" src="image/hostel.png" alt="..."> </div>
 							<div class="media-body media-middle">
 								<h5 class="media-heading">Hôtel 1</h5>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="image/hotel.png" alt="..."> </div>
+							<div class="media-left media-middle"> <img class="media-object" src="image/hostel.png" alt="..."> </div>
 							<div class="media-body media-middle">
 								<h5 class="media-heading">Hôtel 2</h5>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="image/hotel.png" alt="..."> </div>
+							<div class="media-left media-middle"> <img class="media-object" src="image/hostel.png" alt="..."> </div>
 							<div class="media-body media-middle">
 								<h5 class="media-heading">Hôtel 3</h5>
 							</div>
 						</div>
 						<h4 id="restaurants">Restaurants</h4>
 						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
+							<div class="media-left media-middle"> <img class="media-object" src="image/restaurants.png" alt="..."> </div>
 							<div class="media-body media-middle">
 								<h5 class="media-heading">Restaurant 1</h5>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
+							<div class="media-left media-middle"> <img class="media-object" src="image/restaurants.png" alt="..."> </div>
 							<div class="media-body media-middle">
 								<h5 class="media-heading">Restaurant 2</h5>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
+							<div class="media-left media-middle"> <img class="media-object" src="image/restaurants.png" alt="..."> </div>
 							<div class="media-body media-middle">
 								<h5 class="media-heading">Restaurant 3</h5>
-							</div>
-						</div>
-						<h4 id="autres">Autres</h4>
-						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
-							<div class="media-body media-middle">
-								<h5 class="media-heading">Autre 1</h5>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
-							<div class="media-body media-middle">
-								<h5 class="media-heading">Autre 2</h5>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="" alt="..."> </div>
-							<div class="media-body media-middle">
-								<h5 class="media-heading">Autre 3</h5>
 							</div>
 						</div>
 					</article>
