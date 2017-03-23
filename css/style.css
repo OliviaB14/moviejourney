@@ -67,6 +67,10 @@ ul.navbar-nav {
     margin-left: 15%;
 }
 
+#icon_menu li {
+    margin-right: 20px;
+}
+
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
 	background:#F5E0A2;
 	font-weight:bold;
