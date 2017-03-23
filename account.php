@@ -63,7 +63,7 @@
 			</div>
 		</div>
 		<div class="row">
-		    <div class="tab-content useraccount col-sm-6 col-sm-offset-3 col-xs-12"">
+		    <div class="tab-content useraccount col-sm-6 col-sm-offset-3 col-xs-12">
 		        <div id="useracc" class="tab-pane fade in active text-justify">
 		            <h4>Modifier mes informations</h4>
 		            <form method="POST">
@@ -139,6 +139,9 @@
 					      </div>
 					    </div>
 					  </div>
+					  <div class="forgotten-psw">
+					  	<p><a href="forgotten-psw.php">Mot de passe oublié ?</a></p>
+					  </div>
 					  <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
 					      <button type="submit" class="btn btn-default" name="con-btn">Connexion</button>
@@ -148,8 +151,7 @@
 				  </div>
 			</div>
 
-			<!-- 
-
+			<!--
 			Panel for subscription 
 			
 			-->
