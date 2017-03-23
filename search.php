@@ -15,7 +15,7 @@
 		<!-- STYLESHEETS -->
 		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" /><!-- bootstrap -->
 		<link rel="stylesheet" href="css/style.css" type="text/css" /><!-- main stylesheet -->
-		<link rel="stylesheet" href="css/searchphp_style.css" type="text/css" /><!-- main stylesheet -->
+		<link rel="stylesheet" href="css/search.css" type="text/css" /><!-- main stylesheet -->
 		<title>Movie Journey</title>
 	</head>
 
@@ -79,12 +79,12 @@
 
 							/* if the movie isn't in the database, it shows an error message */ 
 							if($int == 0){
-								echo "<div class='alert alert-warning search_error' role='alert'>" . $search . " ne correspond à aucun résultat... Réessayez.</div>";
+								echo "<div class='alert alert-warning search_error' role='alert'><strong>" . $search . "</strong> ne correspond à aucun résultat... Réessayez.</div>";
 							?>
 							<!-- search bar -->
-						<div id="searchbarDiv" class="row">
+						<div class="searchbarDiv row">
 							<form class="form-inline" method="GET" action="search.php" id="searchinput">
-								<div class="dropdown col-lg-2 col-md-2" id="styled-select">
+								<div class="dropdown col-lg-2 col-md-2 styled-select">
 								  <select name="opt">
 									<option>Film<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
 									<option>Thème de film</option>
@@ -93,11 +93,16 @@
 								</div>
 								<div class="form-group col-lg-8 col-md-10">
 									<label for="s" class="sr-only">Recherche</label>
-									<input type="search" class="form-control" id="searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
+									<input type="search" class="form-control searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
 								</div>
 								<button type="submit" class="btn btn-default col-lg-2 col-md-hidden">Rechercher <img src="image/loupe.png" alt="Rechercher"/></button>
 							</form>
 						</div>
+
+						<div>
+							
+						</div>
+
 					</div>
 					<?php
 							} else{
@@ -153,12 +158,11 @@
 					<!-- 
 
 
-
 					ajouter le bouton de proposition de film ici !!
 
 
 					 -->
-					<div class="alert alert-danger search_error" role="alert">Aucun résultat ne correspond à votre recherche... Voulez-vous réessayer ?</div>
+					<div class="alert alert-danger search_error" role="alert">Aucun résultat ne correspond à votre recherche... Voulez-vous proposer ce film ?</div>
 					<div class="row">
 						<form class="form-inline" method="GET" action="search.php">
 					<div class="dropdown col-lg-2 col-md-2">

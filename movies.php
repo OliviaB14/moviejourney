@@ -34,8 +34,7 @@
 				<?php if (empty($_GET['page'])) {
 					  	echo '<li class="active">Films</li>';
 					  } else {
-						echo '<li><a href="movies.php" title="Films">Films</a></li>';
-			    		echo '<li class="active">'.$_GET["page"].'</li>';
+						echo '<li><a href="movies.php" title="Films">Films</a></li><li class="active">'.$_GET["page"].'</li>';
 					  }
 				?>
 			</ol>

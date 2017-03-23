@@ -42,7 +42,7 @@
 									<p>Nous sommes là pour vous apporter toute l'aide dont vous avez besoin.</p>
 									<p style="font-weight:700">Nos coordonnées :</p>
 									<p class="infos-blue">06.48.87.78.78</p>
-									<p class="infos-blue">moviejourney@gmail.com</p>
+									<p class="infos-blue">contact.moviejourney@gmail.com</p>
 									<p class="infos-blue">13 rue Michel Ney, 54000 Nancy</p>
 								</div>
 							</div>

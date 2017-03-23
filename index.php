@@ -47,9 +47,9 @@
 					<!-- end of overlay --> 
 					
 					<!-- search bar -->
-					<div id="searchbarDiv" class="row">
+					<div class="searchbarDiv row">
 						<form class="form-inline" method="GET" action="search.php" id="searchinput">
-							<div class="dropdown col-lg-2 col-md-2" id="styled-select">
+							<div class="dropdown col-lg-2 col-md-2 styled-select">
 							  <select name="opt">
 								<option>Film<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
 								<option>Thème de film</option>
@@ -58,7 +58,7 @@
 							</div>
 							<div class="form-group col-lg-8 col-md-10">
 								<label for="search" class="sr-only">Recherche</label>
-								<input type="search" class="form-control" id="searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
+								<input type="search" class="form-control searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
 							</div>
 							<button type="submit" class="btn btn-default col-lg-2 col-md-hidden"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Rechercher</button>
 						</form>
