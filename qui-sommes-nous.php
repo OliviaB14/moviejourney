@@ -32,14 +32,14 @@
 
 		<div class="container-fluid text-justify">
 			<div class="col-lg-8 col-lg-offset-2 col-xs-12">
-				<h4>Movie Journey, des voyages qui vous ressemblent ...</h4>
-				<p>Depuis 2017, Movie Journey et son équipe vous accompagne pour vous aider à faire votre choix parmi plus de 50 destinations circuits, plus d’une quarantaine de choix au sein de notre large sélection d’hôtels à travers le monde. Toutes les offres sont à retrouver sur notre site de voyage moviejourney.com.</p>
+				<h4>Movie Journey : plus qu'un voyage, toute une culture ... </h4>
+				<p>Envie d'une expérience inédite ? Movie Journey est là pour vous faire vivre un voyage unique ! Selectionner vos films favoris, réservé l'hôtel de votre choix et le vol qui vous convient ! Movie Journey se charge du reste, vous n'avez qu'à suivre l'itinéraire proposer et dîner dans notre large liste de restaurant.  </p>
 
-				<h4>Soyez sûr de trouver le voyage qui vous ressemble</h4>
-				<p>Pour vous garantir une qualité où que vous soyez, Movie Journey vous propose une offre variée de clubs et de séjours. Afin de vous accompagner dans votre choix de vacances, Jet tours vous propose une large sélection d’hôtels ayant reçu le certificat d’excellence Tripadvisor. Pendant votre séjour vous pourrez bénéficier d’une assistance 7j/7 et 24h/24.<p>
+				<h4>Un voyage origninal mais de qualité</h4>
+				<p>Parce que Movie Journey ne recule pas devant la qualités de ses services, nous vous proposons des services testés, approuvés et classés parmis les meilleurs. Restaurants, itinéraire et hôtels sont tous selectionnés dans le guide Trip Advisor. Afin de vous accompagner tout au long de votre expérience, Movie Journey dispose d'une assistance clientèle ouverte 7j/7 24h/24. <p>
 
-				<h4>Se souvenir et repartir avec Movie Journey</h4>
-				<p>Partagez vos souvenirs avec tous vos proches avec notre partenaire Instagram. Réservez votre voyage Movie Journey dans l’une de nos 400 agences partout en France, par téléphone ou gratuitement en ligne sur le site de voyage moviejourney.com !</p>
+				<h4>Participez au plan Happy Journey ! </h4>
+				<p>Movie Journey a mis en place la plan Happy Journey ! Le but est simple : partagez autant que possible tout ses merveilleux souvenirs avec #HappyJourney sur tous les réseaux sociaux. </p>
 
 				<div class="reservation">
 					Réserver mon voyage <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
