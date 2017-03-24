@@ -29,7 +29,72 @@
 
 	<body>
 	<?php
-		include('header.php')
+		include('header.php');
+$fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEmailErr=$typesErr=""; //only if the user makes a mistake
+	$champOk = true;
+	//All the conditions above are checking if the user made a mistake
+	if(!isset($_POST['lastname'])){
+		$lnameErr = "* Entrez un nom."; 
+		$champOk=false;
+	}
+
+	if(!isset($_POST['firstname'])){
+		$fnameErr = "* Entrez un prénom.";
+		$champOk=false;
+	}
+
+	if(!isset($_POST['password']) || strlen($_POST['password'])<8){
+		$mdpErr = "* Le mot de passe doit contenir au moins 8 caractères.";
+		$champOk=false;
+	} 
+	
+	if(isset($_POST['password']) and isset($_POST['confPassword'])){
+		if(strcmp($_POST["password"],$_POST["confPassword"])!==0){
+			$confmdpErr = "* Les mots de passes ne sont pas identiques.";
+			$champOk=false;
+		}
+	}
+	
+	if(isset($_POST['email'])){
+		if (!strstr($_POST['email'],"@") or (!strstr($_POST['email'],"."))){
+			$mailErr = "* Email invalide (ne contient pas de @ ou de .)";
+			$champOk=false;
+		}
+		if(isset($_POST['email']) and isset($_POST['email1'])){
+			if(strcmp($_POST["email"],$_POST["email1"])!==0){
+				$confmailErr = "* Les adresses email ne sont pas identiques.";
+				$champOk=false;
+			}
+		}
+		if ($champOk){
+			if (checkemail($_POST['email'])==false){
+				$existEmailErr = "* L'email est déjà pris !";
+				$champOk=false;
+			}
+		}
+	}
+
+	$lastname = $_POST['lastname'];
+	$firstname = $_POST['firstname'];
+	$mdp = $_POST['password'];
+	$email = $_POST['email'];
+	$birth_date = $_POST['birthdate'];
+	if (isset($_POST['gets_emails'])){
+		$gets_emails =1;
+	}else{
+		$gets_emails =0;
+	}
+	if (!isset($_POST['types']) || sizeof($_POST['types']) < 2){
+		$typesErr= "* Sélectionnez au moins 2 types.";
+		$champOk=false;
+	}
+	//And if everything is valid, then the account is added to the database
+	if ($champOk){
+		echo "<p> Vos données ont été validées par le serveur.</p>";
+		$userid = addUser($lastname,$firstname,$birth_date,$email,$gets_emails,$mdp);
+		addUserGenres($userid,$_POST['type']);
+	}
+}
 	?>
 
 	<!-- MAIN CONTAINER : all page is contained -->
@@ -43,10 +108,12 @@
 				  <div class="panel">
 				    <form class="form-horizontal" method="POST" action="create-account.php">
 				      <div class="form-group"> <!-- first name -->
+				      	<span class="error"> <?php echo $fnameErr;?></span>
 					    <label for="firstname" class="col-sm-3 control-label">Prénom*</label>
 					    <div class="col-sm-4">
 					      <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Prénom">
 					    </div>
+					    <span class="error"> <?php echo $lnameErr;?></span>
 					    <label for="lastname" class="col-sm-1 control-label">Nom*</label>
 					    <div class="col-sm-4"><!-- last name -->
 					      <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Nom">
@@ -60,6 +127,7 @@
 					  </div>
 					  <div class="form-group"> <!-- choosen email address -->
 					    <label for="email" class="col-sm-3 control-label">Adresse e-mail*</label>
+					    <span class="error"> <?php echo $mailErr;?> </span>
 					    <div class="col-sm-9">
 					      <input type="email" class="form-control" name="email" id="email" placeholder="Email"
 					      <?php
@@ -73,6 +141,8 @@
 					  </div>
 					  <div class="form-group"> <!-- email address confirmation -->
 					    <label for="email3" class="col-sm-3 control-label"></label>
+					    <span class = "error"><?php echo $existEmailErr;?></span>
+					    <span class="error"><?php echo $confmailErr;?></span>
 					    <div class="col-sm-9">
 					      <input type="email" class="form-control" name="email1" id="email1" placeholder="Confirmer votre adresse e-mail"
 					      <?php
@@ -86,18 +156,28 @@
 					  </div>
 					  <div class="form-group"> <!-- choosen password -->
 					    <label for="password" class="col-sm-3 control-label">Mot de passe*</label>
+					    <span class="error"> <?php echo $mdpErr;?></span>
 					    <div class="col-sm-9">
 					      <input type="password" class="form-control" name="password" id="password" placeholder="Mot de passe">
 					    </div>
 					  </div>
 					  <div class="form-group"> <!-- password confirmation -->
 					    <label for="confPassword" class="col-sm-3 control-label"></label>
+					    <span class="error"> <?php echo $confmdpErr;?></span>
 					    <div class="col-sm-9">
 					      <input type="password" class="form-control" name="confPassword" id="confPassword" placeholder="Confirmer le mot de passe">
 					    </div>
 					  </div>
+					  <div class="form-group"> <!-- gets-email -->
+					    <label for="gets-email" class="col-sm-3 control-label"></label>
+					    <div class="col-sm-9">
+					      <input type="checkbox" class="form-control" name="gets_emails" id="gets_emails" >
+					      <label> En cliquant ici, vous acceptez de recevoir des e-mails de la part de Movie Journey. </label>
+					    </div>
+					  </div>
 					  <div class="form-group"> <!-- user's favorite movie types -->
 					    <label for="genres" class="col-sm-3 control-label"></label>
+					    <span class="error"> <?php echo $typesErr;?></span>
 					    <div class="col-sm-12 movie_genres">
 					    	<p class="col-sm-3">Choisissez vos genres de films préférés :</p>
 					    	<div class="col-sm-9">
@@ -108,7 +188,7 @@
 
 							$row = $query->fetchAll();
 							foreach($row as $key => $value) {
-								echo "<input type='checkbox' value='" .$value['type']. "' name='" .$value['type']. "'> <label>" .$value['type']."</label> ";
+								echo "<input type='checkbox' value='" .$value['type']. "' name= 'types[]'> <label>" .$value['type']."</label> ";
 							}
 					    	?>
 					    	</div>
@@ -142,118 +222,18 @@
 
 		========================================================== */
 
-	
-	if(!isset($_POST['password']) || strlen($_POST['password'])<8){
-		$html.="<p>Le mot de passe doit contenir au moins 8 caractères</p>";
-		$champOk=false;
-	} 
-	
-	if(isset($_POST['password']) and isset($_POST['confPassword'])){
-		if(strcmp($_POST["password"],$_POST["confPassword"])!==0){
-			$html.="<p>Les mots de passe ne sont pas identiques.</p>";
-			$champOk=false;
-		}
-	}
-	
-	if(isset($_POST['email'])){
-		if (!strstr($_POST['email'],"@") or (!strstr($_POST['email'],"."))){
-			$html.="<p>email invalide (ne contient pas de @ ou de .)</p>";
-			$champOk=false;
-		}
-	}
-	
-	$mdp = $_POST['password'];
-	$email = $_POST['email'];
-		
-	if ($champOk){
-		$html.="<p> Vos données ont été validées par le serveur.</p>";
-		addUser($lastname,$firstname,$birth_date,$email,$gets_emails,$password);
-	}
 
-		function verifemail($input){
-		// goal => email verification
-		$bool = (preg_match("/@/", $input) + preg_match("/./", $input)) == 2;
+// define variables and set to empty values
 
-		if (!$bool){
-			echo "<p>Adresse mail erronée</p>";
-		}
-		return $bool;
-		// return true if the email is valid 
-		// false otherwise
-	}
-
-
-/*	function verifmdplong($input){
-		// goal => password length verification : 6 characters at least
-		$bool = strlen($input) >= 6;
-		if (!$bool){
-			echo "<p>Mot de passe inférieur à 6 caractères</p>";
-		}
-		return $bool;
-		// return true if password is at least six charactères
-		//false otherwise
-	}
-
-	function verifmdps($input1, $input2){
-		// goal => if the password and its confirmation are exactly the same
-		// this function is case sensitive
-		$bool = strcmp($input1,$input2);
-		// $bool = 0 si les mots de passes sont identiques
-		if ($bool != 0){
-			echo "<p>Les mots de passe ne correspondent pas</p>";
-		}
-		return (!$bool);
-		// return true if the passwords are the same, case sensitive
-		// false otherwise
-
-	}
-
-	function verifgenres(){
-		// goal => if the user selected at least two music genres <=> two checkboxes
-		$bool = false;
-		// number of music genres selected
-		if(isset($_POST["type"])){
-			$bool = count($_POST["type"]) >= 2;
-			if(!$bool){
-				echo "<p>Sélectionnez au moins 2 genres.</p>";
-			}
-		}
-		else{
-			echo "<p>Sélectionnez au moins 2 genres.</p>";
-		}
-		return $bool;
-		// return true if user selected at least two checkboxes
-		// false otherwise
-		
-	}
-
-
-	function checkUserName($username){
-		global $bdd;
-		// checkUserName($username) sends a request to the database to check if the pseudo is or isn't taken
-		// return true if the pseudo isn't taken
-		// false otherwise
-
-		$bool = false;
-
-		// returned value is initialized to false
-
-		$requete = "SELECT COUNT(*) FROM users WHERE name = '$username'" ;
-
-		$result= $bdd->query($requete);
-
-		// request result
-		//$count is an array
-		$count = $result->fetch();
-
-		// if the pseudo isn't in the database
-		if($count[0] == 0){
-			$bool = true;
-		}
-
-		return $bool;
-
-
+	function checkemail($email){
+		//Checks if the mail is in the database
+		global $connection;
+		$req = "SELECT COUNT(*) AS count FROM users WHERE email= '$email'";
+	    $statement = $connection->prepare($req);
+	    $statement->bindValue(":email", $email, PDO::PARAM_STR);
+	    $statement->execute();
+	    $row = $statement->fetch(PDO::FETCH_ASSOC);
+	    return $row["count"] == "0";
 	}
 
 	function salage(){
@@ -273,62 +253,66 @@
 		return $saltpass;
 	}
 
-	function addUser($name,$firstname,$birth_date, $email, $gets_emails,$password){
+	function addUser($lastname,$firstname,$birth_date, $email, $gets_emails,$password){
 		// add a new user to the database
 		// no value returned
-		global $bdd;
+		global $connection;
 			
 		$passhach = sha1($password);
 		// password hash by sha1 algorithm
 
 		// random key of 10 characters
-		$random_key = salage();
+		$psalt = salage();
 
 		// SQL request
-		$chaine = "INSERT INTO users (name, firstname, birth_date, email, gets_emails, password, salt) VALUES (:name, :firstname, :birth_date, :email, :gets_emails, :password, :psalt)";
-		
+
+		$chaine = "INSERT INTO users (lastname, firstname, birth_date, email, gets_email, password, salt) VALUES (:lastname, :firstname, :birth_date, :email, :gets_emails, :password, :psalt)";
 		//prepare request
-		$statement = $bdd->prepare($chaine);
+		$statement = $connection->prepare($chaine);
 
 		// bind value and execute query
-		$statement->bindvalue(":name", $username, PDO::PARAM_STR);
+     	$statement->bindvalue(":lastname", $lastname, PDO::PARAM_STR);
+		$statement->bindvalue(":firstname", $firstname, PDO::PARAM_STR);
+		$statement->bindvalue(":birth_date", $birth_date, PDO::PARAM_STR);
 		$statement->bindvalue(":email", $email, PDO::PARAM_STR);
-		$statement->bindvalue(":pass", $passhach, PDO::PARAM_STR);
-		$statement->bindvalue(":news", $news, PDO::PARAM_INT);
-		$statement->bindvalue(":psalt", $random_key, PDO::PARAM_STR);
-
+		$statement->bindvalue(":gets_emails", $gets_emails, PDO::PARAM_STR);
+		$statement->bindvalue(":password", $passhach, PDO::PARAM_STR);
+		$statement->bindvalue(":psalt",$psalt, PDO::PARAM_STR);
 		$statement->execute();
-		
+
+		$userid="SELECT id FROM users WHERE email ='$email'";
+		return $userid;
+		//return the id to add it in userstypes 
+
 	}
 
 
-	function addUserGenres($genres){
-		// add selected music genres specific to a user to the database
-		// $genres is an array
-		global $bdd;
+	function addUserGenres($id, $type){
+		// add selected movie genres specific to a user to the database
+		// $type is an array
+		global $connection;
 		
-		$last_id = $bdd->lastInsertId();
-		$chaine = "INSERT INTO users_genres (user_id, genre) VALUES (:id, :genres)";
-		
-		$statement = $bdd->prepare($chaine);
-		$statement->bindValue(":id", $last_id, PDO::PARAM_INT);
-		for ($i = 0; $i < count($genres); $i++) {
-			$statement->bindValue(":genres", $genres[$i], PDO::PARAM_STR);
+		$last_id = $connection->lastInsertId();
+		$chaine = "INSERT INTO userstypes (user_id, type_id) VALUES (:id, :type_id)";
+		$statement = $connection->prepare($chaine);
+		$statement->bindValue(":id", $id, PDO::PARAM_INT);
+		for ($i = 0; $i < count($type); $i++) {
+			$statement->bindValue(":type", $type[$i], PDO::PARAM_STR);
 			$statement->execute();
 		}
 		
 		$statement->execute(); 
-	} */
+	} 
 
-		function requete_bdd($bdd, $req){
+		function requete_bdd($connection, $req){
 			/* will return all data from the database as json data
 				
 				------- ARGUMENTS
 				$req is a string
-				$bdd is the database
+				$connection is the database
 			*/
 			
-			$query = $bdd->prepare($req);
+			$query = $connection->prepare($req);
 			return $query;
 			/* returned variable is an pdo object */
 		}
