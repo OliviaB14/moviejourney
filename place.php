@@ -14,9 +14,9 @@
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/breadcrumb.css" rel="stylesheet" type="text/css">
-<link href="css/movies.css" rel="stylesheet" type="text/css">
 <link href="css/place.css" rel="stylesheet" type="text/css">
-<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g'></script>
+<!-- clé API google map Javascript API :  AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g -->
 </head>
 
 <body>
@@ -46,6 +46,10 @@
 		// lancement de la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
 		$req = $connection->query($sql); 
 		$res = $req->fetch();
+		// variable utilisé pour prochaine requête
+		$nom = $res[0];
+		$lat = $res[3];
+		$long = $res[4];
 	?>
 		<div class="row">
 			<div class="description-place">
@@ -63,7 +67,8 @@
 		<div class="add-fav">
 			<div class="row">
 				<div class="col-md-12">
-					<h4>Ce lieu vous plaît ? Vous désirez le visiter ? Ajoutez-le à vos favoris et organisez votre voyage !</h4>
+					<h4>Ce lieu vous plaît ? Vous désirez le visiter ?</h4>
+					<h4>Ajoutez-le à vos favoris et organisez votre voyage !</h4>
 					<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
 				</div>
 			</div>
@@ -78,6 +83,32 @@
 			<div class="localisation-place col-md-9">
 				<div id='gmap_canvas'></div>
 			</div>
+		</div>
+		<div class="row">
+			<?php
+				
+				$sql="SELECT name, photo_path, (3956 * 2 * ASIN(SQRT( POWER(SIN(( $lat - latitude) *  pi()/180 / 2), 2) +COS( $lat * pi()/180) * COS(latitude * pi()/180) * POWER(SIN(( $long - longitude) * pi()/180 / 2), 2) ))) AS distance FROM place HAVING distance <= 10 ORDER BY distance";
+        		$stmt =$connection->prepare($sql);
+        		$stmt->execute();
+				$int = $stmt->rowCount();
+				// 1 car la requête comprend le lieu en lui même
+				if ($int == 1) {
+					echo "<h3>Aucun autre lieu à proximité...</h3>";
+				} else {
+					echo "<h3>D'autres lieux à proximité...</h3>";
+					while($row = $stmt->fetch()){
+						if ($row[0] != $nom) {
+							?>
+							  <div class="col-xs-6 col-md-3">
+								<a href="#" class="thumbnail">
+								  <img src="<?php echo $row[1] ?>" alt="...">
+								</a>
+							  </div>
+							<?php
+						}
+					}
+				}
+				?>
 		</div>
 		
 		<?php
