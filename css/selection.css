@@ -20,6 +20,7 @@ img {
     text-align: center;
     color: #1b1c1d;
     margin-bottom: 40px;
+    font-family: "Courgette";
 }
 
 p {
@@ -28,17 +29,19 @@ p {
 
 .hotels-restaurants {
     border: 1px solid #436b7d;
-    border-radius: 30px;
 	height:590px;
 }
 
 #sideInfos h3 {
     font-size: 25px;
     text-align: center;
-    color: deepskyblue;
+    color: white;
     border-bottom: 1px dashed deepskyblue;
     margin-bottom: 20px;
     padding: 10px;
+    background: #8fcae4;
+    margin: 30px;
+    font-family: "Courgette";
 }
 
 .thumbnail_place{

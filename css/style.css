@@ -20,7 +20,7 @@
 /* ---------- header --------- */
 
 header{
-	width:100%;
+    width:100%;
 }
 
 #logo {
@@ -40,12 +40,12 @@ h4, #subtitle {
  /* navigation bar */
 
 .nav-stacked li {
-	font-size:12px;
+    font-size:12px;
 }
 
 .nav-stacked li a {
-	color:black;
-	text-decoration:none;
+    color:black;
+    text-decoration:none;
 }
 
 ul.nav.nav-stacked.navbar-right {
@@ -54,12 +54,12 @@ ul.nav.nav-stacked.navbar-right {
 }
 
 .navbar-brand{
-	width: 100%;
-	height:auto;
+    width: 100%;
+    height:auto;
 }
 
 .navbar {
-	margin-bottom:0px;	
+    margin-bottom:0px;  
 }
 
 ul.navbar-nav {
@@ -67,13 +67,9 @@ ul.navbar-nav {
     margin-left: 15%;
 }
 
-#icon_menu li {
-    margin-right: 20px;
-}
-
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	background:#F5E0A2;
-	font-weight:bold;
+    background:#F5E0A2;
+    font-weight:bold;
 }
 
 .navbar-nav li a {
@@ -81,30 +77,47 @@ ul.navbar-nav {
     letter-spacing:2px;
 }
 
+#connexion-button button {
+  padding: 20px 50px;
+  display: inline-block;
+  background: #fff;
+  text-decoration: none;
+  transition: 0.35s ease-in-out;
+  font-weight: 700;
+}
+
+#connexion-button button:hover{
+    background: #dc1029;
+}
+
+#connexion-button button:hover a{
+    color: white;
+}
+
 /* ---------- search bar index.php --------- */ 
 
-#searchbarDiv {
+.searchbarDiv {
     padding: 1%;
     overflow: hidden;
     margin-left: 15px;
 }
 
-#searchTools{
-	overflow: visible;
-	z-index: 9999;
+.searchTools{
+    overflow: visible;
+    z-index: 9999;
 }
 
-#searchbarDiv input[type="search"] {
+.searchbarDiv input[type="search"] {
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 110%;
     width: 100%;
     padding: 1%;
-	height:50px;
+    height:50px;
 }
 
-#styled-select {
+.styled-select {
     overflow: hidden;
     background-color: #F0F0F0;
     color: #333;
@@ -114,7 +127,7 @@ ul.navbar-nav {
   /* webkit*/
 }
 
-#styled-select select {
+.styled-select select {
     background: #F0F0F0;
     height: 50px;
     width: 127.95px;
@@ -124,7 +137,7 @@ ul.navbar-nav {
 }
 
 /* search button */
-button.btn.btn-default.col-lg-2.col-md-hidden {
+button.btn.btn-default.col-lg-2.col-md-hidden, .search_btn {
     background-color: #008B8B;
     height:50px;
     border-radius: 1px;
@@ -150,11 +163,11 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
 }
 
 .overlay-h1, .jumbotron h1 {
-	font-weight:700;
+    font-weight:700;
 }
 
 .overlay-h2, .jumbotron p {
-	font-family: Uni-Sans-book;
+    font-family: Uni-Sans-book;
 }
 
 .img-carrousel-index {
@@ -180,7 +193,7 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
 
 
 #description {
-	background:#F8F8F8;	
+    background:#F8F8F8; 
 }
 
 /*---------- end  -------------- */
@@ -211,17 +224,17 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
 /*---------- contact.php style  -------------- */
 
 .jumbotron {
-	background-image:url('../image/contact.jpg');
+    background-image:url('../image/contact.jpg');
     margin-top: -20px;
-	text-align: center;
+    text-align: center;
     color: white;
-	background-size: cover;
+    background-size: cover;
 }
 
 /*---------- end  -------------- */
 
 #input-message {
-	height:150px;	
+    height:150px;   
 }
 
 .infos {
@@ -229,13 +242,13 @@ button.btn.btn-default.col-lg-2.col-md-hidden {
     -webkit-box-shadow: 5px 5px 5px #656565;
     -o-box-shadow: 5px 5px 5px #656565;
     box-shadow: 5px 5px 5px #656565;
-	height: 295px;
+    height: 295px;
     text-align: center;
 }
 
 .infos-blue {
-	color:blue;
-	font-weight:600;
+    color:blue;
+    font-weight:600;
 }
 
 /* ------------ selection.php style ---------- */

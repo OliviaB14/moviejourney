@@ -12,6 +12,7 @@ $(document).ready(function(){
 
     $("#propose_a_movie").click(function(){
     	var movie = getMovieName();
+    	
         $.ajax({success: function(result){
             $("#message").html(textchange());
         }});
