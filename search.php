@@ -16,6 +16,7 @@
 		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" /><!-- bootstrap -->
 		<link rel="stylesheet" href="css/style.css" type="text/css" /><!-- main stylesheet -->
 		<link rel="stylesheet" href="css/search.css" type="text/css" /><!-- main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="css/overlay-bootstrap.min.css"/><!-- overlay stylesheet -->
 		<title>Movie Journey</title>
 	</head>
 
@@ -52,133 +53,176 @@
 				</div>
 			</div>
 			<div class="row">
-						<?php
-							if($option == 'Film'){
-								//search happens in the movie table, name column
-								$requete = 
-									"SELECT name, backdrop_path, description FROM movie 
-									WHERE name LIKE '%$search%'";
-							} else if ($option == "Thème de film"){
-								// search happens in the type table, type column and use joints to return movies
-								$requete = 
-									"SELECT movie.name, movie.backdrop_path, movie.description FROM type, movie, movietype 
-									WHERE type.type LIKE '%$search%'
-									AND type.id = movietype.type_id
-									AND movietype.movie_id = movie.id";
-							} else{
-								$option = "Lieux cultes";
-								//search happens in the place table, name column
-								$requete = 
-									"SELECT name, photo_path, description FROM place
-									WHERE name LIKE '%$search%'";
-							}
-							$query = requete_bdd($connection, $requete);
-							$query->execute();
+				<?php
+					if($option == 'Film'){
+						//search happens in the movie table, name column
+						$requete = 
+							"SELECT name, backdrop_path, description FROM movie 
+							WHERE name LIKE '%$search%'";
+					} else if ($option == "Thème de film"){
+						// search happens in the type table, type column and use joints to return movies
+						$requete = 
+							"SELECT movie.name, movie.backdrop_path, movie.description FROM type, movie, movietype 
+							WHERE type.type LIKE '%$search%'
+							AND type.id = movietype.type_id
+							AND movietype.movie_id = movie.id";
+					} else{
+						$option = "Lieux cultes";
+						//search happens in the place table, name column
+						$requete = 
+							"SELECT name, photo_path, description FROM place
+							WHERE name LIKE '%$search%'";
+					}
+					$query = requete_bdd($connection, $requete);
+					$query->execute();
 
-							$int = $query->rowCount();
+					$int = $query->rowCount();
 
-							/* if the movie isn't in the database, it shows an error message */ 
-							if($int == 0){
-								echo "<div class='alert alert-warning search_error' role='alert'><strong>" . $search . "</strong> ne correspond à aucun résultat... Réessayez.</div>";
-							?>
-							<!-- search bar -->
-						<div class="searchbarDiv row">
-							<form class="form-inline" method="GET" action="search.php" id="searchinput">
-								<div class="dropdown col-lg-2 col-md-2 styled-select">
-								  <select name="opt">
-									<option>Film<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
-									<option>Thème de film</option>
-									<option>Lieux cultes</option>
-								  </select>
-								</div>
-								<div class="form-group col-lg-8 col-md-10">
-									<label for="s" class="sr-only">Recherche</label>
-									<input type="search" class="form-control searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
-								</div>
-								<button type="submit" class="btn btn-default col-lg-2 col-md-hidden">Rechercher <img src="image/loupe.png" alt="Rechercher"/></button>
-							</form>
-						</div>
-
-						<div>
-							
-						</div>
-
-					</div>
-					<?php
-							} else{
-
-								$query->execute();
-								/* this boucle will create the bootstrap grid for each movie */
-								$row=$query->fetchAll();
-								$int = 0;
-								foreach($row as $value) {
-									$int++;
-									if ($int % 2 != 0) {
-										echo "<div class='row'>";
-									}
+					/* if the movie isn't in the database, it shows an error message */ 
+					if($int == 0){
+						echo "<div class='col-lg-8 col-lg-offset-2 alert alert-warning search_error' role='alert'><strong>" . $search . "</strong> ne correspond à aucun résultat...</div>";
 					?>
-						<div class='col-xs-6 col-lg-2 search-r'>
-						<!-- this column will contain the movie poster -->
-						<?php
-							echo "<img src='" . $value[1] . "' class='thumbnail img-responsive search-img'/>";
-						?>
-						</div>
-	
-						<div class="hidden-xs hidden-md col-lg-2">
-						<!-- this column will contain the movie resume only on a big screen -->
-						<p class="movieTitle">
-						<?php
-							echo $value[0];
-						?>
-						</p>
-						<p class="movieDesc"><?php echo $value[2] ?></p>
-						</div>
-	
-						<div class="col-lg-2 col-xs-6">
-						<!-- quick links to add the corresponding movie to user favorites and to see its detailed descriptions -->
-						<?php if ($option == "Lieux cultes") { ?>
-							<a href="<?php echo 'place.php?place=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
-						<?php } else { ?>
-							<a href="<?php echo 'movies.php?page=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
-						<?php } ?>
-							<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
-						</div>
-					<?php
-								if ($int % 2 == 0) {
-									echo "</div>";
-								}
-								}
-								}
-						}else {
-							/* if the search input isn't completed
-							it will show a search form */
-								
-						?>
+			</div>
+			
 
-					<!-- 
-
-
-					ajouter le bouton de proposition de film ici !!
-
-
-					 -->
-					<div class="alert alert-danger search_error" role="alert">Aucun résultat ne correspond à votre recherche... Voulez-vous proposer ce film ?</div>
-					<div class="row">
-						<form class="form-inline" method="GET" action="search.php">
-					<div class="dropdown col-lg-2 col-md-2">
-					  <select>
-					  	<option>Recherche<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
-						<option>Film</option>
+			<!-- search bar -->
+			<div class="searchbarDiv row">
+				<form class="form-inline col-lg-8 col-md-12 col-lg-offset-2 " method="GET" action="search.php" id="searchinput">
+					<div class="dropdown col-lg-2 col-md-2 styled-select">
+					  <select name="opt">
+						<option>Film<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
 						<option>Thème de film</option>
 						<option>Lieux cultes</option>
 					  </select>
 					</div>
-					<div class="form-group col-lg-8 col-md-10">
+					<div class="form-group col-lg-9 col-md-9 col-sm-12 col-xs-12">
 						<label for="s" class="sr-only">Recherche</label>
-						<input type="search" class="form-control" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
+						<input type="search" class="form-control searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
 					</div>
+					<button type="submit" class="btn btn-default col-md-1 col-xs-12 col-lg-1 col-md-hidden search_btn"> <img src="image/loupe.png" alt="Rechercher"/></button>
 				</form>
+			</div>
+
+			<!-- 'propose a movie' button -->
+			<div class="row propose_a_movie">
+			<div class="col-lg-12">
+				<div class="btn col-xs-12 col-lg-offset-2 col-lg-8" data-toggle="modal" data-target="#propose"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Proposer le film au site</div>
+
+				<div class="modal fade in" role="dialog" id="propose" aria-hidden="false">
+					<div class="modal-backdrop">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button class="close" data-dismiss="modal">
+										<span aria-hidden="true">x</span>
+										<span class="sr-only">close</span>
+									</button>
+									Proposer un film
+								</div>
+								<div class="model-body">
+								<!-- form for the movie proposal -->
+									<form method="POST" class="row">
+									  <div class="form-group form-inline col-lg-12">
+									    <label for="moviePropose" class="col-lg-2">Titre du film</label>
+									    <div class="col-lg-10">
+									    <input type="text" class="form-control" id="moviePropose" placeholder="Titre du film" name="moviePropose"/>
+									    </div>
+									  </div>
+									  <div class="form-group form-inline col-lg-12">
+									    <label for="posterPropose" class="col-lg-2">Poster du film</label>
+									    <input type="file" id="posterPropose" class="col-lg-offset-5">
+									    <p class="help-block ROW">Télécharger l'affiche du film (facultatif)</p>
+									  </div>
+									  	<div class="form-group form-inline col-lg-12">
+									    <label for="emailPropose" class="col-lg-2">Adresse email</label>
+									    <input type="email" class="form-control" id="emailPropose" placeholder="Email">
+									  </div>
+									  
+									</form>
+									<button type="submit" class="btn btn-default" name="propose_a_movie" id="propose_a_movie">Proposer</button>
+
+									<!-- success message -->
+									<div id="message" class="alert alert-success" role="alert">
+									</div>
+
+
+								</div>
+							</div>
+						</div>
 					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<?php
+				} else{
+
+					$query->execute();
+					/* this boucle will create the bootstrap grid for each movie */
+					$row=$query->fetchAll();
+					$int = 0;
+					foreach($row as $value) {
+						$int++;
+						if ($int % 2 != 0) {
+							echo "<div class='row'>";
+						}
+		?>
+			<div class='col-xs-6 col-lg-2 search-r'>
+			<!-- this column will contain the movie poster -->
+			<?php
+				echo "<img src='" . $value[1] . "' class='thumbnail img-responsive search-img'/>";
+			?>
+			</div>
+
+			<div class="hidden-xs hidden-md col-lg-2">
+			<!-- this column will contain the movie resume only on a big screen -->
+			<p class="movieTitle">
+			<?php
+				echo $value[0];
+			?>
+			</p>
+			<p class="movieDesc"><?php echo $value[2] ?></p>
+			</div>
+
+			<div class="col-lg-2 col-xs-6">
+			<!-- quick links to add the corresponding movie to user favorites and to see its detailed descriptions -->
+			<?php if ($option == "Lieux cultes") { ?>
+				<a href="<?php echo 'place.php?place=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
+			<?php } else { ?>
+				<a href="<?php echo 'movies.php?page=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
+			<?php } ?>
+				<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+			</div>
+		<?php
+					if ($int % 2 == 0) {
+						echo "</div>";
+					}
+				}
+				}
+			}else {
+				/* if the search input isn't completed
+				it will show a search form */
+					
+			?>
+			<div class="alert alert-danger search_error" role="alert">Aucun résultat ne correspond à votre recherche... Voulez-vous proposer ce film ?</div>
+				<div class="row">
+					<form class="form-inline" method="GET" action="search.php">
+						<div class="dropdown col-lg-2 col-md-2">
+						  <select>
+						  	<option>Recherche<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
+							<option>Film</option>
+							<option>Thème de film</option>
+							<option>Lieux cultes</option>
+						  </select>
+						</div>
+						<div class="form-group col-lg-8 col-md-10">
+							<label for="s" class="sr-only">Recherche</label>
+							<input type="search" class="form-control" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
+						</div>
+					</form>
+				</div>
+
+
 
 					<?php
 				}
@@ -192,6 +236,8 @@
 		</div>
 
 		<?php
+
+
 
 		// include the footer file
 		include('footer.php');
@@ -209,9 +255,18 @@
 			/* returned variable is an pdo object */
 		}
 
-		// close connection
-		$connection = null;
 		?>
 
+		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/ajax-functions.js"></script>
+		<?php
+			/* if user proposes a movie, 
+		the movie information will be send to the database */
+		/*echo($movie);
+		$requete = "INSERT INTO place_added (name_movie) VALUES '$movie'";
+		$query = requete_bdd($connection, $requete);
+		$query->execute();*/
+		?>
 	</body>
 </html>

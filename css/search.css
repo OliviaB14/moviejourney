@@ -31,3 +31,36 @@ span.search{
 	letter-spacing: 1px;
 	text-transform: uppercase;
 }
+
+
+.modal-body{
+	text-align: left;
+}
+
+.propose_a_movie .btn {
+  display: inline-block;
+  color:#000;
+  background: rgba(0, 139, 139, 1);
+  text-decoration: none;
+  transition: 0.35s ease-in-out;
+  font-weight: 700;
+  text-align:left;
+}
+
+.propose_a_movie .btn:hover {
+  background:#fff;
+  color:#000;
+}
+
+.propose_a_movie .btn:hover a{
+	color: #fff;
+}
+
+.modal-content{
+	background:#fff;
+	opacity:1;
+}
+
+.proposebtn{
+	background:#fff;
+}
