@@ -74,11 +74,14 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		}
 	}
 
-	$lastname = $_POST['lastname'];
-	$firstname = $_POST['firstname'];
-	$mdp = $_POST['password'];
-	$email = $_POST['email'];
-	$birth_date = $_POST['birthdate'];
+	if ($champOk){
+		$lastname = $_POST['lastname'];
+		$firstname = $_POST['firstname'];
+		$mdp = $_POST['password'];
+		$email = $_POST['email'];
+		$birth_date = $_POST['birthdate'];
+	}
+
 	if (isset($_POST['gets_emails'])){
 		$gets_emails =1;
 	}else{
@@ -92,9 +95,10 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 	if ($champOk){
 		echo "<p> Vos données ont été validées par le serveur.</p>";
 		$userid = addUser($lastname,$firstname,$birth_date,$email,$gets_emails,$mdp);
-		addUserGenres($userid,$_POST['type']);
+		addUserGenres($userid,$_POST['types']);
+		header ('location: account.php');
 	}
-}
+
 	?>
 
 	<!-- MAIN CONTAINER : all page is contained -->
@@ -280,8 +284,10 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		$statement->bindvalue(":psalt",$psalt, PDO::PARAM_STR);
 		$statement->execute();
 
-		$userid="SELECT id FROM users WHERE email ='$email'";
-		return $userid;
+		$recupID="SELECT id FROM users WHERE email ='$email'";
+		$request = $connection->query($recupID);
+		$userid = $request->fetch();
+		return $userid[0];
 		//return the id to add it in userstypes 
 
 	}
@@ -291,17 +297,16 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		// add selected movie genres specific to a user to the database
 		// $type is an array
 		global $connection;
-		
-		$last_id = $connection->lastInsertId();
-		$chaine = "INSERT INTO userstypes (user_id, type_id) VALUES (:id, :type_id)";
-		$statement = $connection->prepare($chaine);
-		$statement->bindValue(":id", $id, PDO::PARAM_INT);
 		for ($i = 0; $i < count($type); $i++) {
-			$statement->bindValue(":type", $type[$i], PDO::PARAM_STR);
+			$recupTypeid = "SELECT id FROM type WHERE type='$type[$i]'";
+			$req = $connection->query($recupTypeid);
+			$type_id = $req->fetch();
+			$chaine = "INSERT INTO userstypes (user_id, type_id) VALUES (:id, :type_id)";
+			$statement = $connection->prepare($chaine);
+			$statement->bindValue(":id", $id, PDO::PARAM_INT);
+			$statement->bindValue(":type_id", $type_id[0], PDO::PARAM_INT);
 			$statement->execute();
 		}
-		
-		$statement->execute(); 
 	} 
 
 		function requete_bdd($connection, $req){

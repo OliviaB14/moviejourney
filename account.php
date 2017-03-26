@@ -50,7 +50,11 @@
 
 		<!-- if user is connected -->
 		<?php if($connect){ 
-			$_SESSION['firstname'] = "Olisomotomish"; //test de connexion
+			global $connection;
+			$sql = "SELECT firstname FROM users WHERE email = '".$_SESSION['identifiant']."'";
+			$req = $connection -> query($sql);
+			$data = $req -> fetch();
+			$_SESSION['firstname'] = $data['firstname']; //test de connexion
 		?>
 
 		<div class="row">
@@ -96,7 +100,7 @@
 		        </div>
 		        <!-- deconnection button -->
 			<div class="btn deconnected col-xs-3">
-				<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Déconnexion
+				<a href="deconnexion.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Déconnexion </a>
 			</div>
 		    </div>
 		</div>
@@ -117,7 +121,7 @@
 			<div class="col-lg-6 col-xs-12" id="connection">
 				<h3>Connexion</h3>
 				  <div class="panel">
-				    <form class="form-horizontal">
+				    <form class="form-horizontal" action="connexion.php" method="post">
 					  <div class="form-group">
 					    <label for="identifier1" class="col-sm-3 control-label">Adresse e-mail</label>
 					    <div class="col-sm-9">
