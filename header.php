@@ -49,7 +49,7 @@
   <div class="overlay-content">
   	<div class="row">
   	<div class="row"><h3>Connexion</h3></div>
-	<form method="POST" action="account.php">
+	<form method="POST" action="connexion.php">
 		<div class="row form-group">
 		<label for="identifier1" class="col-sm-3 col-sm-offset-2 control-label">Adresse e-mail</label>
 		<div class="col-sm-4">
