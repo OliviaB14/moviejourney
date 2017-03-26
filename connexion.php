@@ -25,6 +25,6 @@
 	  }    
 	}
 	else {
-	  header('location: accoount.php');
+	  header('location: account.php');
 	   //Renvoie à la page de connexion si rien n'a été entré 
 	}

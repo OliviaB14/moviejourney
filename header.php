@@ -39,6 +39,7 @@
 	</nav>
 </header>
 
+
 	<!-- The overlay -->
 <div id="myNav" class="overlay_div_connect">
 
@@ -53,7 +54,7 @@
 		<div class="row form-group">
 		<label for="identifier1" class="col-sm-3 col-sm-offset-2 control-label">Adresse e-mail</label>
 		<div class="col-sm-4">
-		<input type="text" name="name" class="form-control" placeholder="Adresse e-mail">
+		<input type="text" name="name" id="identifier1" class="form-control" placeholder="Adresse e-mail">
 		</div>
 		</div>
 		<div class="row form-group">
