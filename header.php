@@ -1,3 +1,7 @@
+<link rel="stylesheet" type="text/css" href="css/overlay-bootstrap.min.css"/><!-- overlay stylesheet -->
+<link rel="stylesheet" type="text/css" href="css/header.css">
+
+
 <header>
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
@@ -28,9 +32,62 @@
 		  </ul>
 		  
 		  <ul class="nav nav-stacked navbar-right">
-			<li id="connexion-button"><button type="button" class="btn btn-default navbar-btn"><a href="account.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon compte</a></button></li>
+			<li id="connexion-button"><a href="#connectionpanel"><button type="button" class="btn btn-default navbar-btn" onclick="openNav()"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon compte</button></a></li>
 		  </ul>
 		</div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
 </header>
+
+	<!-- The overlay -->
+<div id="myNav" class="overlay_div_connect">
+
+  <!-- Button to close the overlay navigation -->
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <!-- Overlay content -->
+  <div class="overlay-content">
+  	<div class="row">
+  	<div class="row"><h3>Connexion</h3></div>
+	<form method="POST" action="account.php">
+		<div class="row form-group">
+		<label for="identifier1" class="col-sm-3 col-sm-offset-2 control-label">Adresse e-mail</label>
+		<div class="col-sm-4">
+		<input type="text" name="name" class="form-control" placeholder="Adresse e-mail">
+		</div>
+		</div>
+		<div class="row form-group">
+		<label for="password1" class="col-sm-3 col-sm-offset-2 control-label">Mot de passe</label>
+	    <div class="col-sm-4">
+	      <input type="password" class="form-control" name="password1" id="password1" placeholder="Mot de passe">
+	    </div>
+	    </div>
+	    <div class="forgotten-psw">
+		  	<p><a href="forgotten-psw.php">Mot de passe oublié ?</a></p>
+		  </div>
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button type="submit" class="btn btn-default" name="con-btn">Connexion</button>
+		    </div>
+		  </div>
+	</form>
+	</div>
+  </div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+	/* Open when someone clicks on the span element */
+function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+
+</script>

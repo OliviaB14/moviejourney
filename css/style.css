@@ -90,7 +90,7 @@ ul.navbar-nav {
     background: #dc1029;
 }
 
-#connexion-button button:hover a{
+a li#connexion-button button:hover {
     color: white;
 }
 
