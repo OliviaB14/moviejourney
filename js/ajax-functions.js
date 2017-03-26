@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+	valeurphp = getMovieName();
+
 	function getMovieName(){
 		var movie = $("#moviePropose").val();
 		return (movie);
