@@ -18,9 +18,11 @@
 		<!-- bootstrap -->
 		<link rel="stylesheet" href="css/style.css" type="text/css" />
 		<!-- main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="HoverEffectIdeas/HoverEffectIdeas/css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="HoverEffectIdeas/HoverEffectIdeas/css/set1.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">		
+		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">	
 		<!--font-family title -->
 
 		<title>Movie Journey</title>
@@ -174,36 +176,58 @@
 				<!-- image 171x180 -->
 				<h3 class="text-center lead"><span>La sélection de l'équipe</span> </h3>
 				<div class="row">
-					<div class="col-xs-6 col-md-3 text-center thumbnail">
-						<a href="selection.php?country=France">
-							<img src="image/circuit-france.jpg" class="img-thumbnail img-responsive" alt="circuit movie journey france"/>
-							<p class="caption">En savoir plus</p>
-						</a>
+					<div class="col-xs-6 col-md-3 text-center thumbnail effect-lily">
+						<div class="grid">
+							<figure class="effect-lily">
+								<img src="image/circuit-france.jpg" alt="img01"/>
+								<figcaption>
+									<h2>Allez à <span>Paris</span></h2>
+									<p>Lily likes to play with crayons and pencils</p>
+									<a href="selection.php?country=France">View more</a>
+								</figcaption>			
+							</figure>				
+						</div>
 					</div>
 					<div class="col-xs-6 col-md-3 text-center thumbnail">
-						<a href="selection.php?country=Angleterre">
-							<img src="image/circuit-england.jpg" class="img-thumbnail img-responsive" title="Réservez votre circuit en Angleterre avec Movie Journey !" alt="circuit movie journey england"/>
-							<p class="caption">En savoir plus</p>
-						</a>
+						<div class="grid">
+							<figure class="effect-lily">
+								<img src="image/circuit-england.jpg" alt="Circuit français"/>
+								<figcaption>
+									<h2>Visitez <span>l'Angleterre</span></h2>
+									<p>Lily likes to play with crayons and pencils</p>
+									<a href="selection.php?country=Angleterre">View more</a>
+								</figcaption>			
+							</figure>
+						</div>
 					</div>
 					<div class="col-xs-6 col-md-3 text-center thumbnail">
-						<a href="selection.php?country=Japon">
-							<img src="image/circuit-japan.jpg" class="img-thumbnail img-responsive" alt="circuit movie journey japan">
-							<p class="caption">En savoir plus</p>
-						</a>
+						<div class="grid">
+							<figure class="effect-lily">
+								<img src="image/circuit-japan.jpg" alt="img01"/>
+								<figcaption>
+									<h2>Découvrez le <span>Japon</span></h2>
+									<p>Lily likes to play with crayons and pencils</p>
+									<a href="selection.php?country=Japan">View more</a>
+								</figcaption>			
+							</figure>
+						</div>
 					</div>
-					<div class="col-xs-6 col-md-3 text-center thumbnail" id="img-reservation">
-						<a href="#">
-							<img src="image/index-reservation.jpg" class="img-thumbnail img-responsive" alt="réservation de circuits">
-							<p class="caption">Réservez</p>
-						</a>
+					<div class="col-xs-6 col-md-3 text-center thumbnail">
+						<div class="grid">
+							<figure class="effect-lily">
+								<img src="image/index-reservation.jpg" alt="img01"/>
+								<figcaption>
+									<h2>Réservez votre circuit <span>Avec MovieJourney</span></h2>
+									<p>Lily likes to play with crayons and pencils</p>
+									<a href="circuit.php">View more</a>
+								</figcaption>			
+							</figure>
+						</div>
 					</div>
 				</div>
 			</div>
 			<!-- END OF SELECTED ITENERARIES --> 
 
-			<!-- back to top button -->
-			<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
 				<!-- FOOTER -->
 			<?php
