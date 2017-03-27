@@ -99,7 +99,7 @@
 						<label for="s" class="sr-only">Recherche</label>
 						<input type="search" class="form-control searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
 					</div>
-					<button type="submit" class="btn btn-default col-md-1 col-xs-12 col-lg-1 col-md-hidden search_btn"> <img src="image/loupe.png" alt="Rechercher"/></button>
+					<button type="submit" class="btn btn-default col-md-1 col-xs-12 col-lg-1 col-md-hidden search_btn"> <span class="glyphicon glyphicon-search"></span></button>
 				</form>
 			</div>
 
@@ -260,11 +260,18 @@
 		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/ajax-functions.js"></script>
+
+
+
 		<?php
 			/* if user proposes a movie, 
 		the movie information will be send to the database */
-		/*echo($movie);
-		$requete = "INSERT INTO place_added (name_movie) VALUES '$movie'";
+
+		echo "<script> document.write(getMovieName()); </script>";
+		
+
+		//echo($movie);
+		/*$requete = "INSERT INTO place_added (name_movie) VALUES '$movie'";
 		$query = requete_bdd($connection, $requete);
 		$query->execute();*/
 		?>

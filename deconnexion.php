@@ -1,12 +1,13 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Document sans titre</title>
-<link href="style.css" rel="stylesheet" type="text/css">
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-</head>
+<?php
+// On démarre la session
+session_start ();
 
-<body>
-</body>
-</html>
+// On détruit les variables de notre session
+session_unset ();
+
+// On détruit notre session
+session_destroy ();
+
+// On redirige le visiteur vers la page d'accueil
+header ('location: index.php');
+?>
