@@ -94,7 +94,6 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		$userid = addUser($lastname,$firstname,$birth_date,$email,$gets_emails,$mdp);
 		addUserGenres($userid,$_POST['type']);
 	}
-}
 	?>
 
 	<!-- MAIN CONTAINER : all page is contained -->

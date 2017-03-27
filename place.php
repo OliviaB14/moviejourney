@@ -15,6 +15,7 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/breadcrumb.css" rel="stylesheet" type="text/css">
 <link href="css/place.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g'></script>
 <!-- clé API google map Javascript API :  AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g -->
 </head>
@@ -42,7 +43,7 @@
 	
 		// création de la requête
 		//rajouter townplace FROM et townplace à la place de town dans WHER
-        $sql = "SELECT place.name, place.photo_path, place.description, place.latitude, place.longitude, town.country, town.name FROM place, movie, placemovie, town, placetown WHERE place.name = '$place' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id AND place.id = placetown.place_id AND placetown.town_id = town.id";
+        $sql = "SELECT place.name, place.photo_path, place.description, place.latitude, place.longitude, town.country, town.name, place.id FROM place, movie, placemovie, town, placetown WHERE place.name = '$place' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id AND place.id = placetown.place_id AND placetown.town_id = town.id";
 		// lancement de la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
 		$req = $connection->query($sql); 
 		$res = $req->fetch();
@@ -50,6 +51,8 @@
 		$nom = $res[0];
 		$lat = $res[3];
 		$long = $res[4];
+		$id_place = $res[7];
+		$id_user = $_SESSION['id'];
 	?>
 		<div class="row">
 			<div class="description-place">
@@ -69,7 +72,8 @@
 				<div class="col-md-12">
 					<h4>Ce lieu vous plaît ? Vous désirez le visiter ?</h4>
 					<h4>Ajoutez-le à vos favoris et organisez votre voyage !</h4>
-					<button type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+					<!-- ajouter condition php si le lieu n'est pas déjà dans les favoris de l'utilisateur -->
+					<button type="button" id="add_fav" href="?action=addFavorite" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
 				</div>
 			</div>
 		</div>
@@ -100,7 +104,7 @@
 						if ($row[0] != $nom) {
 							?>
 							  <div class="col-xs-6 col-md-3">
-								<a href="#" class="thumbnail">
+								<a href="place.php?place=<?php echo $row[0] ?>" class="thumbnail">
 								  <img src="<?php echo $row[1] ?>" alt="...">
 								</a>
 							  </div>
@@ -117,12 +121,45 @@
 	
 </div>
 </body>	
+
 <script type='text/javascript'>
-	var lat = <?= $res[3]; ?>;
-	var long = <?= $res[4]; ?>;
+	var lat = <?= $lat; ?>;
+	var long = <?= $long; ?>;
 	var nom = '<?= $place; ?>';
-	function init_map(){var myOptions = {zoom:19,center:new google.maps.LatLng(lat,long),mapTypeId: google.maps.MapTypeId.HYBRID};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(lat,long)});infowindow = new google.maps.InfoWindow({content:nom});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+	
+	function init_map(){
+		var myOptions = {zoom:19,center:new google.maps.LatLng(lat,long),mapTypeId: google.maps.MapTypeId.HYBRID};
+		map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+		marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(lat,long)});
+		infowindow = new google.maps.InfoWindow({content:nom});
+		google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
+		infowindow.open(map,marker);
+	}
+	google.maps.event.addDomListener(window, 'load', init_map);
+	
+	$( "#add_fav" ).click(function() {
+		if ($(this).css("background") == "rgb(255, 192, 203) none repeat scroll 0% 0% / auto padding-box border-box") {
+			$(this).css("background","white");
+		} else {
+			$(this).css("background","pink");
+		}
+	});
 </script>
+
+<?php
+	function addFavorite($id_place, $id_user) {
+		$chaine = "INSERT INTO usersfavorite_places (user_id, place_id) VALUES (:user_id, :place_id)";
+		//prepare request
+		$statement = $connection->prepare($chaine);
+
+		// bind value and execute query
+     	$statement->bindvalue(":user_id", $id_place, PDO::PARAM_STR);
+		$statement->bindvalue(":place_id", $id_user, PDO::PARAM_STR);
+		echo ("<h1>id place : ".id_place." // id user : ".$id_user."</h1>");
+	}
+?>
+
 </html>
+
 
 

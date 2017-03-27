@@ -37,6 +37,7 @@
   if (!empty($_SESSION['email']) && (!empty($_SESSION['pass']))) {
     // this boolean variable will tell if the user is connected or just a visitor
     $connect = true;
+	//rajouter condition pour afficher toute les données sessions de l'utilisateur ; id, firstname
   }else{
     $connect = false;
   }
