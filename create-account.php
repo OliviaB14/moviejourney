@@ -1,7 +1,6 @@
 <?php
   // Connect to the database
   require 'base.php';
-
   // Character encoding of the database
   $connection->exec("SET NAMES 'utf8'");
 ?>
@@ -37,12 +36,10 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		$lnameErr = "* Entrez un nom."; 
 		$champOk=false;
 	}
-
 	if(!isset($_POST['firstname'])){
 		$fnameErr = "* Entrez un prénom.";
 		$champOk=false;
 	}
-
 	if(!isset($_POST['password']) || strlen($_POST['password'])<8){
 		$mdpErr = "* Le mot de passe doit contenir au moins 8 caractères.";
 		$champOk=false;
@@ -73,12 +70,13 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 			}
 		}
 	}
-
-	$lastname = $_POST['lastname'];
-	$firstname = $_POST['firstname'];
-	$mdp = $_POST['password'];
-	$email = $_POST['email'];
-	$birth_date = $_POST['birthdate'];
+	if ($champOk){
+		$lastname = $_POST['lastname'];
+		$firstname = $_POST['firstname'];
+		$mdp = $_POST['password'];
+		$email = $_POST['email'];
+		$birth_date = $_POST['birthdate'];
+	}
 	if (isset($_POST['gets_emails'])){
 		$gets_emails =1;
 	}else{
@@ -92,7 +90,8 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 	if ($champOk){
 		echo "<p> Vos données ont été validées par le serveur.</p>";
 		$userid = addUser($lastname,$firstname,$birth_date,$email,$gets_emails,$mdp);
-		addUserGenres($userid,$_POST['type']);
+		addUserGenres($userid,$_POST['types']);
+		header ('location: account.php');
 	}
 	?>
 
@@ -181,10 +180,8 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 					    	<p class="col-sm-3">Choisissez vos genres de films préférés :</p>
 					    	<div class="col-sm-9">
 					    	<?php
-
 					    	$query = requete_bdd($connection, "SELECT type FROM type");
 							$query->execute();
-
 							$row = $query->fetchAll();
 							foreach($row as $key => $value) {
 								echo "<input type='checkbox' value='" .$value['type']. "' name= 'types[]'> <label>" .$value['type']."</label> ";
@@ -213,17 +210,10 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 
 	<?php
 		include('footer.php');
-
-
 		/* ==========================================================
-
 		CUSTOMED PHP FUNCTIONS
-
 		========================================================== */
-
-
 // define variables and set to empty values
-
 	function checkemail($email){
 		//Checks if the mail is in the database
 		global $connection;
@@ -234,15 +224,12 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 	    $row = $statement->fetch(PDO::FETCH_ASSOC);
 	    return $row["count"] == "0";
 	}
-
 	function salage(){
 		// goal => creat a random char key 
-
 		// variables
 		$abc = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		$saltpass = "";
 		$num = 0;
-
 		// characters used for the key
 		for($i = 0; $i < 10; $i++){
 			$num = rand(0, strlen($abc) - 1);
@@ -251,7 +238,6 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		
 		return $saltpass;
 	}
-
 	function addUser($lastname,$firstname,$birth_date, $email, $gets_emails,$password){
 		// add a new user to the database
 		// no value returned
@@ -259,16 +245,12 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 			
 		$passhach = sha1($password);
 		// password hash by sha1 algorithm
-
 		// random key of 10 characters
 		$psalt = salage();
-
 		// SQL request
-
 		$chaine = "INSERT INTO users (lastname, firstname, birth_date, email, gets_email, password, salt) VALUES (:lastname, :firstname, :birth_date, :email, :gets_emails, :password, :psalt)";
 		//prepare request
 		$statement = $connection->prepare($chaine);
-
 		// bind value and execute query
      	$statement->bindvalue(":lastname", $lastname, PDO::PARAM_STR);
 		$statement->bindvalue(":firstname", $firstname, PDO::PARAM_STR);
@@ -278,31 +260,27 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		$statement->bindvalue(":password", $passhach, PDO::PARAM_STR);
 		$statement->bindvalue(":psalt",$psalt, PDO::PARAM_STR);
 		$statement->execute();
-
-		$userid="SELECT id FROM users WHERE email ='$email'";
-		return $userid;
+		$recupID="SELECT id FROM users WHERE email ='$email'";
+		$request = $connection->query($recupID);
+		$userid = $request->fetch();
+		return $userid[0];
 		//return the id to add it in userstypes 
-
 	}
-
-
 	function addUserGenres($id, $type){
 		// add selected movie genres specific to a user to the database
 		// $type is an array
 		global $connection;
-		
-		$last_id = $connection->lastInsertId();
-		$chaine = "INSERT INTO userstypes (user_id, type_id) VALUES (:id, :type_id)";
-		$statement = $connection->prepare($chaine);
-		$statement->bindValue(":id", $id, PDO::PARAM_INT);
 		for ($i = 0; $i < count($type); $i++) {
-			$statement->bindValue(":type", $type[$i], PDO::PARAM_STR);
+			$recupTypeid = "SELECT id FROM type WHERE type='$type[$i]'";
+			$req = $connection->query($recupTypeid);
+			$type_id = $req->fetch();
+			$chaine = "INSERT INTO userstypes (user_id, type_id) VALUES (:id, :type_id)";
+			$statement = $connection->prepare($chaine);
+			$statement->bindValue(":id", $id, PDO::PARAM_INT);
+			$statement->bindValue(":type_id", $type_id[0], PDO::PARAM_INT);
 			$statement->execute();
 		}
-		
-		$statement->execute(); 
 	} 
-
 		function requete_bdd($connection, $req){
 			/* will return all data from the database as json data
 				
@@ -315,8 +293,6 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 			return $query;
 			/* returned variable is an pdo object */
 		}
-
-
 	?>
 
 	</body>
