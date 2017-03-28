@@ -52,7 +52,7 @@
 		$lat = $res[3];
 		$long = $res[4];
 		$id_place = $res[7];
-		$id_user = $_SESSION['id'];
+		//$id_user = $_SESSION['id'];
 	?>
 		<div class="row">
 			<div class="description-place">
@@ -141,23 +141,21 @@
 		if ($(this).css("background") == "rgb(255, 192, 203) none repeat scroll 0% 0% / auto padding-box border-box") {
 			$(this).css("background","white");
 		} else {
-			$(this).css("background","pink");
+			var lieu = <?= $id_place ?>;
+			ajoutfavoris(lieu);
 		}
 	});
+	
+	function ajoutfavoris(lieu){ //APPEL AJAX : 
+		$.get(
+			'addFavorite.php',  //Nous redirige vers le fichier php
+			{id_lieu : lieu}					//Fonction qui prend en argument le résultat de la page php automatiquement
+		);
+		$( "#add_fav" ).css("background","pink");
+		console.log("REUSSI?");
+	};
+	
 </script>
-
-<?php
-	function addFavorite($id_place, $id_user) {
-		$chaine = "INSERT INTO usersfavorite_places (user_id, place_id) VALUES (:user_id, :place_id)";
-		//prepare request
-		$statement = $connection->prepare($chaine);
-
-		// bind value and execute query
-     	$statement->bindvalue(":user_id", $id_place, PDO::PARAM_STR);
-		$statement->bindvalue(":place_id", $id_user, PDO::PARAM_STR);
-		echo ("<h1>id place : ".id_place." // id user : ".$id_user."</h1>");
-	}
-?>
 
 </html>
 
