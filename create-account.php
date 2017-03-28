@@ -263,6 +263,10 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		$recupID="SELECT id FROM users WHERE email ='$email'";
 		$request = $connection->query($recupID);
 		$userid = $request->fetch();
+<<<<<<< HEAD
+=======
+		echo "user ajouté";
+>>>>>>> origin/master
 		return $userid[0];
 		//return the id to add it in userstypes 
 	}
@@ -279,6 +283,7 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 			$statement->bindValue(":id", $id, PDO::PARAM_INT);
 			$statement->bindValue(":type_id", $type_id[0], PDO::PARAM_INT);
 			$statement->execute();
+			echo "genre ajouté";
 		}
 	} 
 		function requete_bdd($connection, $req){
