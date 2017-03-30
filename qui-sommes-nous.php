@@ -33,13 +33,13 @@
 		<div class="container-fluid text-justify">
 			<div class="col-lg-8 col-lg-offset-2 col-xs-12">
 				<h4>Movie Journey : plus qu'un voyage, toute une culture ... </h4>
-				<p>Envie d'une expérience inédite ? Movie Journey est là pour vous faire vivre un voyage unique ! Selectionnez vos films favoris, réservé l'hôtel de votre choix et le vol qui vous convient ! Movie Journey se charge du reste, vous n'avez qu'à suivre l'itinéraire proposer et dîner dans notre large liste de restaurant.  </p>
+				<p>Envie d'une expérience inédite ? Movie Journey est là pour vous faire vivre un voyage unique ! Sélectionnez vos films favoris, réservez l'hôtel de votre choix et le vol qui vous convient ! Movie Journey se charge du reste, vous n'avez qu'à suivre l'itinéraire proposé et dîner dans notre large liste de restaurant.  </p>
 
 				<h4>Un voyage original mais de qualité</h4>
-				<p>Parce que Movie Journey ne recule pas devant la qualité de ses services, nous vous proposons des services testés, approuvés et classés parmi les meilleurs. Restaurants, itinéraire et hôtels sont tous selectionnés dans le guide Trip Advisor. Afin de vous accompagner tout au long de votre expérience, Movie Journey dispose d'une assistance clientèle ouverte 7j/7 24h/24. <p>
+				<p>Parce que Movie Journey ne recule pas devant la qualité de ses services, nous vous proposons des services testés, approuvés et classés parmi les meilleurs. Restaurants, itinéraires et hôtels sont tous selectionnés dans le guide Trip Advisor. Afin de vous accompagner tout au long de votre expérience, Movie Journey dispose d'une assistance clientèle ouverte 7j/7 24h/24. <p>
 
 				<h4>Participez au plan Happy Journey ! </h4>
-				<p>Movie Journey a mis en place le plan Happy Journey ! Le but est simple : partagez autant que possible tout ces merveilleux souvenirs avec #HappyJourney sur tous les réseaux sociaux. Facebook, Instagram, Twitter, profitez de Movie Journey sur vos réseaux sociaux favoris.
+				<p>Movie Journey a mis en place le plan Happy Journey ! Le but est simple : partagez autant que possible tous ces merveilleux souvenirs avec #HappyJourney sur tous les réseaux sociaux. Facebook, Instagram, Twitter, profitez de Movie Journey sur vos réseaux sociaux favoris.
 				Une nouveauté 2017, un concours chaque saison qui décernera le titre de meilleure photo de souvenir avec #HappyJourney ! Qu'obtient le gagnant ? Des cadeaux comme s'il en pleuvait !</p>
 
 
