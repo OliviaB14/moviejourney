@@ -17,7 +17,6 @@
 		<link rel="stylesheet" href="css/style.css" type="text/css" /><!-- main stylesheet -->
 		<link rel="stylesheet" href="css/search.css" type="text/css" /><!-- main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="css/overlay-bootstrap.min.css"/><!-- overlay stylesheet -->
-		<script src="js/button-fav.js"></script>
 		<title>Movie Journey</title>
 	</head>
 
@@ -201,20 +200,14 @@
 			<div class="col-lg-2 col-xs-6">
 			<!-- quick links to add the corresponding movie to user favorites and to see its detailed descriptions -->
 			<?php if ($option == "Lieux cultes") { 
-				$proposition = "lieu";
 			?>
 				<a href="<?php echo 'place.php?place=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
 			<?php } else { 
-				$proposition = "film";
 			?>
 				<a href="<?php echo 'movies.php?page=' . $value[0] ?>"><div class="btn btn-lg btn-default read-more">Voir plus...</div></a>
 			<?php 
 			} 
-			$lieu = $value[3];
-			echo "<h1>".$lieu."</h1>";
-			echo "<h1>".$proposition."</h1>";
 			?>
-				<button id="add_fav" type="button" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
 			</div>
 		<?php
 					if ($int % 2 == 0) {
@@ -276,20 +269,6 @@
 		}
 
 		?>
-		
-		<script>
-			$( "#add_fav" ).click(function() {
-				var lieu = <?= $lieu ?>;
-				var prop = <?= $proposition ?>;
-				console.log(lieu);
-				console.log(prop);
-				if ($(this).css("background") == "rgb(255, 192, 203) none repeat scroll 0% 0% / auto padding-box border-box") {
-					supprfavoris(lieu, prop);
-				} else {
-					ajoutfavoris(lieu, prop);
-				}
-			});
-		</script>
 
 		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>

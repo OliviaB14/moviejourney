@@ -1,6 +1,8 @@
 // JavaScript Document
 
 function ajoutfavoris(lieu, prop){ //APPEL AJAX : 
+	console.log(prop);
+	console.log(lieu);
 	$.get(
 		'addFavorite.php',  //Nous redirige vers le fichier php
 		{
@@ -10,7 +12,7 @@ function ajoutfavoris(lieu, prop){ //APPEL AJAX :
 	);
 	$("#add_fav").css("background","pink");
 	$(".fav-1").text("Ce lieu vient d'être ajouté à vos favoris !");
-	$(".fav-2").text("Retrouvez-le dans votre page 'Mes circuits' et organisez votre voyage !")
+	$(".fav-2").text("");
 	$("#add-fav").addClass('button-fav-pink');
 };
 

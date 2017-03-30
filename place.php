@@ -87,7 +87,7 @@
 						} else {
 					?>
 						<h4 class="fav-1">Ce lieu apparaît déjà dans vos favoris</h4>
-						<h4 class="fav-2">Retrouvez-le dans votre page 'Mes circuits' et organisez votre voyage !</h4>
+						<h4 class="fav-2">Retrouvez-le dans votre page <a href="circuit.php">mes circuits</a> et organisez votre voyage !</h4>
 						<!-- ajouter condition php si le lieu n'est pas déjà dans les favoris de l'utilisateur -->
 						<button type="button" id="add_fav" class="btn btn-lg btn-default button-fav-pink"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
 					<?php
@@ -173,8 +173,6 @@
 			ajoutfavoris(lieu, proposition);
 		}
 	});
-	
-	
 </script>
 
 </html>
