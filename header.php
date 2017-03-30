@@ -63,11 +63,11 @@
   	<div class="row">
   		<div class="col-xs-6 col-xs-offset-3 connection">
 	  	<h3>Connexion</h3>
-		<form method="POST" action="connexion.php">
+		<form action="connexion.php" method="post" >
 			<div class="row form-group">
 			<label for="identifier1" class="col-sm-4 control-label">Adresse e-mail</label>
 			<div class="col-sm-8">
-			<input type="text" name="name" id="identifier1" class="form-control" placeholder="Adresse e-mail">
+			<input type="email" name="identifier1" id="identifier1" class="form-control" placeholder="Adresse e-mail">
 			</div>
 			</div>
 			<div class="row form-group">

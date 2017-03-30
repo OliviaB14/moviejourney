@@ -91,7 +91,6 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		echo "<p> Vos données ont été validées par le serveur.</p>";
 		$userid = addUser($lastname,$firstname,$birth_date,$email,$gets_emails,$mdp);
 		addUserGenres($userid,$_POST['types']);
-		header ('location: account.php');
 	}
 	?>
 
@@ -279,6 +278,7 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 			$statement->bindValue(":id", $id, PDO::PARAM_INT);
 			$statement->bindValue(":type_id", $type_id[0], PDO::PARAM_INT);
 			$statement->execute();
+			header ('location: account.php');
 		}
 	} 
 		function requete_bdd($connection, $req){
