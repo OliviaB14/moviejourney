@@ -20,7 +20,7 @@
 					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</div>
-			<div class="col-lg-4 col-xs-12" id="infos">
+			<div class="col-lg-4 col-md-6" id="infos">
 				<h4>Infos pratiques</h4>
 				<ul class="footer-list">
 					<li>Découvrez notre brochure</li>

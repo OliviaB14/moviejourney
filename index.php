@@ -135,7 +135,7 @@
 			<!-- WEBSITE DESCRIPTION -->
 			<div class="row" id="description">
 				<div class="col-xs-6 col-md-3 text-center">
-					<div class="thumbnail desc"> <img src="image/route.png" alt="Circuits pré-sélectionnés"/>
+					<div class="thumbnail desc"> <img src="image/location.png" alt="Circuits pré-sélectionnés"/>
 						<div class="caption">
 							<h4>Création de l'itinéraire</h4>
 							<p>Movie Journey vous propose des itinéraires en fonction du lieu que vous souhaitez visiter.</p>
@@ -143,7 +143,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 text-center">
-					<div class="thumbnail desc"> <img src="image/airplane.png" alt="Réservation rapide et sécurisée"/>
+					<div class="thumbnail desc"> <img src="image/plane.png" alt="Réservation rapide et sécurisée"/>
 						<div class="caption">
 							<h4>Réservation des billets d'avion</h4>
 							<p>Vous pouvez réserver votre billet d'avion directement sur le site grâce à nos partenaires.</p>
@@ -151,7 +151,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 text-center">
-					<div class="thumbnail"> <img src="image/hostel.png" alt="Réservation d'hôtels partenaires"/>
+					<div class="thumbnail"> <img src="image/hotel.png" alt="Réservation d'hôtels partenaires"/>
 						<div class="caption">
 							<h4>Réservation des hôtels</h4>
 							<p>Nous vous proposons aussi de réserver directement l'hôtel le plus proche du lieu que vous souhaitez visiter.</p>
@@ -159,7 +159,7 @@
 					</div>
 				</div>
 				<div class="col-xs-6 col-md-3 text-center" >
-					<div class="thumbnail"> <img src="image/restaurants.png" alt="Une petite faim? Des restaurants vous sont également proposés !"/>
+					<div class="thumbnail"> <img src="image/plate.png" alt="Une petite faim? Des restaurants vous sont également proposés !"/>
 						<div class="caption">
 							<h4>Proposition de restaurants</h4>
 							<p>Movie Journey vous indique les restaurants les plus proches tout au long de votre circuit.</p>
@@ -174,7 +174,7 @@
 			<!-- SELECTED ITENERARIES -->
 			<div id="itinerary" class="row"> 
 				<!-- image 171x180 -->
-				<h3 class="text-center lead"><span>La sélection de l'équipe</span> </h3>
+				<h3 class="text-center line-title lead"><span>La sélection de l'équipe</span> </h3>
 				<div class="row">
 					<div class="col-xs-6 col-md-3 text-center thumbnail effect-lily">
 						<div class="grid">
