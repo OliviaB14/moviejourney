@@ -152,7 +152,7 @@
 			{id_lieu : lieu}					//Fonction qui prend en argument le résultat de la page php automatiquement
 		);
 		$( "#add_fav" ).css("background","pink");
-		console.log("REUSSI?");
+		console.log(lieu);
 	};
 	
 </script>
