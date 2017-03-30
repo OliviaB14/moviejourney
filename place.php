@@ -15,6 +15,7 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/breadcrumb.css" rel="stylesheet" type="text/css">
 <link href="css/place.css" rel="stylesheet" type="text/css">
+<script src="js/button-fav.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g'></script>
 <!-- clé API google map Javascript API :  AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g -->
@@ -165,33 +166,14 @@
 	
 	$( "#add_fav" ).click(function() {
 			var lieu = <?= $id_place ?>;
+			var proposition = "lieu";
 		if ($(this).css("background") == "rgb(255, 192, 203) none repeat scroll 0% 0% / auto padding-box border-box") {
-			supprfavoris(lieu);
+			supprfavoris(lieu, proposition);
 		} else {
-			ajoutfavoris(lieu);
+			ajoutfavoris(lieu, proposition);
 		}
 	});
 	
-	function ajoutfavoris(lieu){ //APPEL AJAX : 
-		$.get(
-			'addFavorite.php',  //Nous redirige vers le fichier php
-			{id_lieu : lieu}					//Fonction qui prend en argument le résultat de la page php automatiquement
-		);
-		$("#add_fav").css("background","pink");
-		$(".fav-1").text("Ce lieu vient d'être ajouté à vos favoris !");
-		$(".fav-2").text("Retrouvez-le dans votre page 'Mes circuits' et organisez votre voyage !")
-		$("#add-fav").addClass('button-fav-pink');
-	};
-	
-	function supprfavoris(lieu){ //APPEL AJAX : 
-		$.get(
-			'delFavorite.php',  //Nous redirige vers le fichier php
-			{id_lieu : lieu}					//Fonction qui prend en argument le résultat de la page php automatiquement
-		);
-		$( "#add_fav" ).css("background","white");
-		$(".fav-1").text("Ce lieu vient d'être supprimé de vos favoris !");
-		$(".fav-2").text("Vous pouvez le réajouter à tout moment !");
-	};
 	
 </script>
 
