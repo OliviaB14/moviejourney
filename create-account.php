@@ -248,7 +248,7 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		// random key of 10 characters
 		$psalt = salage();
 		// SQL request
-		$chaine = "INSERT INTO users (lastname, firstname, birth_date, email, gets_email, password, salt) VALUES (:lastname, :firstname, :birth_date, :email, :gets_emails, :password, :psalt)";
+		$chaine = "INSERT INTO users (lastname, firstname, birthdate, email, gets_email, password, salt) VALUES (:lastname, :firstname, :birth_date, :email, :gets_emails, :password, :psalt)";
 		//prepare request
 		$statement = $connection->prepare($chaine);
 		// bind value and execute query

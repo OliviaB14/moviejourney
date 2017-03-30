@@ -14,7 +14,6 @@
 		exit;
 	  }
 	  else {
-	    session_start(); //Démarre une session (c'est ce qui va établir la connection entre chaque page)
 	    $_SESSION['identifiant'] = $_POST['identifier1'];
 	    $_SESSION['mdp'] = $_POST['password1'];
 	    //On récupère l'identifiant et le mdp dans des variables SUPERGLOBALES
