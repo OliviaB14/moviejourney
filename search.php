@@ -249,10 +249,6 @@
 		</div>
 
 		<?php
-
-		phpinfo();
-
-
 		// include the footer file
 		include('footer.php');
 
