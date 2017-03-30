@@ -54,3 +54,7 @@ p {
     height: 158px;
     width: 100%;
 }
+
+.btn.btn-lg.btn-default.button-fav-pink {
+	background:pink;
+}

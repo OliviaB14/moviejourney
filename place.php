@@ -70,10 +70,36 @@
 		<div class="add-fav">
 			<div class="row">
 				<div class="col-md-12">
-					<h4>Ce lieu vous plaît ? Vous désirez le visiter ?</h4>
-					<h4>Ajoutez-le à vos favoris et organisez votre voyage !</h4>
-					<!-- ajouter condition php si le lieu n'est pas déjà dans les favoris de l'utilisateur -->
-					<button type="button" id="add_fav" href="?action=addFavorite" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+					<?php 
+					if ($connect == true) {
+						$user_id = $_SESSION['id'];
+						$sql = "SELECT * FROM usersfavorite_places WHERE place_id = '$id_place' AND user_id = '$user_id'";
+						$req = $connection -> query($sql);
+						$int = $req->rowCount();
+						if ($int == 0) {
+					?>
+						<h4 class="fav-1">Ce lieu vous plaît ? Vous désirez le visiter ?</h4>
+						<h4 class="fav-2">Ajoutez-le à vos favoris et organisez votre voyage !</h4>
+						<!-- ajouter condition php si le lieu n'est pas déjà dans les favoris de l'utilisateur -->
+						<button type="button" id="add_fav" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+					<?php
+						} else {
+					?>
+						<h4 class="fav-1">Ce lieu apparaît déjà dans vos favoris</h4>
+						<h4 class="fav-2">Retrouvez-le dans votre page 'Mes circuits' et organisez votre voyage !</h4>
+						<!-- ajouter condition php si le lieu n'est pas déjà dans les favoris de l'utilisateur -->
+						<button type="button" id="add_fav" class="btn btn-lg btn-default button-fav-pink"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+					<?php
+						}
+					} else {
+					?>
+						<h4 class="fav-1">Ce lieu vous plaît ? Vous désirez le visiter ?</h4>
+						<h4 class="fav-2">Ajoutez-le à vos favoris et organisez votre voyage !</h4>
+						<!-- ajouter condition php si le lieu n'est pas déjà dans les favoris de l'utilisateur -->
+						<button type="button" id="add-fav" onclick='openNav()' class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+					<?php
+					}
+					?>
 				</div>
 			</div>
 		</div>
@@ -138,10 +164,10 @@
 	google.maps.event.addDomListener(window, 'load', init_map);
 	
 	$( "#add_fav" ).click(function() {
-		if ($(this).css("background") == "rgb(255, 192, 203) none repeat scroll 0% 0% / auto padding-box border-box") {
-			$(this).css("background","white");
-		} else {
 			var lieu = <?= $id_place ?>;
+		if ($(this).css("background") == "rgb(255, 192, 203) none repeat scroll 0% 0% / auto padding-box border-box") {
+			supprfavoris(lieu);
+		} else {
 			ajoutfavoris(lieu);
 		}
 	});
@@ -151,7 +177,20 @@
 			'addFavorite.php',  //Nous redirige vers le fichier php
 			{id_lieu : lieu}					//Fonction qui prend en argument le résultat de la page php automatiquement
 		);
-		$( "#add_fav" ).css("background","pink");
+		$("#add_fav").css("background","pink");
+		$(".fav-1").text("Ce lieu vient d'être ajouté à vos favoris !");
+		$(".fav-2").text("Retrouvez-le dans votre page 'Mes circuits' et organisez votre voyage !")
+		$("#add-fav").addClass('button-fav-pink');
+	};
+	
+	function supprfavoris(lieu){ //APPEL AJAX : 
+		$.get(
+			'delFavorite.php',  //Nous redirige vers le fichier php
+			{id_lieu : lieu}					//Fonction qui prend en argument le résultat de la page php automatiquement
+		);
+		$( "#add_fav" ).css("background","white");
+		$(".fav-1").text("Ce lieu vient d'être supprimé de vos favoris !");
+		$(".fav-2").text("Vous pouvez le réajouter à tout moment !");
 	};
 	
 </script>
