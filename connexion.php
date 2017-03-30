@@ -16,6 +16,11 @@
 	  else {
 	    $_SESSION['identifiant'] = $_POST['identifier1'];
 	    $_SESSION['mdp'] = $_POST['password1'];
+	    global $connection;
+		$sql = "SELECT id FROM users WHERE email = '".$_SESSION['identifiant']."'";
+		$req = $connection -> query($sql);
+		$data = $req -> fetch();
+		$_SESSION['id'] = $data['id']; //test de connexion
 	    //On récupère l'identifiant et le mdp dans des variables SUPERGLOBALES
 	    
 	    header('location: account.php'); 
