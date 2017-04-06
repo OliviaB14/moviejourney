@@ -54,6 +54,7 @@
     color: #24809c;
 	text-transform:uppercase;
 	text-align:center;
+	display: inline-block;
 }
 
 p.nom-lieu-movies, p.nom-film-movies {
@@ -67,4 +68,23 @@ p.nom-lieu-movies, p.nom-film-movies {
 
 .resume{
 	text-align: justify;
+}
+
+.movie_poster{
+	text-align:center;
+}
+
+img.img-responsive.movie_poster{
+	width: 60%;
+    height: auto;
+    margin-left: 25%;
+}
+
+.favmovie{
+	text-align: center;
+	padding:15px;
+}
+
+.favmovie .btn{
+	margin-left: 30px;
 }

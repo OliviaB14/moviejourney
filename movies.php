@@ -14,13 +14,14 @@
 
 		<!-- STYLESHEETS FILES -->
 		<link href="css/style.css" rel="stylesheet" type="text/css"/>
-		<link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+		<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 		<link href="css/breadcrumb.css" rel="stylesheet" type="text/css"/>
 		<link href="css/movies.css" rel="stylesheet" type="text/css"/>
+
 		
 		<!--font-family title -->
 
-		<title>Liste de films</title> <!-- page title -->
+		<title>Liste de films - Movie Journey</title> <!-- page title -->
 	</head>
 
 	<body>
@@ -30,6 +31,8 @@
 
 		<!-- MAIN CONTAINER : all page is contained -->
 		<div class="container-fluid">
+
+		<!-- breadcrumb to show the user where they are on the website -->
 			<ol class="breadcrumb">
 				<?php if (empty($_GET['page'])) {
 					  	echo '<li class="active">Films</li>';
@@ -76,11 +79,11 @@
 			<!-- Afficher des lieux aléatoirement pour remplir la page 
 			On pourra par la suite afficher les lieux aléatoirement en fonction des préférences de l'utilisateur s'il est connecté-->	
 			<?php
-			//l'utilisateur viens d'arriver sur la page
+			// user first come on the page 
 			if (empty($_GET['page'])) {
 				// création de la requête
 				$sql = 'SELECT * FROM movie ORDER BY rand()';  
-				// lancement de la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
+				// lancement de la requête et on impose un message d'erreur si la requête ne se passe pas bien (or die)
 				$req = $connection->prepare($sql); 
 				$req->execute();
 			?>
@@ -91,7 +94,7 @@
 						<?php
 						$rows = $req->fetch();
 						?>
-						<!-- Affichage de l'image du lieu -->
+						<!-- place picture -->
 						<img class="image-film-movies img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 						<div class="caption desc-image-film-movies">
 							<p class="nom-film-movies"><?php echo $rows['name']; ?></p>
@@ -105,11 +108,11 @@
 						<?php
 						$rows = $req->fetch();
 						?>
-						<!-- Affichage de l'image du lieu -->
+						<!-- place picture -->
 						<img class="image-film-movies img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 						<div class="caption desc-image-film-movies">
 							<p class="nom-film-movies"><?php echo $rows['name']; ?></p>
-							<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
+							<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir les lieux cultes associés">Voir lieux cultes associés</a>
 						</div>
 					</div>
 				</div>
@@ -119,11 +122,11 @@
 						<?php
 						$rows = $req->fetch();
 						?>
-						<!-- Affichage de l'image du lieu -->
+						<!-- place picture -->
 						<img class="image-film-movies img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 						<div class="caption desc-image-film-movies">
 							<p class="nom-film-movies"><?php echo $rows['name']; ?></p>
-							<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
+							<a href="movies.php?page=<?php echo $rows['name'];?>" class="btn btn-xs btn-primary" role="button" title="Voir les lieux cultes associés">Voir lieux cultes associés</a>
 						</div>
 					</div>
 				</div>
@@ -133,7 +136,7 @@
 						<?php
 						$rows = $req->fetch();
 						?>
-						<!-- Affichage de l'image du lieu -->
+						<!-- place picture -->
 						<img class="image-film-movies img-responsive" src="<?php echo $rows['backdrop_path'] ?>" alt="Photo du lieu"/>
 						<div class="caption desc-image-film-movies">
 							<p class="nom-film-movies"><?php echo $rows['name']; ?></p>
@@ -156,51 +159,82 @@
 			?>	
 					<div class="col-xs-6 col-md-3 text-center">	
 						<div class="thumbnail film-movies"> 
-							<!-- Affichage de l'image du lieu -->
+							<!-- place picture -->
 							<img class="image-film-movies img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
 							<div class="caption desc-image-film-movies">
 								<p class="nom-film-movies"><?php echo $value[0]; ?></p>
-								<a href="movies.php?page=<?php echo $value[0];?>" class="btn btn-xs btn-primary" role="button" title="Voir lieux cultes associés">Voir lieux cultes associés</a>
+								<a href="movies.php?page=<?php echo $value[0];?>" class="btn btn-xs btn-primary" role="button" title="Voir les lieux cultes associés">Voir lieux cultes associés</a>
 							</div>
 						</div>
 					</div>
 					<?php
 				}
 				echo "</div>";
-				//l'utilisateur a choisi de regarder les lieux cultes d'un film
+
+
+				/* ++++++++++++++++++++++++++++++++++++++
+
+				USER CHOOSES TO SEE A MOVIE FAMOUS PLACES 
+
+				++++++++++++++++++++++++++++++++++++++ */
+
+
 			} else {
 				$film = $_GET['page'];
-				// création de la requête
-		        $sql = "SELECT place.name, place.photo_path, place.description FROM place, movie, placemovie WHERE movie.name = '$film' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id";
-				// lancement de la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
+				// resquest
+		        $sql = "SELECT place.name, place.photo_path, movie.description, movie.backdrop_path FROM place, movie, placemovie WHERE movie.name = '$film' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id";
 				$req = $connection->query($sql); 
 				$res = $req->fetchAll();
-				echo "<h2 class='nom-lieu-h2-movies'>".$film."</h2>";
-				foreach($res as $value) {
-				?>	
-					<div class='row'>
-						<div class="col-xs-10 col-md-2">
+				?>
+
+				
+				<div class="favmovie row">
+					<h2 class='nom-lieu-h2-movies'><?php echo $film;?></h2>
+					<button type='button' class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+				</div>
+
+				<!-- presentation of the movie and its famous places -->
+				<div class='movie_div row'>
+					<!-- movie resume -->
+					<div class="col-sm-6 hidden-xs hidden-sm col-md-4 movie_poster">
+						<img src="<?php echo $res[0]['backdrop_path']; ?>" class="img-responsive movie_poster">
+					</div>
+					<div class="col-sm-6 hidden-xs col-md-4 resume">
+						<div>
+						<?php echo $res[0]['description']; ?>
 						</div>
-						<div class="col-xs-10 col-md-8 text-center">	
-							<div class="thumbnail lieu-movies"> 
-								<!-- Affichage de l'image du lieu -->
-								<img class="image-lieu-movies img-responsive" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
-								<div class="caption desc-image-lieu-movies">
-									<p class="nom-lieu-movies"><?php echo $value[0]; ?></p>
-									<a href="place.php?place=<?php echo $value[0];?>" class="btn btn-xs btn-info" role="button" title="Voir lieu culte">En savoir plus</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-xs-10 col-md-2">
-						</div>
+				  	</div>
+				   
+				    <?php
+						foreach($res as $value) {
+						?>	
+					<div class='places_slideshow col-sm-6 col-md-4'>
+				      <div class="thumbnail">
+				        <img class="image-lieu-movies img-responsive img-rounded" src="<?php echo $value[1]; ?>" alt="Photo du lieu"/>
+				       <div class="caption">
+				          <p class="nom-lieu-movies"><?php echo $value[0]; ?></p>
+						<a href="place.php?place=<?php echo $value[0];?>" class="btn btn-xs btn-info" role="button" title="Voir le lieu culte">En savoir plus</a>
+				          <!--<div class='rating'>
+				            <span class='fa fa-star'></span>
+				            <span class='fa fa-star'></span>
+				            <span class='fa fa-star'></span>
+				            <span class='fa fa-star'></span>
+				            <span class='fa fa-star'></span>
+				          </div>-->
+				        </div>
+				      </div>
 					</div>
 				<?php
 				}
+				?>
+			
+			</div><?php
 			}
 			include ('footer.php');
 				?>
 			
 		</div>
 		<script src="js/fixed-movie.js" type="text/javascript"></script>
+		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
 	</body>
 </html>
