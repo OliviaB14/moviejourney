@@ -20,7 +20,7 @@
     margin-bottom: 15px;
 }
 
-/* */
+/* page style */
 .desc-image-film-movies, .desc-image-lieu-movies {
 	background:aliceblue;	
 }
@@ -62,4 +62,9 @@ p.nom-lieu-movies, p.nom-film-movies {
 
 .inner-form-search-movies {
 	width:80%;
+}
+
+
+.resume{
+	text-align: justify;
 }

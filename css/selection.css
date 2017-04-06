@@ -5,6 +5,11 @@ body {
 	position:relative;	
 }
 
+.row{
+    margin-right:0;
+    margin-left:0;
+}
+
 #geolocation_map {
     height: 400px;
     overflow: visible;
@@ -12,7 +17,7 @@ body {
 	margin-bottom:50px;
 }
 
-img {
+.miniatures img {
 	height:91.18px;	
 }
 
