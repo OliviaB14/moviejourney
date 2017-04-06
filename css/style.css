@@ -37,6 +37,7 @@ h4, #subtitle {
     font-family: 'Amaranth', sans-serif;
 }
 
+
  /* navigation bar */
 
 .nav-stacked li {
@@ -262,6 +263,12 @@ button.btn.btn-default.col-lg-2.col-md-hidden, .search_btn {
     text-align: center;
     color: white;
     background-size: cover;
+}
+
+/*---------- cgv.php style  -------------- */
+
+#infos_sup{
+    font-size: 20px;
 }
 
 /*---------- end  -------------- */
