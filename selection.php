@@ -13,36 +13,44 @@
 <!-- encoding -->
 <title>Nos circuits - Movie Journey</title>
 <!-- page title -->
-<link href="css/style.css" rel="stylesheet" type="text/css">
 
 <!-- STYLESHEETS -->
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="css/selection.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="HoverEffectIdeas/HoverEffectIdeas/css/normalize.css"/>
+<link rel="stylesheet" type="text/css" href="HoverEffectIdeas/HoverEffectIdeas/css/set1.css"/>
+
+
 
 <!-- SCRIPTS FILES -->
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script src="js/gmaps.js"></script>
-<script src="js/bootstrap.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
 <?php
 	include('header.php');
-	
-	$pays = $_GET["country"];
-	$SQL = "SELECT place.name, place.latitude, place.longitude, place.photo_path FROM place, placetown, town WHERE town.country='$pays' AND town.id = placetown.town_id AND placetown.place_id = place.id";
-	$statement = $connection->prepare($SQL);
-	$statement->execute();
-	$nbre = $statement->rowCount();
-	$result = $statement->fetchAll(); //$result[0][0:name;1:latitude;2:longitude]
-	$int = 0;
-	
 ?>
-<div class="container-fluid">
+	<div class="container-fluid">
+<?php
+
+	if(isset($_GET["country"])){
+		// if user clicked on the circuits from index.php
+		$pays = $_GET["country"];
+		$SQL = "SELECT place.name, place.latitude, place.longitude, place.photo_path FROM place, placetown, town WHERE town.country='$pays' AND town.id = placetown.town_id AND placetown.place_id = place.id";
+		$statement = $connection->prepare($SQL);
+		$statement->execute();
+		$nbre = $statement->rowCount();
+		$result = $statement->fetchAll(); //$result[0][0:name;1:latitude;2:longitude]
+		$int = 0;
+?>
+
 	<div class="row">
 		<div class="col-md-12">
 			<h2 id="pagetitle"> <strong>
@@ -121,10 +129,86 @@
 			</div>
 		</section>
 	</div>
-</div>
+<?php
+	} else {
+		// if user clicked directly on the "selection" item from the main menu
+?>
+
+		<!-- SELECTED ITENERARIES -->
+		<div id="itinerary" class="row"> 
+			
+			<h3 class="text-center line-title lead"><span>La sélection de l'équipe</span> </h3>
+
+			<div class="row">
+				<p class="col-lg-6 col-lg-offset-3">Découvrez les circuits sélectionnés juste pour vous par l'équipe de Movie Journey !
+				Pour créer votre circuit personnalisé, rien de plus simple : <a href="circuit.php">rendez-vous ici</a>, ajouter vos films à vos favoris et sélectionnez les lieux que vous voulez visiter.</p>
+				<p id="journey">Bon voyage ! <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+</p>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-6 col-md-3 text-center thumbnail effect-lily">
+					<div class="grid">
+						<figure class="effect-lily">
+							<img src="image/circuit-france.jpg" alt="img01"/>
+							<figcaption>
+								<h2>Allez à <span>Paris</span></h2>
+								<p>Lily likes to play with crayons and pencils</p>
+								<a href="selection.php?country=France">View more</a>
+							</figcaption>			
+						</figure>				
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3 text-center thumbnail">
+					<div class="grid">
+						<figure class="effect-lily">
+							<img src="image/circuit-england.jpg" alt="Circuit français"/>
+							<figcaption>
+								<h2>Visitez <span>l'Angleterre</span></h2>
+								<p>Lily likes to play with crayons and pencils</p>
+								<a href="selection.php?country=Angleterre">View more</a>
+							</figcaption>			
+						</figure>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3 text-center thumbnail">
+					<div class="grid">
+						<figure class="effect-lily">
+							<img src="image/circuit-japan.jpg" alt="img01"/>
+							<figcaption>
+								<h2>Découvrez le <span>Japon</span></h2>
+								<p>Lily likes to play with crayons and pencils</p>
+								<a href="selection.php?country=Japan">View more</a>
+							</figcaption>			
+						</figure>
+					</div>
+				</div>
+				<div class="col-xs-6 col-md-3 text-center thumbnail">
+					<div class="grid">
+						<figure class="effect-lily">
+							<img src="image/index-reservation.jpg" alt="img01"/>
+							<figcaption>
+								<h2>Réservez votre circuit <span>Avec MovieJourney</span></h2>
+								<p>Lily likes to play with crayons and pencils</p>
+								<a href="circuit.php">View more</a>
+							</figcaption>			
+						</figure>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END OF SELECTED ITENERARIES -->
+
+<?php 
+	}	
+?>
+
+	
+	</div>
 <?php 
 	include ('footer.php');
 ?>
+
 <script>
 
 /**

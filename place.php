@@ -83,7 +83,7 @@
 						<h4 class="fav-1">Ce lieu vous plaît ? Vous désirez le visiter ?</h4>
 						<h4 class="fav-2">Ajoutez-le à vos favoris et organisez votre voyage !</h4>
 						<!-- ajouter condition php si le lieu n'est pas déjà dans les favoris de l'utilisateur -->
-						<button type="button" id="add_fav" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+						<button type="button" id="add_fav" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le lieu à mes favoris"></span></button>
 					<?php
 						} else {
 					?>

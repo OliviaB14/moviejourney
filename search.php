@@ -82,18 +82,9 @@
 					/* if the movie isn't in the database, it shows an error message
 						or if user wanted to add it to the website, it makes a sql request */ 
 					if($int == 0){
-						if(isset($_POST["propose_a_movie"])){
-							$moviePropose = $_POST['moviePropose'];
-							$placePropose = $_POST['placePropose'];
-							$requete = "INSERT INTO place_added VALUES ('$moviePropose', '$placePropose')";
-							$moviequery = requete_bdd($connection, $requete);
-							$moviequery->execute();
-
-							echo "<div class='col-lg-8 col-lg-offset-2 alert alert-success'><strong>Merci!</strong> L'équipe de Movie Journey va étudier votre proposition.</div>";
-						} else{
-							echo "<div class='col-lg-8 col-lg-offset-2 alert alert-warning search_error' role='alert'><strong>" . $search . "</strong> ne correspond à aucun résultat...</div>";
-						}
-					?>
+						?>
+					<div class='col-lg-8 col-lg-offset-2 alert alert-warning search_error' role='alert'><strong>" <?php echo $search; ?> "</strong> ne correspond à aucun résultat...</div>";
+						
 			</div>
 			
 
@@ -114,63 +105,19 @@
 					<button type="submit" class="btn btn-default col-md-1 col-xs-12 col-lg-1 col-md-hidden search_btn"> <span class="glyphicon glyphicon-search"></span></button>
 				</form>
 			</div>
+			<!-- end of search bar -->
 
 			<!-- 'propose a movie' button -->
 			<div class="row propose_a_movie">
 				<div class="col-lg-12">
-					<div class="btn col-xs-12 col-lg-offset-2 col-lg-8" data-toggle="modal" data-target="#propose"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Proposer un film au site</div>
-
-					<div class="modal fade in" role="dialog" id="propose" aria-hidden="false">
-						<div class="modal-backdrop">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button class="close" data-dismiss="modal">
-											<span aria-hidden="true">x</span>
-											<span class="sr-only">close</span>
-										</button>
-										Proposer un film
-									</div>
-									<div class="model-body">
-									<!-- form for the movie proposal -->
-										<form method="POST" class="row">
-										  <div class="form-group form-inline col-lg-12">
-										    <label for="moviePropose" class="col-lg-2">Titre du film</label>
-										    <div class="col-lg-10">
-										    <input type="text" class="form-control" id="moviePropose" placeholder="Titre du film" name="moviePropose"/>
-										    </div>
-										  </div>
-										  <div class="form-group form-inline col-lg-12">
-										    <label for="placePropose" class="col-lg-2">Nom ou description du lieu</label>
-										    <div class="col-lg-10">
-										    <input type="text" class="form-control" id="placePropose" placeholder="Nom du lieu" name="placePropose"/>
-										    <p class="help-block ROW">Une indication pour nos géniaux développeurs ! ;)</p>
-										    </div>
-										  </div>
-										  <div class="form-group form-inline col-lg-12">
-										    <label class="col-lg-2">Poster du film</label>
-										    <input type="file" class="col-lg-offset-5">
-										    <p class="help-block ROW">Télécharger l'affiche du film (facultatif)</p>
-										  </div>
-										  	<div class="form-group form-inline col-lg-12">
-										    <label class="col-lg-2">Adresse email</label>
-										    <input type="email" class="form-control" placeholder="Email">
-										  </div>
-										  		<button type="submit" class="btn btn-default" name="propose_a_movie" id="propose_a_movie">Proposer</button>
-											</form>
-											
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<div class="btn btn-link col-xs-12 col-lg-offset-2 col-lg-8" data-toggle="modal" data-target="#propose"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Proposer un film au site</div>
 				</div>
 			</div>
+			<!--/. end of button -->
 		</div>
 		<?php
 				} else{
-
+					// if the database contains user's search : corresponding movies will be shown
 					$query->execute();
 					/* this boucle will create the bootstrap grid for each movie */
 					$row=$query->fetchAll();
@@ -221,27 +168,47 @@
 				it will show a search form */
 					
 			?>
-			<div class="alert alert-danger search_error" role="alert">Aucun résultat ne correspond à votre recherche... Voulez-vous proposer ce film ?</div>
-				<div class="row">
-					<form class="form-inline" method="GET" action="search.php">
-						<div class="dropdown col-lg-2 col-md-2">
-						  <select>
-						  	<option>Recherche<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
-							<option>Film</option>
-							<option>Thème de film</option>
-							<option>Lieux cultes</option>
-						  </select>
-						</div>
-						<div class="form-group col-lg-8 col-md-10">
-							<label for="s" class="sr-only">Recherche</label>
-							<input type="search" class="form-control" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
-						</div>
-					</form>
+			<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 alert alert-warning search_error" role="alert">Aucun résultat ne correspond à votre recherche... Voulez-vous proposer ce film ?</div>
+			</div>
+				<!-- search bar -->
+			<div class="searchbarDiv row">
+				<form class="form-inline col-lg-8 col-md-12 col-lg-offset-2 " method="GET" action="search.php" id="searchinput">
+					<div class="dropdown col-lg-2 col-md-2 styled-select">
+					  <select name="opt">
+						<option>Film<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></option>
+						<option>Thème de film</option>
+						<option>Lieux cultes</option>
+					  </select>
+					</div>
+					<div class="form-group col-lg-9 col-md-9 col-sm-12 col-xs-12">
+						<label for="s" class="sr-only">Recherche</label>
+						<input type="search" class="form-control searchbar" name="search" placeholder="Rechercher un film, un lieu, un thème..."/>
+					</div>
+					<button type="submit" class="btn btn-default col-md-1 col-xs-12 col-lg-1 col-md-hidden search_btn"> <span class="glyphicon glyphicon-search"></span></button>
+				</form>
+			</div>
+			<!-- end of search bar -->
+
+			<!-- 'propose a movie' button -->
+			<div class="row propose_a_movie">
+				<div class="col-lg-12">
+					<div class="btn btn-link col-xs-12 col-lg-offset-2 col-lg-8" data-toggle="modal" data-target="#propose"><span class="glyphicon glyphicon-film" aria-hidden="true"></span> Proposer un film au site</div>
 				</div>
-
-
+			</div>
+			<!--/. end of button -->
 
 					<?php
+				}
+
+				if(isset($_POST["propose_a_movie"])){
+					$moviePropose = $_POST['moviePropose'];
+					$placePropose = $_POST['placePropose'];
+					$requete = "INSERT INTO place_added (name_movie, name_place) VALUES ('$moviePropose', '$placePropose')";
+					$moviequery = requete_bdd($connection, $requete);
+					$moviequery->execute();
+
+					echo "<div class='col-lg-8 col-lg-offset-2 alert alert-success'><strong>Merci!</strong> L'équipe de Movie Journey va étudier votre proposition.</div>";
 				}
 					?>
 				
@@ -251,6 +218,52 @@
 			</div>
 
 		</div>
+
+	<div class="modal fade in" role="dialog" id="propose" aria-hidden="false">
+	<div class="modal-backdrop">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" data-dismiss="modal">
+							<span aria-hidden="true">x</span>
+							<span class="sr-only">close</span>
+						</button>
+						Proposer un film
+					</div>
+					<div class="model-body">
+					<!-- form for the movie proposal -->
+						<form method="POST" class="row">
+						  <div class="form-group form-inline col-lg-12">
+						    <label for="moviePropose" class="col-lg-2">Titre du film</label>
+						    <div class="col-lg-10">
+						    <input type="text" class="form-control" id="moviePropose" placeholder="Titre du film" name="moviePropose"/>
+						    </div>
+						  </div>
+						  <div class="form-group form-inline col-lg-12">
+						    <label for="placePropose" class="col-lg-2">Nom ou description du lieu</label>
+						    <div class="col-lg-10">
+						    <input type="text" class="form-control" id="placePropose" placeholder="Nom du lieu" name="placePropose"/>
+						    <p class="help-block ROW">Une indication pour nos géniaux développeurs ! ;)</p>
+						    </div>
+						  </div>
+						  <div class="form-group form-inline col-lg-12">
+						    <label class="col-lg-2">Poster du film</label>
+						    <input type="file" class="col-lg-offset-5">
+						    <p class="help-block ROW">Télécharger l'affiche du film (facultatif)</p>
+						  </div>
+						  	<div class="form-group form-inline col-lg-12">
+						    <label class="col-lg-2">Adresse email</label>
+						    <input type="email" class="form-control" placeholder="Email">
+						  </div>
+						  		<button type="submit" class="btn btn-default" name="propose_a_movie" id="propose_a_movie">Proposer</button>
+							</form>
+							
+
+					</div>
+				</div>
+			</div>
+	</div>
+	</div>
 
 		<?php
 		// include the footer file
