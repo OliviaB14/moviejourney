@@ -16,6 +16,7 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">		
+		<link rel="icon" type="image/png" href="image/favicon.png" />
 		<!--font-family title -->
 </head>
 <body>
