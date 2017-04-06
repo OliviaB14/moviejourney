@@ -12,6 +12,10 @@
 	text-align:justify-all;
 }
 
+#inscription{
+	background-color : red;
+	color : white;
+}
 
 #username{
 	font-family: 'Amaranth', cursive;

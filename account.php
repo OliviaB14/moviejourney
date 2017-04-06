@@ -25,6 +25,7 @@
 		<!--font-family title -->
 
 		<title>Se connecter - Movie Journey</title>
+		<link rel="icon" type="image/png" href="image/favicon.png" />
 	</head>
 
 	<body>
@@ -161,39 +162,10 @@
 			-->
 			<div class="col-lg-6 col-xs-12" id="subscription">
 				<h3>Pas encore inscrit ?</h3>
-				  <div class="panel">
-				    <form class="form-horizontal" method="POST" action="create-account.php">
-					  <div class="form-group"> <!-- choosen email address -->
-					    <label for="identifier2" class="col-sm-3 control-label">Adresse e-mail</label>
-					    <div class="col-sm-9">
-					      <input type="email" class="form-control" name="identifier2" id="identifier2" placeholder="Email">
-					    </div>
-					  </div>
-					  <div class="form-group"> <!-- email address confirmation -->
-					    <label for="identifier3" class="col-sm-3 control-label"></label>
-					    <div class="col-sm-9">
-					      <input type="email" class="form-control" name="identifier3" id="identifier3" placeholder="Confirmer votre adresse e-mail">
-					    </div>
-					  </div>
-					  <div class="form-group"> <!-- choosen password -->
-					    <label for="password2" class="col-sm-3 control-label">Mot de passe</label>
-					    <div class="col-sm-9">
-					      <input type="password" class="form-control" name="password2" id="password2" placeholder="Mot de passe">
-					    </div>
-					  </div>
-					  <div class="form-group"> <!-- password confirmation -->
-					    <label for="confPassword2" class="col-sm-3 control-label"></label>
-					    <div class="col-sm-9">
-					      <input type="password" class="form-control" name="confPassword2" id="confPassword2" placeholder="Confirmer le mot de passe">
-					    </div>
-					  </div>
-					  <div class="form-group"> <!-- subscription button -->
-					    <div class="col-sm-offset-2 col-sm-10">
-					      <button type="submit" class="btn btn-default" name="sub-btn">S'inscrire</button>
-					    </div>
-					  </div>
-					</form>
-				  </div>
+				<p> Il suffit de cliquer sur le bouton ci-dessous. </p>
+				<div class="col-sm-offset-2 col-sm-10">
+				    <button type="submit" id="inscription" class="btn btn-default" name="sub-btn">S'inscrire</button>
+				</div>
 			</div>
 		</div>
 
