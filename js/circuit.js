@@ -36,7 +36,7 @@ function itineraire(nom,lat,long) {
 	GMaps.geolocate({
 		success: function(position){
 			marqueurEtape(nom,lat,long);
-			lieuproxi(lat,long)
+			lieuproxi(nom, lat,long)
 			// we are using coordinate used before and those of our current place in order to create an itineraries
 			var request = {
 				origin: new google.maps.LatLng(prelat,prelong),
@@ -73,22 +73,36 @@ function marqueurEtape(nom,lat,long) {
 	google.maps.event.addListener(marker, 'click');
 }
 
-function lieuproxi(lat,long) {
-	$.get(
-		'lieuProximite.php',  //Nous redirige vers le fichier php
-		{
-			latitude : lat,
-			longitude : long
-		},
-		function(data) { //Fonction qui prend en argument le résultat de la page php automatiquement
-			$('#favorite').css('background','green');
-			if (data === 'oui') {
-				$('#favorite').css('background','green');
-			}	else {
-				$('#favorite').css('background','red');
+function lieuproxi(nom, lat,long) {
+	$.ajax({
+        url: "lieuProximite.php",
+        type: "GET",
+        data : "latitude=" + lat + "&longitude=" + long,
+        dataType: "json", // lowercase is always preferered though jQuery does it, too.
+        success: function(returnData){
+			var name_place = nom;
+			var i = 0;
+			while (i < returnData.length) {
+				if ( returnData[i] === name_place) {
+					i += 3;
+				} else {
+					nom = returnData[i];
+					i++;
+					lat = returnData[i];
+					i++;
+					long = returnData[i];
+					i++;
+					marqueurProxi(nom,lat,long);
+				}
 			}
-		}
-	);
+		},
+		error : function(returnData, statut, erreur){
+			$('#favorite').css('background','red');
+        },
+        complete : function(returnData, statut){
+			console.log(returnData);
+        }
+	});
 }
 
 function marqueurProxi(nom, lat, long) {
@@ -97,7 +111,7 @@ function marqueurProxi(nom, lat, long) {
 		draggable: true, 
 		animation: google.maps.Animation.DROP, 
 		position: new google.maps.LatLng(lat,long),
-		title: nom,
+		title:nom,
 		icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
 	});
 	google.maps.event.addListener(marker, 'click');

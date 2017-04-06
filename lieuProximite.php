@@ -1,6 +1,10 @@
 
 <?php
+	// Connect to the database
 	require('base.php');
+	
+	// Character encoding of the database
+  	$connection->exec("SET NAMES 'utf8'");
 		
 	//$lat = $_GET[latitude];
 	//$long = $_GET[longitude];
@@ -12,13 +16,15 @@
 	$sql="SELECT name, latitude, longitude, (3956 * 2 * ASIN(SQRT( POWER(SIN(( $lat - latitude) *  pi()/180 / 2), 2) +COS( $lat * pi()/180) * COS(latitude * pi()/180) * POWER(SIN(( $long - longitude) * pi()/180 / 2), 2) ))) AS distance FROM place HAVING distance <= 50 ORDER BY distance";
     $req =$connection->prepare($sql);
     $req->execute();
-	$int = $req->rowCount();
-	$res = $req->fetchAll();
-			
-	if ($int ==0) {
-		echo 'non';
-	} else {
-		echo 'oui';
-	}
+	$response = array();
+	$i = 0;
+	while ($res = $req->fetch()) {
+		$response[$i++] = $res[0];
+		$response[$i++] = $res[1];
+		$response[$i++] = $res[2];
+	};
 	
+	header('Content-Type: application/json; charset=utf-8'); //Pour définir le type de données envoyée (ici du JSON)
+	echo json_encode($response);
+		
 ?>

@@ -39,7 +39,7 @@
 			$res = $req->fetchAll();
 			foreach($res as $value) {
 		?>
-				<h4 class="test" onclick="itineraire(<?php echo '\''.$value[0].'\','.$value[1].','.$value[2] ?>)"><?php echo $value[0] ?></h4>
+				<h4 onclick="itineraire(<?php echo '\''.$value[0].'\','.$value[1].','.$value[2] ?>)"><?php echo $value[0] ?></h4>
 		<?php
 			}
 		?>
