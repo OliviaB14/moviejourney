@@ -23,6 +23,8 @@
 <link rel="stylesheet" type="text/css" href="HoverEffectIdeas/HoverEffectIdeas/css/normalize.css"/>
 <link rel="stylesheet" type="text/css" href="HoverEffectIdeas/HoverEffectIdeas/css/set1.css"/>
 
+
+
 <!-- SCRIPTS FILES -->
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
@@ -140,6 +142,8 @@
 			<div class="row">
 				<p class="col-lg-6 col-lg-offset-3">Découvrez les circuits sélectionnés juste pour vous par l'équipe de Movie Journey !
 				Pour créer votre circuit personnalisé, rien de plus simple : <a href="circuit.php">rendez-vous ici</a>, ajouter vos films à vos favoris et sélectionnez les lieux que vous voulez visiter.</p>
+				<p id="journey">Bon voyage ! <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+</p>
 			</div>
 
 			<div class="row">
