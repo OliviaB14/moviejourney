@@ -3,6 +3,77 @@
   require 'base.php';
   // Character encoding of the database
   $connection->exec("SET NAMES 'utf8'");
+  include('header.php');
+  $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEmailErr=$typesErr=""; //only if the user makes a mistake
+  $champOk = true;
+  $toutajouté = false;
+	//All the conditions above are checking if the user made a mistake
+	if($_SERVER["REQUEST_METHOD"] == 'POST'){
+		if(empty($_POST['lastname'])){
+			$lnameErr = "* Entrez un nom."; 
+			$champOk=false;
+		}
+		if(empty($_POST['firstname'])){
+			$fnameErr = "* Entrez un prénom.";
+			$champOk=false;
+		}
+		if(empty($_POST['password']) || strlen($_POST['password'])<8){
+			$mdpErr = "* Le mot de passe doit contenir au moins 8 caractères.";
+			$champOk=false;
+		} 
+		
+		if(isset($_POST['password']) and isset($_POST['confPassword'])){
+			if(strcmp($_POST["password"],$_POST["confPassword"])!==0){
+				$confmdpErr = "* Les mots de passes ne sont pas identiques.";
+				$champOk=false;
+			}
+		}
+		
+		if(isset($_POST['email'])){
+			if (!strstr($_POST['email'],"@") or (!strstr($_POST['email'],"."))){
+				$mailErr = "* Email invalide (ne contient pas de @ ou de .)";
+				$champOk=false;
+			}
+			if(isset($_POST['email']) and isset($_POST['email1'])){
+				if(strcmp($_POST["email"],$_POST["email1"])!==0){
+					$confmailErr = "* Les adresses email ne sont pas identiques.";
+					$champOk=false;
+				}
+			}
+			if ($champOk){
+				if (checkemail($_POST['email'])==false){
+					$existEmailErr = "* L'email est déjà pris !";
+					$champOk=false;
+				}
+			}
+			if (!isset($_POST['types']) || sizeof($_POST['types']) < 2){
+				$typesErr= "* Sélectionnez au moins 2 types.";
+				$champOk=false;
+			}
+		}
+		if (isset($_POST['gets_emails'])){ 
+			$gets_emails =1;
+		}else{
+			$gets_emails =0;
+		}
+		if ($champOk){
+			$lastname = $_POST['lastname'];
+			$firstname = $_POST['firstname'];
+			$mdp = $_POST['password'];
+			$email = $_POST['email'];
+			$birth_date = $_POST['birthdate'];
+		} else {
+			$lastname = $firstname = $mdp = $email = $birth_date ="";
+		}
+
+	//And if everything is valid, then the account is added to the database
+		if ($champOk){
+			$userid = addUser($lastname,$firstname,$birth_date,$email,$gets_emails,$mdp);
+			addUserGenres($userid,$_POST['types']);
+			header('Location: index.php');
+		}
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr"><!-- language -->
@@ -27,73 +98,6 @@
 	</head>
 
 	<body>
-	<?php
-		include('header.php');
-$fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEmailErr=$typesErr=""; //only if the user makes a mistake
-	$champOk = true;
-	//All the conditions above are checking if the user made a mistake
-	if(!isset($_POST['lastname'])){
-		$lnameErr = "* Entrez un nom."; 
-		$champOk=false;
-	}
-	if(!isset($_POST['firstname'])){
-		$fnameErr = "* Entrez un prénom.";
-		$champOk=false;
-	}
-	if(!isset($_POST['password']) || strlen($_POST['password'])<8){
-		$mdpErr = "* Le mot de passe doit contenir au moins 8 caractères.";
-		$champOk=false;
-	} 
-	
-	if(isset($_POST['password']) and isset($_POST['confPassword'])){
-		if(strcmp($_POST["password"],$_POST["confPassword"])!==0){
-			$confmdpErr = "* Les mots de passes ne sont pas identiques.";
-			$champOk=false;
-		}
-	}
-	
-	if(isset($_POST['email'])){
-		if (!strstr($_POST['email'],"@") or (!strstr($_POST['email'],"."))){
-			$mailErr = "* Email invalide (ne contient pas de @ ou de .)";
-			$champOk=false;
-		}
-		if(isset($_POST['email']) and isset($_POST['email1'])){
-			if(strcmp($_POST["email"],$_POST["email1"])!==0){
-				$confmailErr = "* Les adresses email ne sont pas identiques.";
-				$champOk=false;
-			}
-		}
-		if ($champOk){
-			if (checkemail($_POST['email'])==false){
-				$existEmailErr = "* L'email est déjà pris !";
-				$champOk=false;
-			}
-		}
-	}
-	if ($champOk){
-		$lastname = $_POST['lastname'];
-		$firstname = $_POST['firstname'];
-		$mdp = $_POST['password'];
-		$email = $_POST['email'];
-		$birth_date = $_POST['birthdate'];
-	}
-	if (isset($_POST['gets_emails'])){
-		$gets_emails =1;
-	}else{
-		$gets_emails =0;
-	}
-	if (!isset($_POST['types']) || sizeof($_POST['types']) < 2){
-		$typesErr= "* Sélectionnez au moins 2 types.";
-		$champOk=false;
-	}
-	//And if everything is valid, then the account is added to the database
-	if ($champOk){
-		echo "<p> Vos données ont été validées par le serveur.</p>";
-		$userid = addUser($lastname,$firstname,$birth_date,$email,$gets_emails,$mdp);
-		addUserGenres($userid,$_POST['types']);
-	}
-	?>
-
 	<!-- MAIN CONTAINER : all page is contained -->
 	<div class="container-fluid">
 
@@ -206,12 +210,8 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 		</div>
 
 	</div>
-
-	<?php
-		include('footer.php');
-		/* ==========================================================
-		CUSTOMED PHP FUNCTIONS
-		========================================================== */
+<?php
+	include('footer.php');
 // define variables and set to empty values
 	function checkemail($email){
 		//Checks if the mail is in the database
@@ -278,7 +278,6 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 			$statement->bindValue(":id", $id, PDO::PARAM_INT);
 			$statement->bindValue(":type_id", $type_id[0], PDO::PARAM_INT);
 			$statement->execute();
-			header ('location: account.php');
 		}
 	} 
 		function requete_bdd($connection, $req){
@@ -287,8 +286,8 @@ $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEma
 				------- ARGUMENTS
 				$req is a string
 				$connection is the database
-			*/
-			
+						*/
+
 			$query = $connection->prepare($req);
 			return $query;
 			/* returned variable is an pdo object */
