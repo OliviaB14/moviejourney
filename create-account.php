@@ -70,7 +70,7 @@
 		if ($champOk){
 			$userid = addUser($lastname,$firstname,$birth_date,$email,$gets_emails,$mdp);
 			addUserGenres($userid,$_POST['types']);
-			header('Location: index.php');
+			header('Location: account.php');
 		}
 	}
 
@@ -93,6 +93,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">		
 		<!--font-family title -->
+		<link rel="icon" type="image/png" href="image/favicon.png" />
 		
 		<title>Créer mon compte - Movie Journey</title>
 	</head>

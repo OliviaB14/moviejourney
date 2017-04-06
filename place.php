@@ -19,6 +19,7 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g'></script>
 <!-- clé API google map Javascript API :  AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g -->
+<link rel="icon" type="image/png" href="image/favicon.png" />
 </head>
 
 <body>

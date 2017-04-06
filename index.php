@@ -26,6 +26,7 @@
 		<!--font-family title -->
 
 		<title>Movie Journey</title>
+		<link rel="icon" type="image/png" href="image/favicon.png" />
 	</head>
 
 	<body>

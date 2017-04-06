@@ -18,6 +18,7 @@
 		<link rel="stylesheet" href="css/search.css" type="text/css" /><!-- main stylesheet -->
 		<link rel="stylesheet" type="text/css" href="css/overlay-bootstrap.min.css"/><!-- overlay stylesheet -->
 		<title>Movie Journey</title>
+		<link rel="icon" type="image/png" href="image/favicon.png" />
 	</head>
 
 	<body>

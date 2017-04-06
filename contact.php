@@ -13,6 +13,7 @@
 <title>Contact</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" href="image/favicon.png" />
 </head>
 
 <body>
