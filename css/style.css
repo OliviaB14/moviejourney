@@ -17,6 +17,11 @@
     background:#F8F8F8; 
 }
 
+.row {
+  margin-left:0;
+  margin-right: 0;
+}
+
 /* ---------- header --------- */
 
 header{

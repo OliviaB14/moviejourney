@@ -70,14 +70,15 @@ p.nom-lieu-movies, p.nom-film-movies {
 	text-align: justify;
 }
 
-.movie_poster{
-	text-align:center;
+.movie_infos{
+	text-align:justify;
 }
 
 img.img-responsive.movie_poster{
-	width: 60%;
+	width: 40%;
     height: auto;
-    margin-left: 25%;
+    padding:3%;
+    float:left;
 }
 
 .favmovie{
@@ -87,4 +88,29 @@ img.img-responsive.movie_poster{
 
 .favmovie .btn{
 	margin-left: 30px;
+}
+
+
+li.typeItem {
+	list-style-type: none;
+    display: inline-block;
+    margin-right: 10px;
+    background: #ae1c1c;
+    color: #fff;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+li.typeItem:hover{
+	background:#5bc0de;
+}
+
+.share_movie li, li.place{
+	list-style-type: none;
+    display: inline-block;
+    margin-right: 2%;
+}
+
+.share_movie li img{
+	width:36px;
 }

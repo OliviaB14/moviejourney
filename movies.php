@@ -176,7 +176,7 @@
 			} else {
 				$film = $_GET['page'];
 				// resquest
-		        $sql = "SELECT place.name, place.photo_path, movie.description, movie.backdrop_path FROM place, movie, placemovie WHERE movie.name = '$film' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id";
+		        $sql = "SELECT place.name, place.photo_path, movie.description, movie.backdrop_path, movie.id FROM place, movie, placemovie WHERE movie.name = '$film' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id";
 				$req = $connection->query($sql); 
 				$res = $req->fetchAll();
 				?>
@@ -187,18 +187,8 @@
 					<button type='button' class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
 				</div>
 
-				<!-- presentation of the movie and its famous places -->
-				<div class='movie_div row'>
-					<!-- movie resume -->
-					<div class="col-sm-6 hidden-xs hidden-sm col-md-4 movie_poster">
-						<img src="<?php echo $res[0]['backdrop_path']; ?>" class="img-responsive movie_poster">
-					</div>
-					<div class="col-sm-6 hidden-xs col-md-4 resume">
-						<div>
-						<?php echo $res[0]['description']; ?>
-						</div>
-				  	</div>
-				   
+				
+				<div class="places row">   
 				    <?php
 						foreach($res as $value) {
 						?>	
@@ -221,14 +211,72 @@
 				<?php
 				}
 				?>
-			
-			</div><?php
+				</div>
+				<!-- presentation of the movie and its famous places -->
+				<div class='movie_div row'>
+					<?php 
+					$movieid = $res[0]['id'];
+					$request = "SELECT type.type FROM type, movietype WHERE '$movieid' = movietype.movie_id AND movietype.type_id = type.id";
+						$req = $connection->query($request); 
+						$result = $req->fetchAll(); 
+						// sql request to get the movie types ?>
+
+					<!-- movie poster and resume -->
+					<div class="col-sm-6 hidden-xs hidden-sm col-md-7 movie_infos">
+						<img src="<?php echo $res[0]['backdrop_path']; ?>" class="img-responsive movie_poster"/>
+
+						<h4>Synopsis:</h4>
+						<p><?php echo $res[0]['description']; ?></p>
+
+						<h4>Genres:</h4><!-- movie type -->
+						<ul><?php foreach ($result as $key => $value) {?>
+							<li class="typeItem"><?php echo $value['type'];?></li>
+							<?php
+						};?></ul>
+
+						<?php 
+						$fav_request = "SELECT COUNT(*) FROM usersfavorite_movies WHERE '$movieid' = usersfavorite_movies.movie_id";
+						$req = $connection->query($fav_request); 
+						$count = $req->fetch(); 
+						// sql request to get the movie likes by users ?>
+						<p><?php echo $count[0];?> utilisateurs ont ajouté ce film à leurs favoris</p>
+
+						<h4>Partager cette page avec un ami:</h4>
+						<ul class="share_movie">
+							<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo getCurrentURL();?>" target="_blank"><li><img src="image/share_facebook.png" alt="Partager cette page sur Facebook" /></li></a>
+							<a href="https://twitter.com/home?status=<?php echo getCurrentURL();?>" target="_blank"><li><img src="image/share_twitter.png" alt="Partager cette page sur Twitter" /></li></a>
+							<a href="https://plus.google.com/share?url=<?php echo getCurrentURL(); ?>" target="_blank"><li><img src="image/share_googleplus.png" alt="Partager cette page sur Google+" /></li></a>
+						</ul>
+					</div>
+					<div class="col-sm-12 col-md-5">
+					<h4>Liste des lieux cultes : </h4>
+						<ul><?php foreach ($res as $key => $value) {?>
+							<a href="place.php?place=<?php echo $value[0];?>"><li class="place"><?php echo $value[0];?></li></a>
+							<?php
+						};?></ul>
+					</div>
+				</div>
+			<?php
 			}
 			include ('footer.php');
+
+			function getCurrentURL(){
+			    $currentURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+			    $currentURL .= $_SERVER["SERVER_NAME"];
+			 
+			    if($_SERVER["SERVER_PORT"] != "80" && $_SERVER["SERVER_PORT"] != "443")
+			    {
+			        $currentURL .= ":".$_SERVER["SERVER_PORT"];
+			    } 
+			 
+			        $currentURL .= $_SERVER["REQUEST_URI"];
+			    return $currentURL;
+			}
 				?>
 			
 		</div>
 		<script src="js/fixed-movie.js" type="text/javascript"></script>
 		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+
 	</body>
 </html>

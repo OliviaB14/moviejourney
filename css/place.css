@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-.image-place-place, #gmap_canvas{
+#gmap_canvas{
     height: 400px;
 	width:100%;
 }
@@ -57,4 +57,70 @@ p {
 
 .btn.btn-lg.btn-default.button-fav-pink {
 	background:pink;
+}
+
+
+
+
+figure, li, div, img, a {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    list-style: none;
+}
+
+
+/* Slider Style */
+
+
+figure.min li {
+    float: left;
+    margin-bottom: 3%;
+    margin-right: 4%;
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+}
+
+figure.min a {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    border: 4px solid transparent;
+}
+
+figure.min img {
+    box-shadow: 1px 1px 5px rgba(0,0,0,.5);
+    width: 100%;
+    height: auto;
+     border: 2px solid transparent;
+}
+
+figure.min img:hover {
+    border: 2px solid #A10526;
+}
+
+figure.max img {
+    height:400px;
+    width: 100%;
+    position: relative;
+    border:3px solid #A10526;
+    margin-bottom: 2%;
+    margin:-1%;
+}
+
+figure.max {
+    overflow: hidden;
+    clear: both;
+}
+
+figure.max li {
+    position: absolute;
+    z-index: 1;
+    width:100%;
+}
+
+figure.max li:target {
+    z-index: 2;
 }

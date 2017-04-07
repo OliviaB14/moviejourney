@@ -22,7 +22,7 @@
 		$data = $req -> fetch();
 		$_SESSION['id'] = $data['id']; //test de connexion
 	    //On récupère l'identifiant et le mdp dans des variables SUPERGLOBALES
-	    
+	   
 	    header('location: account.php'); 
 	    exit;
 	    // renvoie directement vers l'index

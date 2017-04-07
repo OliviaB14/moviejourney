@@ -45,26 +45,70 @@
 	
 		// création de la requête
 		//rajouter townplace FROM et townplace à la place de town dans WHER
-        $sql = "SELECT place.name, place.photo_path, place.description, place.latitude, place.longitude, town.country, town.name, place.id FROM place, movie, placemovie, town, placetown WHERE place.name = '$place' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id AND place.id = placetown.place_id AND placetown.town_id = town.id";
+        $sql = "SELECT place.name, place.photo_path, place.description, place.latitude, place.longitude, town.country, town.name, place.id, place.photo_path_two, place.photo_path_three, place.photo_path_four FROM place, movie, placemovie, town, placetown WHERE place.name = '$place' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id AND place.id = placetown.place_id AND placetown.town_id = town.id";
 		// lancement de la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
 		$req = $connection->query($sql); 
 		$res = $req->fetch();
 		// variable utilisé pour prochaine requête
+		/*
+		$res[0] : place name
+		$res[1] : place photo_path
+		$res[2] : place description
+		$res[3] : place latitude
+		$res[4] : place longitude
+		$res[5] : town country
+		$res[6] : town name
+		$res[7] : place id
+		$res[8] : place photo_path2
+		$res[9] : place photho_path3
+		$res[10] : place photo_path4
+		 */
 		$nom = $res[0];
 		$lat = $res[3];
 		$long = $res[4];
 		$id_place = $res[7];
 		//$id_user = $_SESSION['id'];
 	?>
+
 		<div class="row">
 			<div class="description-place">
-				<div class="image-place col-md-9">
-					<img class="image-place-place img-responsive" src="<?php echo $res[1] ?>" alt="Photo du lieu"/>
-				</div>
+
+			<!-- place pictures panorama -->
+				<div class="col-md-9">
+					<figure class="max">
+		                <li id="slide-1">
+		                	<img src="<?php echo $res[8]; ?>" class="img-responsive" alt="Photo du lieu" />
+		                </li>
+		                </figure>
+		            <figure class="max">
+		                <li id="slide-2">
+		                	<img src="<?php echo $res[9]; ?>" class="img-responsive" alt="Photo du lieu" />
+		                </li>
+		            </figure>
+		            <figure class="max">
+		                <li id="slide-3">
+		                	<img src="<?php echo $res[10]; ?>" class="img-responsive" alt="Photo du lieu" />
+		                </li>
+		            </figure>
+		             <figure class="max">
+		                <li id="slide-4">
+		                	<img class="img-responsive" src="<?php echo $res[1] ?>" alt="Photo du lieu"/>
+		                </li>
+		            </figure>		            
+		        </div>
+
 				<div class="text-place col-md-3">
 					<div class="inner-text-place">
+						<!-- Place description -->
 						<h3><?php echo $res[0] ?></h3>
 						<p><?php echo $res[2] ?></p>
+						<!-- place pictures miniatures -->
+						<figure class="min">
+			                <li><a title="<?php echo $res[0]; ?> - Photo 1" href="#slide-1"><img src="<?php echo $res[8]; ?>"/></a></li>
+			                <li><a title="<?php echo $res[0]; ?> - Photo 2" href="#slide-2"><img src="<?php echo $res[9]; ?>" /></a></li>
+			                <li><a title="<?php echo $res[0]; ?> - Photo 3" href="#slide-3"><img src="<?php echo $res[10]; ?>"  /></a></li>
+			                <li><a title="<?php echo $res[0]; ?> - Photo 4" href="#slide-4"><img src="<?php echo $res[1]; ?>"/></a></li>
+		            	</figure>
 					</div>
 				</div>
 			</div>
