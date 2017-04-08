@@ -15,6 +15,8 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/breadcrumb.css" rel="stylesheet" type="text/css">
 <link href="css/place.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="HoverEffectIdeas/HoverEffectIdeas/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="HoverEffectIdeas/HoverEffectIdeas/css/set1.css">
 <script src="js/button-fav.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g'></script>
@@ -175,11 +177,17 @@
 					while($row = $stmt->fetch()){
 						if ($row[0] != $nom) {
 							?>
-							  <div class="col-xs-6 col-md-3">
-								<a href="place.php?place=<?php echo $row[0] ?>" class="thumbnail">
-								  <img src="<?php echo $row[1] ?>" alt="...">
-								</a>
-							  </div>
+							  <div class="proxiplace col-xs-6 col-md-3 text-center effect-lily">
+								<div class="grid">
+									<figure class="effect-lily">
+										<img src="<?php echo $row[1] ?>" alt="<?php echo $row[0] ?>"/>
+										<figcaption>
+											<h2><span><?php echo $row[0] ?></span></h2>
+											<a href="place.php?place=<?php echo $row[0] ?>">Découvrir ce lieu</a>
+										</figcaption>			
+									</figure>				
+								</div>
+							</div>
 							<?php
 						}
 					}
