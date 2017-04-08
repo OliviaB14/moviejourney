@@ -42,7 +42,7 @@ function itineraire(nom,lat,long) {
 	GMaps.geolocate({
 		success: function(position){
 			marqueurEtape(nom,lat,long);
-			lieuproxi(nom, lat,long)
+			lieuproxi(nom,lat,long);
 			// we are using coordinate used before and those of our current place in order to create an itineraries
 			var request = {
 				origin: new google.maps.LatLng(prelat,prelong),
