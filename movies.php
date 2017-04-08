@@ -179,15 +179,34 @@
 		        $sql = "SELECT place.name, place.photo_path, movie.description, movie.backdrop_path, movie.id FROM place, movie, placemovie WHERE movie.name = '$film' AND movie.id = placemovie.movie_id AND placemovie.place_id = place.id";
 				$req = $connection->query($sql); 
 				$res = $req->fetchAll();
+				$id_movie = $res[0][4];
 				?>
 
-				
 				<div class="favmovie row">
 					<h2 class='nom-lieu-h2-movies'><?php echo $film;?></h2>
-					<button type='button' class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+					<?php 
+					if ($connect == true) {
+						$user_id = $_SESSION['id'];
+						$sql = "SELECT * FROM usersfavorite_movies WHERE movie_id = '$id_movie' AND user_id = '$user_id'";
+						$req = $connection -> query($sql);
+						$int = $req->rowCount();
+						if ($int == 0) {
+					?>
+						<button type="button" id="add_fav" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+					<?php
+						} else {
+					?>
+						<button type="button" id="add_fav" class="btn btn-lg btn-default button-fav-pink"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+					<?php
+						}
+					} else {
+					?>
+						<button type="button" id="add-fav" onclick='openNav()' class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le film à mes favoris"></span></button>
+					<?php
+					}
+					?>
 				</div>
 
-				
 				<div class="places row">   
 				    <?php
 						foreach($res as $value) {
@@ -275,8 +294,18 @@
 				?>
 			
 		</div>
-		<script src="js/fixed-movie.js" type="text/javascript"></script>
+		<script> 	
+			$( "#add_fav" ).click(function() {
+				var lieu = <?= $id_movie ?>;
+				var proposition = "film";
+				if ($(this).css("background") == "rgb(255, 192, 203) none repeat scroll 0% 0% / auto padding-box border-box") {
+					supprfavoris(lieu, proposition);
+				} else {
+					ajoutfavoris(lieu, proposition);
+				}
+			});
+		</script>
 		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
-
+		<script src="js/button-fav.js"></script>
 	</body>
 </html>
