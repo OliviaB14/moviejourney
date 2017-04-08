@@ -2,6 +2,7 @@
 
 var prelat;
 var prelong;
+var step = 0;
 	
 //Conditions si la géolocalisation ne marche pas à faire
 	
@@ -31,6 +32,11 @@ function init_map(){
 }	
 
 function itineraire(nom,lat,long) {
+	step++;
+	if (step === 1) {
+		$('#step').html('<h3>Vos étapes</h3>');
+	}
+	$('#step').html($('#step').html()+"<h4 class='placestep'>"+step+".  "+nom+"</h4>");
 	var directionsService = new google.maps.DirectionsService();
 	var directionsDisplay = new google.maps.DirectionsRenderer({map:map});
 	GMaps.geolocate({
@@ -84,7 +90,7 @@ function lieuproxi(nom, lat,long) {
 			var i = 0;
 			while (i < returnData.length) {
 				if ( returnData[i] === name_place) {
-					i += 3;
+					i += 4;
 				} else {
 					nom = returnData[i];
 					i++;
@@ -92,20 +98,21 @@ function lieuproxi(nom, lat,long) {
 					i++;
 					long = returnData[i];
 					i++;
-					marqueurProxi(nom,lat,long);
+					var image = returnData[i];
+					i++;
+					marqueurProxi(nom,lat,long,image);
 				}
 			}
 		},
 		error : function(returnData, statut, erreur){
-			$('#favorite').css('background','red');
+			console.log(erreur);
         },
         complete : function(returnData, statut){
-			console.log(returnData);
         }
 	});
 }
 
-function marqueurProxi(nom, lat, long) {
+function marqueurProxi(nom, lat, long, image) {
 	marker = new google.maps.Marker({
 		map: map, 
 		draggable: true, 
@@ -114,5 +121,13 @@ function marqueurProxi(nom, lat, long) {
 		title:nom,
 		icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
 	});
-	google.maps.event.addListener(marker, 'click');
+	
+	var contenuInfoBulle =	"<h3>" + nom + "</h3>"  + "<img id='" + nom + "' src='" + image + "' title='" + nom + "' />" + "<span><a href='place.php?place=" + nom + "'>Découvrir ce lieu</a></span>";
+	var infoBulle = new google.maps.InfoWindow({
+		content: contenuInfoBulle
+	})
+	
+	google.maps.event.addListener(marker, 'click', function() {
+		infoBulle.open(map, marker);
+	});
 }

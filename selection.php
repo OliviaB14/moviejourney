@@ -53,7 +53,7 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<h2 id="pagetitle"> <strong>
+			<h2 id="pagetitle"><strong>
 				<?php 
             	if(($pays =='Angleterre') || ($pays == 'France')){
             		echo "Partez à l'aventure en " . $pays; 
