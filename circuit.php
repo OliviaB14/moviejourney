@@ -8,19 +8,25 @@
 
 <!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Mes circuits</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/circuit.css" rel="stylesheet" type="text/css">
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="js/gmaps.js"></script>
-<script src="js/circuit.js"></script>
-<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g'></script>
-<!-- clé API google map Javascript API :  AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g -->
-<!-- clé API google map Distance Matrix API : AIzaSyA88fZiFkYPHVWDkKaco_2wTyFAV1Lagf0 -->
-</head>
+	<head>
+		<meta charset="utf-8">
+		<title>Mes circuits</title>
+
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link href="css/circuit.css" rel="stylesheet" type="text/css">
+
+		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">	
+		<!--google fonts -->
+
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="js/gmaps.js"></script>
+		<script src="js/circuit.js"></script>
+		<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g'></script>
+		<!-- clé API google map Javascript API :  AIzaSyCMGeFAtGWlSG2me_ccsocwSU1fNzcXv8g -->
+		<!-- clé API google map Distance Matrix API : AIzaSyA88fZiFkYPHVWDkKaco_2wTyFAV1Lagf0 -->
+	</head>
 
 <body>
 <?php
@@ -35,7 +41,6 @@
 		<div class="row">
 			<p class="col-lg-6 col-lg-offset-3">Retrouvez ici tous vos lieux favoris.</p>
 			<p class="col-lg-6 col-lg-offset-3">Pour créer votre circuit personnalisé, cliquez sur les lieux que vous voulez visitez, étape par étape.</p>
-</p>
 		</div>
 		<div class="marker row">
 			<div class="col-md-3">

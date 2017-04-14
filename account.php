@@ -21,10 +21,10 @@
 		<!-- main stylesheet -->
 		<link rel="stylesheet" href="css/account.css" type="text/css" />
 		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">		
-		<!--font-family title -->
+		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
+		<!-- google fonts -->
 
-		<title>Se connecter - Movie Journey</title>
+		<title>Mon compte - Movie Journey</title>
 		<link rel="icon" type="image/png" href="image/favicon.png" />
 	</head>
 
@@ -90,20 +90,75 @@
 					</form>
 		        </div>
 		        <div id="userpreferences" class="tab-pane fade text-justify">
-		            <h4>Genres de films préférés</h4>
-		            <p></p>
-		            <h4>Lieux cultes visités</h4>
-		            <p></p>
+		        	<?php 
+		            	$user = $_SESSION['id'];
+		            				
+					?>
+		        	<h4>Mes séjours</h4>
+
+		        	<h4>Genres de films préférés</h4>
+		        	<!-- request : select user's favorite movie types	-->	
+		            <p><?php $sql = "
+		            			SELECT type.type 
+		            			FROM type, userstypes, users 
+		            			WHERE '$user' = userstypes.user_id
+		            				AND userstypes.type_id = type.id
+		            			";
+						$req = $connection -> query($sql);
+						$data = $req -> fetchAll();
+						foreach($data as $key){ echo $key[0];} 
+						?></p>
+		            
+
+		            <h4>Mes films favoris</h4>
+		            	<div class="styled-select">
+			            <?php $sql = "
+			            			SELECT movie.name 
+			            			FROM users, usersfavorite_movies, movie 
+			            			WHERE '$user' = usersfavorite_movies.user_id 
+			            				AND usersfavorite_movies.movie_id = movie.id
+			            			";
+							$req = $connection -> query($sql);
+							$data = $req -> fetchAll();
+							if(count($data) != 0){
+							?>
+							<select>
+							<?php
+								$i = 0;
+								while($i < count($data)){
+									echo "<option>";
+									print_r($data[$i]['name']);
+									echo "</option>";
+									$i++;
+								}  
+							?>
+							</select>
+							<?php
+							} 
+							?>
+		    
+		    				<a href="movies.php" title="Ajouter d'autres films à mes favoris"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> Ajouter d'autres films à mes favoris</a> 
+		            	</div>
+
 		        </div>
 
+		        <!-- new reservation -->
 		        <div id="newcircuit">
 		        <a href="circuit.php"><button class="btn btn-default col-xs-12" id="reservation">Nouvelle réservation <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></a>
 		        </div>
+
 		        <!-- deconnection button -->
-			<div class="btn deconnected col-xs-3">
-				<a href="deconnexion.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Déconnexion </a>
+				<div class="btn deconnected col-xs-3">
+					<a href="deconnexion.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Déconnexion </a>
+				</div>
+
+				<div id="delete-account">
+					<form method="post" action="delete-account.php">
+					<button class="col-xs-4 btn" name="deleting_account"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer mon compte</button>
+					</form>
+				</div>
+
 			</div>
-		    </div>
 		</div>
 
 			<?php

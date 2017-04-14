@@ -11,7 +11,7 @@ h3 {
     color: #24809c;
     text-transform: uppercase;
     text-align: center;
-    margin-top: -1px;
+    padding:10px;
 }
 
 img {
@@ -20,7 +20,6 @@ img {
 }
 
 span {
-    display: block;
     text-align: center;
     margin-top: 5px;
     color: black;

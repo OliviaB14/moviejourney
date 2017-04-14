@@ -150,7 +150,6 @@ button.btn.btn-default.col-lg-2.col-md-hidden, .search_btn {
     color: #3e0b0b;
 }
 
-/*---------- end -------------- */
 
 /* ---------- carousel index.php --------- */ 
 
@@ -206,6 +205,9 @@ button.btn.btn-default.col-lg-2.col-md-hidden, .search_btn {
     margin-top: 30px;
     margin-bottom: 15px;
 }
+
+
+/* selected circuits */
 
 .line-title {
   margin-bottom: 1.3em;

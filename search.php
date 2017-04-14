@@ -169,9 +169,9 @@
 					
 			?>
 			<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 alert alert-warning search_error" role="alert">Aucun résultat ne correspond à votre recherche... Voulez-vous proposer ce film ?</div>
+				<div class="col-lg-12 alert alert-warning search_error" role="alert">Aucun résultat ne correspond à votre recherche... Voulez-vous proposer ce film ?</div>
 			</div>
-				<!-- search bar -->
+
 			<div class="searchbarDiv row">
 				<form class="form-inline col-lg-8 col-md-12 col-lg-offset-2 " method="GET" action="search.php" id="searchinput">
 					<div class="dropdown col-lg-2 col-md-2 styled-select">
@@ -212,58 +212,111 @@
 				}
 					?>
 				
+<div class="container">
+	<!-- this div will contain movie suggestions -->
+    <div class="col-md-12">
+        <h4>Vous aimerez peut-être...</h4>
+        <?php 
+		// création de la requête
+		$sql = 'SELECT * FROM `movie` ORDER BY RAND() LIMIT 13';  
+		$req = $connection->prepare($sql); 
+		$req->execute();
+		$rows = $req->fetchAll();
+		
+			?>
+        <div class="well">
+            <div id="suggestions_carousel" class="carousel slide">
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                        	<?php $i = 0; while($i < 4){ ?>
+                            <div class="col-sm-3"><a href="movies.php?page=<?php echo $rows[$i]['name']; ?>"><img src="<?php echo $rows[$i]['backdrop_path']; ?>" alt="Image" class="img-responsive img-fluid thumbnail"></a>
+                            </div>
+                            <?php $i++; }?>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                    <div class="item">
+                        <div class="row">
+                            <?php $i = 4; while($i < 8){ ?>
+                            <div class="col-sm-3"><a href="movies.php?page=<?php echo $rows[$i]['name']; ?>"><img src="<?php echo $rows[$i]['backdrop_path']; ?>" alt="Image" class="img-responsive img-fluid thumbnail"></a>
+                            </div>
+                            <?php $i++; }?>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                    <div class="item">
+                        <div class="row">
+                            <?php $i = 9; while($i <= 12){ ?>
+                            <div class="col-sm-3"><a href="movies.php?page=<?php echo $rows[$i]['name']; ?>"><img src="<?php echo $rows[$i]['backdrop_path']; ?>" alt="Image" class="img-responsive img-fluid thumbnail"></a>
+                            </div>
+                            <?php $i++; }?>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                </div>
+                <!--/carousel-inner--> <a class="left carousel-control" href="#suggestions_carousel" data-slide="prev">‹</a>
+
+                <a
+                class="right carousel-control" href="#suggestions_carousel" data-slide="next">›</a>
+            </div>
+            <!--/myCarousel-->
+        </div>
+        <!--/well-->
+    </div>
+</div>
 
 
+			<!-- overlay for users to propose a movie and its information -->
+			<div class="modal fade in" role="dialog" id="propose" aria-hidden="false">
+				<div class="modal-backdrop">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button class="close" data-dismiss="modal">
+										<span aria-hidden="true">x</span>
+										<span class="sr-only">close</span>
+									</button>
+									Proposer un film
+								</div>
+								<div class="model-body">
+								<!-- form for the movie proposal -->
+									<form method="POST" class="row">
+									  <div class="form-group form-inline col-lg-12">
+									    <label for="moviePropose" class="col-lg-2">Titre du film</label>
+									    <div class="col-lg-10">
+									    <input type="text" class="form-control" id="moviePropose" placeholder="Titre du film" name="moviePropose"/>
+									    </div>
+									  </div>
+									  <div class="form-group form-inline col-lg-12">
+									    <label for="placePropose" class="col-lg-2">Nom ou description du lieu</label>
+									    <div class="col-lg-10">
+									    <input type="text" class="form-control" id="placePropose" placeholder="Nom du lieu" name="placePropose"/>
+									    <p class="help-block ROW">Une indication pour nos géniaux développeurs ! ;)</p>
+									    </div>
+									  </div>
+									  <div class="form-group form-inline col-lg-12">
+									    <label class="col-lg-2">Poster du film</label>
+									    <input type="file" class="col-lg-offset-5">
+									    <p class="help-block ROW">Télécharger l'affiche du film (facultatif)</p>
+									  </div>
+									  	<div class="form-group form-inline col-lg-12">
+									    <label class="col-lg-2">Adresse email</label>
+									    <input type="email" class="form-control" placeholder="Email">
+									  </div>
+									  		<button type="submit" class="btn btn-default" name="propose_a_movie" id="propose_a_movie">Proposer</button>
+										</form>
+										
+
+								</div>
+							</div>
+						</div>
 				</div>
 			</div>
-
-		</div>
-
-	<div class="modal fade in" role="dialog" id="propose" aria-hidden="false">
-	<div class="modal-backdrop">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button class="close" data-dismiss="modal">
-							<span aria-hidden="true">x</span>
-							<span class="sr-only">close</span>
-						</button>
-						Proposer un film
-					</div>
-					<div class="model-body">
-					<!-- form for the movie proposal -->
-						<form method="POST" class="row">
-						  <div class="form-group form-inline col-lg-12">
-						    <label for="moviePropose" class="col-lg-2">Titre du film</label>
-						    <div class="col-lg-10">
-						    <input type="text" class="form-control" id="moviePropose" placeholder="Titre du film" name="moviePropose"/>
-						    </div>
-						  </div>
-						  <div class="form-group form-inline col-lg-12">
-						    <label for="placePropose" class="col-lg-2">Nom ou description du lieu</label>
-						    <div class="col-lg-10">
-						    <input type="text" class="form-control" id="placePropose" placeholder="Nom du lieu" name="placePropose"/>
-						    <p class="help-block ROW">Une indication pour nos géniaux développeurs ! ;)</p>
-						    </div>
-						  </div>
-						  <div class="form-group form-inline col-lg-12">
-						    <label class="col-lg-2">Poster du film</label>
-						    <input type="file" class="col-lg-offset-5">
-						    <p class="help-block ROW">Télécharger l'affiche du film (facultatif)</p>
-						  </div>
-						  	<div class="form-group form-inline col-lg-12">
-						    <label class="col-lg-2">Adresse email</label>
-						    <input type="email" class="form-control" placeholder="Email">
-						  </div>
-						  		<button type="submit" class="btn btn-default" name="propose_a_movie" id="propose_a_movie">Proposer</button>
-							</form>
-							
-
-					</div>
-				</div>
-			</div>
-	</div>
-	</div>
 
 		<?php
 		// include the footer file
@@ -286,7 +339,7 @@
 
 		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-
+		<script type="text/javascript" src="js/recommandation_carousel.js"></script>
 
 
 	</body>

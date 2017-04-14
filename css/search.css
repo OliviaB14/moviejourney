@@ -15,6 +15,10 @@ span.search{
     font-style: italic;
 }
 
+.searchbarDiv{
+	padding:5%;
+}
+
 /* search error message */
 .search_error{
     text-align:center;
@@ -64,4 +68,11 @@ span.search{
 
 .proposebtn{
 	background:#fff;
+}
+
+/* suggestions div */
+
+.carousel-control {
+  padding-top:10%;
+  width:5%;
 }

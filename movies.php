@@ -76,7 +76,7 @@
 				</div>
 			</div>
 			
-			<!-- Afficher des lieux aléatoirement pour remplir la page 
+			<!-- randomly shows places 
 			On pourra par la suite afficher les lieux aléatoirement en fonction des préférences de l'utilisateur s'il est connecté-->	
 			<?php
 			// user first come on the page 

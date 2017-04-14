@@ -9,7 +9,7 @@
 				<h4>Navigation</h4>
 				<ul id="footer-nav" class="footer-list">
 					<li><a href="index.php">Accueil</a></li>
-					<li><a href="movies.php">Lieux cultes</a></li>
+					<li><a href="movies.php">Liste de films</a></li>
 					<?php if($connect){ ?>
 					<li><a href="circuit.php">Mes circuits</a></li>
 					<?php } else { ?>

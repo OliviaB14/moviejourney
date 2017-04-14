@@ -35,6 +35,6 @@
 	font-weight: bold;
 }
 
-h4 {
-	text-align:center;	
+#delete-account .btn{
+	color:red;
 }

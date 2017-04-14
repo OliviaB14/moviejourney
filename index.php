@@ -23,7 +23,7 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">	
-		<!--font-family title -->
+		<!--google fonts -->
 
 		<title>Movie Journey</title>
 		<link rel="icon" type="image/png" href="image/favicon.png" />
@@ -208,7 +208,7 @@
 								<figcaption>
 									<h2>Découvrez le <span>Japon</span></h2>
 									<p>Lily likes to play with crayons and pencils</p>
-									<a href="selection.php?country=Japan">View more</a>
+									<a href="selection.php?country=Japon">View more</a>
 								</figcaption>			
 							</figure>
 						</div>

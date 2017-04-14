@@ -66,44 +66,74 @@
 			<div class="row" id="sideInfos">
 				<div class="col-md-4 hotels-restaurants">
 					<h3><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Nos bons plans</h3>
-					<article data-spy="scroll" data-target="#scrollspy-nav" data-offset="0" class="scrollspy-example">
-						<h4 id="hôtels">Hôtels</h4>
-						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="image/hostel.png" alt="..."> </div>
-							<div class="media-body media-middle">
-								<h5 class="media-heading">Hôtel 1</h5>
+					<article>
+						<div class="block">
+							<h4>Nos hôtels partenaires,</h4>
+								<p>Pour une expérience optimale !</p>
+								<ul>
+							<?php switch ($pays) {
+								case 'Angleterre':
+								// if selected country is England
+							?>
+									<li>Hotel ibis Styles London Southwark Rose <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+									<li>River Hotel <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+									<li>London Bridge Hotel <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+							<?php
+									break;
+
+								case 'France':
+								// if selected country is France
+							?>
+									<li>Hotel Eiffel Seine <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="more">à deux pas du pont de Bir Hakeim</span></li>
+									<li>Best Western Hôtel Le Donjon - Les Remparts <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="more">à Carcassonne</span></li>
+									<li>Hotel-Restaurant du Château <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+							<?php
+									break;
+								case 'Japon':
+								// if selected country is Japan
+							?>
+									<li>Kirara Minshuku, <span class="more">cet hôtel restaurant saura vous accueillir</span> </li>
+									<li>Takahama Beach Resort, <span class="more">une station balnéaire grand public</span> </li>
+									<li>Hotel Parco <span class="glyphicon glyphicon-star" aria-hidden="true"></span><span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+							<?php
+									break;
+								default:
+									# code...
+									break;
+							} ?>
+								</ul>
 							</div>
+							
+							<div class="block">
+								<h4>Restaurants</h4>
+							<?php switch ($pays) {
+								case 'Angleterre':
+								// if selected country is England
+							?>
+								<p>Découvrez la culture gastronomique anglaise chez <strong>The Table Café</strong> ou commandez un plat végétalien à la table de <strong>Big V London</strong>.</p>
+							<?php
+									break;
+								case 'France':
+								// if selected country is France
+							?>
+								<p>Faites un tour à la <strong>Brasserie Biron</strong>, après avoir fait les Puces de Saint-Ouen, ou commandez vietnamien chez <strong>Le Lotus Blanc</strong> une fois le Musée Rodin visité.</p>
+							<?php
+									break;
+								case 'Japon':
+								// if selected country is Japan
+							?>
+								<p>Grâce à sa terrasse orientée plein Ouest, profitez du <strong>Nomons Café</strong> ou découvrez des spécialités chinoisis chez <strong>Rinrin</strong> !</p>
+							<?php
+									break;
+								default:
+									# code...
+									break;
+							} ?>
 						</div>
-						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="image/hostel.png" alt="..."> </div>
-							<div class="media-body media-middle">
-								<h5 class="media-heading">Hôtel 2</h5>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="image/hostel.png" alt="..."> </div>
-							<div class="media-body media-middle">
-								<h5 class="media-heading">Hôtel 3</h5>
-							</div>
-						</div>
-						<h4 id="restaurants">Restaurants</h4>
-						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="image/restaurants.png" alt="..."> </div>
-							<div class="media-body media-middle">
-								<h5 class="media-heading">Restaurant 1</h5>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="image/restaurants.png" alt="..."> </div>
-							<div class="media-body media-middle">
-								<h5 class="media-heading">Restaurant 2</h5>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left media-middle"> <img class="media-object" src="image/restaurants.png" alt="..."> </div>
-							<div class="media-body media-middle">
-								<h5 class="media-heading">Restaurant 3</h5>
-							</div>
+						
+						<div class="block">
+							<h4>Participez à la campagne Happy Journey !</h4>
+							photos pour illustrer happy journey (widget instagram?)
 						</div>
 					</article>
 				</div>
@@ -178,7 +208,7 @@
 							<figcaption>
 								<h2>Découvrez le <span>Japon</span></h2>
 								<p>Lily likes to play with crayons and pencils</p>
-								<a href="selection.php?country=Japan">View more</a>
+								<a href="selection.php?country=Japon">View more</a>
 							</figcaption>			
 						</figure>
 					</div>

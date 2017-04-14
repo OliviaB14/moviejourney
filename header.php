@@ -25,6 +25,7 @@
 			<!-- if user is connected -->
 				<?php if($connect){
 					echo "<li><a href='circuit.php'>Mes circuits</a></li>";
+					echo "<li><a href='selection.php'>La sélection</a></li>";
 				} else {
 					echo "<li><a href='selection.php'>Sélection de circuits</a></li>";
 				} ?>
@@ -61,31 +62,30 @@
   		<a class="navbar-brand" href="index.php"><img src="image/logo-movie-journey.gif" class="img-responsive"/></a>
   	</div>
   	<div class="row">
-  		<div class="col-xs-6 col-xs-offset-3 connection">
-	  	<h3>Connexion</h3>
-		<form action="connexion.php" method="post" >
-			<div class="row form-group">
-			<label for="identifier1" class="col-sm-4 control-label">Adresse e-mail</label>
-			<div class="col-sm-8">
-			<input type="email" name="identifier1" id="identifier1" class="form-control" placeholder="Adresse e-mail">
-			</div>
-			</div>
-			<div class="row form-group">
-			<label for="password1" class="col-sm-4 control-label">Mot de passe</label>
-		    <div class="col-sm-8">
-		      <input type="password" class="form-control" name="password1" id="password1" placeholder="Mot de passe">
-		    </div>
-		    </div>
-		    <div class="col-sm-8 col-sm-offset-2">
-		      <a href="forgotten.php">Mot de passe oublié ?</a> <a href="create-account.php">Créer un compte</a>
-		    </div>
-		    </div>
-			  <div class="form-group connection_btn">
-			    <div class="col-sm-10">
-			      <button type="submit" class="btn btn-default" name="con-btn">Connexion</button>
+  		<div class="col-lg-6 col-lg-offset-3 connection">
+		  	<h3>Connexion</h3>
+			<form action="connexion.php" method="post" >
+				<div class="row form-group">
+					<label for="identifier1" class="col-sm-4 control-label">Adresse e-mail</label>
+					<div class="col-sm-8">
+						<input type="email" name="identifier1" id="identifier1" class="	form-control" placeholder="Adresse e-mail">
+					</div>
+				</div>
+				<div class="row form-group">
+					<label for="password1" class="col-sm-4 control-label">Mot de passe</label>
+			    	<div class="col-sm-8">
+			      		<input type="password" class="form-control" name="password1" id="password1" placeholder="Mot de passe">
+			    	</div>
 			    </div>
-			  </div>
-		</form>
+			    <div class="col-sm-8 col-sm-offset-2">
+			    	<a href="forgotten.php">Mot de passe oublié ?</a> <a href="create-account.php">Créer un compte</a>
+			    </div>
+				<div class="form-group connection_btn">
+		    		<div class="col-sm-10">
+		    			<button type="submit" class="btn btn-default" name="con-btn">Connexion</button>
+		    		</div>
+		  		</div>
+			</form>
 		</div>
 	</div>
   </div>

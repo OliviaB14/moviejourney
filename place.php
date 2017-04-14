@@ -104,18 +104,21 @@
 						<!-- Place description -->
 						<h3><?php echo $res[0] ?></h3>
 						<p><?php echo $res[2] ?></p>
-						<!-- place pictures miniatures -->
-						<figure class="min">
-			                <li><a title="<?php echo $res[0]; ?> - Photo 1" href="#slide-1"><img src="<?php echo $res[8]; ?>"/></a></li>
-			                <li><a title="<?php echo $res[0]; ?> - Photo 2" href="#slide-2"><img src="<?php echo $res[9]; ?>" /></a></li>
-			                <li><a title="<?php echo $res[0]; ?> - Photo 3" href="#slide-3"><img src="<?php echo $res[10]; ?>"  /></a></li>
-			                <li><a title="<?php echo $res[0]; ?> - Photo 4" href="#slide-4"><img src="<?php echo $res[1]; ?>"/></a></li>
-		            	</figure>
+						
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="add-fav">
+			<div class="row">
+				<!-- place pictures miniatures -->
+				<figure class="min">
+	                <li><a title="<?php echo $res[0]; ?> - Photo 1" href="#slide-1"><img src="<?php echo $res[8]; ?>"/></a></li>
+	                <li><a title="<?php echo $res[0]; ?> - Photo 2" href="#slide-2"><img src="<?php echo $res[9]; ?>" /></a></li>
+	                <li><a title="<?php echo $res[0]; ?> - Photo 3" href="#slide-3"><img src="<?php echo $res[10]; ?>"  /></a></li>
+	                <li><a title="<?php echo $res[0]; ?> - Photo 4" href="#slide-4"><img src="<?php echo $res[1]; ?>"/></a></li>
+            	</figure>
+		    </div>
 			<div class="row">
 				<div class="col-md-12">
 					<?php 
