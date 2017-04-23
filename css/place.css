@@ -1,11 +1,55 @@
 @charset "utf-8";
 /* CSS Document */
 
+/* =============
+
+general style
+
+=============  */
+
+h3 {
+    color: deepskyblue;
+}
+
+
+figure, li, div, img, a {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    list-style: none;
+}
+
+p {
+    margin-right: 15px;
+}
+
+/* =============
+
+google map style
+
+=============  */
+
 #gmap_canvas{
     height: 400px;
 	width:100%;
 }
 
+#gmap_canvas img{
+    max-width:none!important;
+    background:none!important;
+}
+
+.thumbnail > img, .thumbnail a > img {
+    height: 158px;
+    width: 100%;
+}
+
+/* =============
+
+place description style
+
+=============  */
 .text-place, .pays-ville-place {
 	height:400px;
 	position:relative;
@@ -28,47 +72,45 @@
 	text-align: justify;
 }
 
-#gmap_canvas img{
-	max-width:none!important;
-	background:none!important;
+.place_infos{
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-h3 {
-    color: deepskyblue;
+.bullet{
+    display: inline-block;
+    margin-right: 10px;
+    background: #ae1c1c;
+    color: #fff;
+    padding: 2%;
+    border-radius: 10px;
 }
 
-h4 {
-    color: cornflowerblue;
-    font-size: small;
-}
+/* =================
+
+Fav button Style 
+
+================== */
+
 
 .btn.btn-lg.btn-default {
     margin-bottom: 30px;
-}
-
-p {
-    margin-right: 15px;
-}
-
-.thumbnail > img, .thumbnail a > img {
-    height: 158px;
-    width: 100%;
 }
 
 .btn.btn-lg.btn-default.button-fav-pink {
 	background:pink;
 }
 
-figure, li, div, img, a {
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-    list-style: none;
+h4.fav-1, h4.fav-2 {
+    color: #ae1c1c;
+    font-size: small;
 }
 
+/* =================
 
-/* Slider Style */
+Slider Style 
+
+================== */
 
 
 figure.min li {

@@ -29,18 +29,8 @@
 	</head>
 
 	<body>
-	<?php
-		/* 
 
-
-
-		POUR TESTER LA CONNEXION UTILISATEUR METTRE $CONNECT A TRUE
-		$connect = false; //test de connexion 
-
-
-		*/
-		include('header.php')
-	?>
+	<?php include('header.php'); ?>
 
 	<!-- MAIN CONTAINER : all page is contained -->
 	<div class="container-fluid">
@@ -70,24 +60,25 @@
 		<div class="row">
 		    <div class="tab-content useraccount col-sm-6 col-sm-offset-3 col-xs-12">
 		        <div id="useracc" class="tab-pane fade in active text-justify">
-		            <h4>Modifier mes informations</h4>
-		            <form method="POST">
+		            <h4>Mes informations</h4>
 					  <div class="form-group row">
-					    <label for="modifEmail" class="col-xs-2"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></label>
+					    <p class="col-xs-2"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></p>
 					    <div class="col-xs-10">
-					    <input type="email" class="form-control" name="modifEmail" id="modifEmail" placeholder="Modifier mon adresse e-mail">
+					    	<?php echo $_SESSION['identifiant']; ?>
 					    </div>
 					  </div>
+
+					  <!-- formulaire pour modifier le mot de passe ! -->
 					  <div class="form-group row">
 					    <label class="col-xs-2" for="modifPassword"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
 					    <div class="col-xs-10">
 					    	<input type="password" name="modifPassword" class="form-control" id="modifPassword" placeholder="Modifier mon mot de passe">
 					    </div>
 					  </div>
-					  <div class="row">
-						  <button type="submit" name="modif_btn" id="modif_btn" class="btn btn-default col-lg-3 col-xs-12">ENREGISTRER</button>
-					  </div>
-					</form>
+
+
+
+					  
 		        </div>
 		        <div id="userpreferences" class="tab-pane fade text-justify">
 		        	<?php 
@@ -124,8 +115,8 @@
 							?>
 							<select>
 							<?php
-								$i = 0;
-								while($i < count($data)){
+								$i = 1;
+								while($i < count($data) -1){
 									echo "<option>";
 									print_r($data[$i]['name']);
 									echo "</option>";
@@ -148,22 +139,20 @@
 		        </div>
 
 		        <!-- deconnection button -->
-				<div class="btn deconnected col-xs-3">
+				<div class="btn deconnected col-xs-6">
 					<a href="deconnexion.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Déconnexion </a>
 				</div>
 
 				<div id="delete-account">
 					<form method="post" action="delete-account.php">
-					<button class="col-xs-4 btn" name="deleting_account"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer mon compte</button>
+					<button class="col-xs-6 btn" name="deleting_account"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer mon compte</button>
 					</form>
 				</div>
 
 			</div>
 		</div>
 
-			<?php
-				include ('settings.php');
-			?>
+
 	</div>
 
 		<?php } else{ ?>
@@ -175,7 +164,7 @@
 
 			-->
 			<div class="col-lg-6 col-xs-12" id="connection">
-				<h3>Connexion</h3>
+				<h3>Accéder à mon compte</h3>
 				  <div class="panel">
 				    <form class="form-horizontal" action="connexion.php" method="post">
 					  <div class="form-group">
@@ -192,18 +181,6 @@
 					  </div>
 					  <div class="form-group">
 					    <div class="col-sm-offset-2 col-sm-10">
-					      <div class="checkbox">
-					        <label>
-					          <input type="checkbox" name="rememberCookie"> Se souvenir de moi
-					        </label>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="forgotten-psw">
-					  	<p><a href="forgotten-psw.php">Mot de passe oublié ?</a></p>
-					  </div>
-					  <div class="form-group">
-					    <div class="col-sm-offset-2 col-sm-10">
 					      <button type="submit" class="btn btn-default" name="con-btn">Connexion</button>
 					    </div>
 					  </div>
@@ -211,16 +188,11 @@
 				  </div>
 			</div>
 
-			<!--
-			Panel for subscription 
-			
-			-->
+			<!-- Panel for subscription -->
 			<div class="col-lg-6 col-xs-12" id="subscription">
 				<h3>Pas encore inscrit ?</h3>
 				<p> Il suffit de cliquer sur le bouton ci-dessous. </p>
-				<div class="col-sm-offset-2 col-sm-10">
-				    <button type="submit" id="inscription" class="btn btn-default" name="sub-btn">S'inscrire</button>
-				</div>
+				<a href="create-account.php"><button type="submit" id="inscription" class="btn btn-default" name="sub-btn">S'inscrire</button></a>
 			</div>
 		</div>
 

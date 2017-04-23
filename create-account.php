@@ -3,7 +3,34 @@
   require 'base.php';
   // Character encoding of the database
   $connection->exec("SET NAMES 'utf8'");
-  include('header.php');
+  
+
+?>
+<!DOCTYPE html>
+<html lang="fr"><!-- language -->
+	<head>
+		<!-- META TAGS -->
+		<!-- encoding -->
+		<meta charset="utf-8"/>
+		<!-- mobile friendly tag -->
+		<meta name="description" content="Créez votre compte Movie Journey et réservez votre circuit cinématographique !" />
+
+		<!-- STYLESHEETS -->
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+		<!-- bootstrap -->
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+		<!-- main stylesheet -->
+		<link rel="stylesheet" href="css/account.css" type="text/css" />
+		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">		
+		<!--font-family title -->
+		<link rel="icon" type="image/png" href="image/favicon.png" />
+		
+		<title>Créer mon compte - Movie Journey</title>
+	</head>
+
+	<?php 
+	
   $fnameErr =$lnameErr = $mailErr = $confmailErr =$mdpErr =$confmdpErr = $existEmailErr=$typesErr=""; //only if the user makes a mistake
   $champOk = true;
   $toutajouté = false;
@@ -73,30 +100,8 @@
 			header('Location: account.php');
 		}
 	}
-
-?>
-<!DOCTYPE html>
-<html lang="fr"><!-- language -->
-	<head>
-		<!-- META TAGS -->
-		<!-- encoding -->
-		<meta charset="utf-8"/>
-		<!-- mobile friendly tag -->
-		<meta name="description" content="Créez votre compte Movie Journey et réservez votre circuit cinématographique !" />
-
-		<!-- STYLESHEETS -->
-		<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-		<!-- bootstrap -->
-		<link rel="stylesheet" href="css/style.css" type="text/css" />
-		<!-- main stylesheet -->
-		<link rel="stylesheet" href="css/account.css" type="text/css" />
-		<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">		
-		<!--font-family title -->
-		<link rel="icon" type="image/png" href="image/favicon.png" />
-		
-		<title>Créer mon compte - Movie Journey</title>
-	</head>
+	include('header.php');
+	?>
 
 	<body>
 	<!-- MAIN CONTAINER : all page is contained -->
@@ -109,27 +114,86 @@
 				<h3>Créer mon compte</h3>
 				  <div class="panel">
 				    <form class="form-horizontal" method="POST" action="create-account.php">
-				      <div class="form-group"> <!-- first name -->
-				      	<span class="error"> <?php echo $fnameErr;?></span>
-					    <label for="firstname" class="col-sm-3 control-label">Prénom*</label>
-					    <div class="col-sm-4">
-					      <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Prénom">
-					    </div>
-					    <span class="error"> <?php echo $lnameErr;?></span>
-					    <label for="lastname" class="col-sm-1 control-label">Nom*</label>
-					    <div class="col-sm-4"><!-- last name -->
-					      <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Nom">
-					    </div>
+				    	<?php if (($fnameErr != "") || ($lnameErr != "")){
+				    		// if user doesn't fill the first name input or the last name input, the block will shows in red (has-warning)
+				    		?>
+				    		<div class="form-group has-warning"> 
+				    	
+							    <label for="firstname" class="col-sm-3 control-label">Prénom*</label>
+							    <div class="col-sm-4">
+							      <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Prénom">
+							      <?php if($fnameErr != ""){ 
+			    				//if first name isn't fulfilled
+							      echo "<span class='help-block'>".$fnameErr."</span>";
+							     }
+							      ?>
+							    </div>
+
+					    			
+				    			<label for="lastname" class="col-sm-1 control-label">Nom*</label>
+					    		<div class="col-sm-4"><!-- last name -->
+					      			<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Nom" >
+					      			<?php if ($lnameErr != ""){
+				    				// if last name input is empty
+				    					echo "<span class='help-block'>".$lnameErr."</span>";
+				    				}
+				    					?>
+					    		</div>
+				    		
+				      
+					    <?php } else{
+					    	// case where both lastname and first name inputs are filled
+					    	?>
+					    	<div class="form-group"> <!-- first name -->
+					   			 <label for="firstname" class="col-sm-3 control-label">Prénom*</label>
+					   			 <div class="col-sm-4">
+					    		  <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Prénom" value="<?php if(isset($_POST['firstname'])){echo $_POST['firstname'];} ?>"/>
+					      
+					   		</div>
+					    	<label for="lastname" class="col-sm-1 control-label">Nom*</label>
+					    	<div class="col-sm-4"><!-- last name -->
+					      		<input type="text" class="form-control" name="lastname" id="lastname" placeholder="Nom" value="<?php if(isset($_POST['lastname'])){echo $_POST['lastname'];} ?>"/>
+					    	</div>
+					    	<?php } ?>
 					  </div>
+
+
+					  <!-- birthdate -->
 					  <div class="form-group">
 					    <label for="birthdate" class="col-sm-3 control-label">Date de naissance</label>
-					    <div class="col-sm-9"><!-- last name -->
+					    <div class="col-sm-9">
 					      <input type="date" class="form-control" name="birthdate">
 					    </div>
 					  </div>
-					  <div class="form-group"> <!-- choosen email address -->
+
+
+					  <!-- email address -->
+					  <?php if($mailErr != ""){
+					  	// if there's no '@' or '.' in the email adress
+
+					  	?>
+					  	<div class="form-group has-warning"> 
+
+					    	<label for="email" class="col-sm-3 control-label">Adresse e-mail*</label>
+						    <div class="col-sm-9">
+						      	<input type="email" class="form-control" name="email" id="email" placeholder="Email"
+						      <?php
+						      	// if the user has begin fulfill the account.php page to subscribe, it will get its infos in this advanced subscription form
+						      	if(isset($_POST['email'])){
+						      		echo "value='".$_POST['email']."'";
+						      	}
+						      ?>
+						      >
+						      <span class="help-block"> <?php echo $mailErr;?> </span>
+						    </div>
+						</div>
+					  	<?php
+
+					  } else {
+					  	// if email is corresponding to the pattern
+					  ?>
+					  <div class="form-group"> 
 					    <label for="email" class="col-sm-3 control-label">Adresse e-mail*</label>
-					    <span class="error"> <?php echo $mailErr;?> </span>
 					    <div class="col-sm-9">
 					      <input type="email" class="form-control" name="email" id="email" placeholder="Email"
 					      <?php
@@ -140,68 +204,100 @@
 					      ?>
 					      >
 					    </div>
-					  </div>
-					  <div class="form-group"> <!-- email address confirmation -->
+					   </div>
+					    <?php } ?>
+					  
+
+					  <!-- email address confirmation -->
+					  <?php if(($existEmailErr != "") || ($confmailErr != "")){ ?>
+					  <div class="form-group has-error">
+					  <?php } else{ ?>
+					  <div class="form-group">
+					  	<?php } ?> 
 					    <label for="email3" class="col-sm-3 control-label"></label>
-					    <span class = "error"><?php echo $existEmailErr;?></span>
-					    <span class="error"><?php echo $confmailErr;?></span>
+					    
 					    <div class="col-sm-9">
 					      <input type="email" class="form-control" name="email1" id="email1" placeholder="Confirmer votre adresse e-mail"
 					      <?php
-					      	// if the user has begin fulfill the account.php page to subscribe, it will get its infos in this advanced subscription form
+					      	// if the user has begin fulfill the inputs to subscribe and have an error in another input, it will get its infos back
 					      	if(isset($_POST['email1'])){
 					      		echo "value='".$_POST['email1']."'";
 					      	}
 					      ?>
 					      >
+					      <span class = "help-block"><?php echo $existEmailErr;?></span>
+					      <span class="help-block"><?php echo $confmailErr;?></span>
 					    </div>
 					  </div>
-					  <div class="form-group"> <!-- choosen password -->
+
+
+					  <!-- password -->
+					  <?php if(($mdpErr != "") || ($confmdpErr !="")){ ?>
+					  <div class="form-group has-error"> 
+					  <?php } else { ?>
+					  <div class="form-group"> 
+					  <?php } ?>
 					    <label for="password" class="col-sm-3 control-label">Mot de passe*</label>
-					    <span class="error"> <?php echo $mdpErr;?></span>
 					    <div class="col-sm-9">
 					      <input type="password" class="form-control" name="password" id="password" placeholder="Mot de passe">
+					      <span class="help-block"> <?php echo $mdpErr;?></span>
 					    </div>
 					  </div>
-					  <div class="form-group"> <!-- password confirmation -->
+
+					  <!-- password confirmation -->
+					  <div class="form-group"> 
 					    <label for="confPassword" class="col-sm-3 control-label"></label>
-					    <span class="error"> <?php echo $confmdpErr;?></span>
 					    <div class="col-sm-9">
 					      <input type="password" class="form-control" name="confPassword" id="confPassword" placeholder="Confirmer le mot de passe">
+					      <span class="help-block"> <?php echo $confmdpErr;?></span>
 					    </div>
 					  </div>
-					  <div class="form-group"> <!-- gets-email -->
+
+
+					  <!-- gets-email = newsletter -->
+					  <div class="form-group form-inline newsletter"> 
 					    <label for="gets-email" class="col-sm-3 control-label"></label>
 					    <div class="col-sm-9">
-					      <input type="checkbox" class="form-control" name="gets_emails" id="gets_emails" >
-					      <label> En cliquant ici, vous acceptez de recevoir des e-mails de la part de Movie Journey. </label>
+					    	<P>  </P>
+					    	<label><input type="checkbox" class="form-control" name="gets_emails" id="gets_emails" >En cliquant ici, vous acceptez de recevoir des e-mails de la part de Movie Journey.</label>
 					    </div>
 					  </div>
-					  <div class="form-group"> <!-- user's favorite movie types -->
+
+					  <!-- favorite movie types -->
+					  <?php if($typesErr !=""){ ?>
+					  <div class="form-group has-error"> 
+					  <?php } else { ?>
+					  <div class="form-group"> 
+					  <?php } ?>
 					    <label for="genres" class="col-sm-3 control-label"></label>
-					    <span class="error"> <?php echo $typesErr;?></span>
-					    <div class="col-sm-12 movie_genres">
-					    	<p class="col-sm-3">Choisissez vos genres de films préférés :</p>
-					    	<div class="col-sm-9">
-					    	<?php
-					    	$query = requete_bdd($connection, "SELECT type FROM type");
-							$query->execute();
-							$row = $query->fetchAll();
-							foreach($row as $key => $value) {
-								echo "<input type='checkbox' value='" .$value['type']. "' name= 'types[]'> <label>" .$value['type']."</label> ";
-							}
-					    	?>
-					    	</div>
-					    </div>
+						    <div class="col-sm-12 movie_genres">
+						    	<p class="col-sm-3">Choisissez vos genres de films préférés :</p>
+						    	<div class="col-sm-9">
+							    	<!-- this will get every existing movie type from the database -->
+							    	<?php
+							    	$query = requete_bdd($connection, "SELECT type FROM type");
+									$query->execute();
+									$row = $query->fetchAll();
+									foreach($row as $key => $value) {
+										echo "<input type='checkbox' value='" .$value['type']. "' name= 'types[]'> <label>" .$value['type']."</label> ";
+									}
+							    	?>
+							    	<span class="help-block"><strong><?php echo $typesErr;?></strong></span>
+						    	</div>
+						    </div>
 					  </div>
-					  <div class="form-group"> <!-- subscription button -->
+
+					  <!-- subscription button -->
+					  <div class="form-group"> 
 					    <div class="col-sm-12">
 					    	<p>* Champs obligatoires</p>
 					      <div class="alert alert-info" role="alert">En cliquant sur "Enregistrer", j'accepte les <a href="CGV.php" title="Conditions Générales de Vente et d'utilisation" target="_blank">conditions générales de vente et d'utilisation</a> du site movie-journey.com</div>
 					      <button type="submit" class="btn btn-default" name="sub-btn">Enregistrer</button>
 					    </div>
-					  </div>
-					</form>
+					  </div> <!-- /. end of subscription button -->
+
+					</form> <!-- /. end of subcription form -->
+
 				  </div>
 			</div>
 		</div>

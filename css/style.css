@@ -275,7 +275,13 @@ button.btn.btn-default.col-lg-2.col-md-hidden, .search_btn {
 /*---------- cgv.php style  -------------- */
 
 #infos_sup{
-    font-size: 20px;
+  font-size: 20px;
+  padding:20px;
+  text-align:left;
+  background: #FA644D;
+  color:#fff;
+  font-weight: bold;
+  display:block;
 }
 
 /*---------- end  -------------- */

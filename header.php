@@ -77,8 +77,8 @@
 			      		<input type="password" class="form-control" name="password1" id="password1" placeholder="Mot de passe">
 			    	</div>
 			    </div>
-			    <div class="col-sm-8 col-sm-offset-2">
-			    	<a href="forgotten.php">Mot de passe oublié ?</a> <a href="create-account.php">Créer un compte</a>
+			    <div class="col-sm-8 col-lg-offset-4 text-left">
+			    	<a href="create-account.php"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Créer un compte</a>
 			    </div>
 				<div class="form-group connection_btn">
 		    		<div class="col-sm-10">

@@ -53,7 +53,8 @@ a:hover {
 
 .marker ul {
 	list-style:none;	
-	background:#e7e7e7;
+	background:#46aaaa;
+    padding:2%;
 }
 
 .marker ul li {

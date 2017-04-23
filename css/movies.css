@@ -70,8 +70,13 @@ p.nom-lieu-movies, p.nom-film-movies {
 	text-align: justify;
 }
 
+.movie_div.row{
+	margin: 30px 0px 30px 15px;
+}
+
 .movie_infos{
 	text-align:justify;
+    background: #4DB6AC;
 }
 
 img.img-responsive.movie_poster{
@@ -102,7 +107,7 @@ li.typeItem {
 }
 
 li.typeItem:hover{
-	background:#5bc0de;
+	background:#131b1e;
 }
 
 .share_movie li, li.place{

@@ -23,7 +23,7 @@
 			<div class="col-lg-4 col-md-6" id="infos">
 				<h4>Infos pratiques</h4>
 				<ul class="footer-list">
-					<li>Découvrez notre brochure</li>
+					<li><a href="brochure.pdf" target="_blank" title="Télécharger la brochure">Découvrez notre brochure</a></li>
 					<li><a href="cgv.php">Conditions générales de vente</a></li>
 				</ul>
 				<ul id="payment">

@@ -269,10 +269,10 @@
 					</div>
 					<div class="col-sm-12 col-md-5">
 					<h4>Liste des lieux cultes : </h4>
-						<ul><?php foreach ($res as $key => $value) {?>
-							<a href="place.php?place=<?php echo $value[0];?>"><li class="place"><?php echo $value[0];?></li></a>
+						<?php foreach ($res as $key => $value) {?>
+							<p class="place"><a href="place.php?place=<?php echo $value[0];?>"><?php echo $value[0];?></a></p>
 							<?php
-						};?></ul>
+						};?>
 					</div>
 				</div>
 			<?php

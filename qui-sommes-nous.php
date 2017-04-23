@@ -44,9 +44,9 @@
 				Une nouveauté 2017, un concours chaque saison qui décernera le titre de meilleure photo de souvenir avec #HappyJourney ! Qu'obtient le gagnant ? Des cadeaux comme s'il en pleuvait !</p>
 
 
-				<div class="reservation">
+				<a href="circuit.php"><div class="reservation">
 					Réserver mon voyage <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-				</div>
+				</div></a>
 			</div>
 		</div>
 

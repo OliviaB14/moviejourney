@@ -8,6 +8,15 @@
 	height:224px;
 }
 
+.newsletter label{
+	font-weight: lighter;
+	padding:1%;
+}
+
+.newsletter input {
+	margin:1%;
+}
+
 .movie_genres{
 	text-align:justify-all;
 }

@@ -37,9 +37,9 @@
 			echo '<li><a href="movies.php" title="Films">Films</a></li>';
 			$sql = "SELECT movie.name FROM movie, place, placemovie WHERE place.name = '$place' AND place.id = placemovie.place_id AND placemovie.movie_id = movie.id";
 			$req = $connection->query($sql);
-			$res = $req->fetch();
+			$movie = $req->fetch();
 		?>
-			<li><a href='movies.php?page=<?php echo $res[0] ?>'><?php echo $res[0] ?></a></li>
+			<li><a href='movies.php?page=<?php echo $movie[0] ?>'><?php echo $movie[0] ?></a></li>
 	    	<li class="active"><?php echo $_GET["place"]?></li>
 	</ol>
 	
@@ -51,20 +51,21 @@
 		// lancement de la requête (mysql_query) et on impose un message d'erreur si la requête ne se passe pas bien (or die)
 		$req = $connection->query($sql); 
 		$res = $req->fetch();
-		// variable utilisé pour prochaine requête
+
 		/*
 		$res[0] : place name
 		$res[1] : place photo_path
 		$res[2] : place description
 		$res[3] : place latitude
 		$res[4] : place longitude
-		$res[5] : town country
+		$res[5] : country name 
 		$res[6] : town name
 		$res[7] : place id
 		$res[8] : place photo_path2
 		$res[9] : place photho_path3
 		$res[10] : place photo_path4
 		 */
+
 		$nom = $res[0];
 		$lat = $res[3];
 		$long = $res[4];
@@ -102,8 +103,10 @@
 				<div class="text-place col-md-3">
 					<div class="inner-text-place">
 						<!-- Place description -->
-						<h3><?php echo $res[0] ?></h3>
-						<p><?php echo $res[2] ?></p>
+						<h3><?php echo $res[0]; ?></h3> <!-- place name -->
+						<p class="place_infos"><span class="bullet">PAYS</span> <?php echo $res[5]; ?></p>
+						<p class="place_infos"><span class="bullet">FILM</span> <a href="movies.php?page=<?php echo $movie[0] ; ?>"><?php echo $movie[0] ; ?></a></p>
+						<p><?php echo $res[2]; ?></p> <!-- place description -->
 						
 					</div>
 				</div>
@@ -131,10 +134,9 @@
 					?>
 						<h4 class="fav-1">Ce lieu vous plaît ? Vous désirez le visiter ?</h4>
 						<h4 class="fav-2">Ajoutez-le à vos favoris et organisez votre voyage !</h4>
-						<!-- ajouter condition php si le lieu n'est pas déjà dans les favoris de l'utilisateur -->
 						<button type="button" id="add_fav" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le lieu à mes favoris"></span></button>
 					<?php
-						} else {
+						} else { // if the place is already in the user's favorite places
 					?>
 						<h4 class="fav-1">Ce lieu apparaît déjà dans vos favoris</h4>
 						<h4 class="fav-2">Retrouvez-le dans votre page <a href="circuit.php">mes circuits</a> et organisez votre voyage !</h4>
@@ -142,7 +144,7 @@
 						<button type="button" id="add_fav" class="btn btn-lg btn-default button-fav-pink"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true" title="Ajouter le lieu à mes favoris"></span></button>
 					<?php
 						}
-					} else {
+					} else { // if user isn't connected (visitor), a click on the favorite button will show the connection overlay
 					?>
 						<h4 class="fav-1">Ce lieu vous plaît ? Vous désirez le visiter ?</h4>
 						<h4 class="fav-2">Ajoutez-le à vos favoris et organisez votre voyage !</h4>

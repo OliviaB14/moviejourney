@@ -59,7 +59,7 @@
 				<p>5.2. Les compléments de conditions d'assurance sont à voir avec le site organisateur du transport et de l'hébergement. Chaque site est susceptible de vous demander des compléments d'informations.  </p>
 
 				<h4>Besoin de plus d'informations ?</h4>
-				<a href="contact.php" id="infos_sup">Rendez vous sur la page de contact de Movie Journey !</a>
+				<a href="contact.php" id="infos_sup">Rendez vous sur la page de contact de Movie Journey  <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a>
 			</div>	
 	</div>
 	<?php

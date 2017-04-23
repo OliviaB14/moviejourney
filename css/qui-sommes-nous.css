@@ -7,3 +7,11 @@
 
 	margin-bottom: 10px;
 }
+
+a .reservation{
+	display:block;
+}
+
+a .reservation:hover {
+	text-decoration: none;
+}
