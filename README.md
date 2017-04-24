@@ -9,8 +9,9 @@ Movie Journey vous permet de vous rendre dans les endroits les plus cultes de vo
 
 In order to have Movie Journey runnning, you'll have to install these following programs and _strictly_ respect the version mentionned:
 
-- ```EasyPHP 14.1```
-- ```SublimeText or any text editor (Notepad++ for example)```
+- `EasyPHP 14.1`
+- `SublimeText or any text editor (Notepad++ for example)`
+- `Google Chrome`
 
 
 ### Installing 
