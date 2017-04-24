@@ -32,7 +32,7 @@ function init_map(){
 }	
 
 function itineraire(nom,lat,long) {
-	$('#save-trip').html("<button class='button-save-trip' href='booking.php'>Enregistrez et reservez votre voyage</button>");
+	$('#save-trip').html("<button class='button-save-trip'><a href='booking.php'>Reservez</a></button>");
 	step++;
 	if (step === 1) {
 		$('#step').html('<h3>Vos étapes</h3>');

@@ -82,19 +82,29 @@ a:hover {
 	font-size:16px;
 }
 
-.save-trip {
+#save-trip {
 	text-align:center;
 	margin-bottom:10px;	
 }
 
 .button-save-trip {
-    background-color: #FF0004; /* Green */
+    background: linear-gradient(to bottom, #cc0000 0%,#cc6868 100%);
     border: none;
-    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+	padding: 5px;
+    width: 100px;
+}
+
+.button-save-trip a {
+	color:white;
+	text-decoration:none;	
+}
+
+.button-save-trip:hover {
+	background: linear-gradient(to top, #cc0000 0%,#cc6868 100%);	
 }
