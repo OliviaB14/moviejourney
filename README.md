@@ -19,21 +19,20 @@ In order to have Movie Journey runnning, you'll have to install these following 
 
 **First step.** Create a database into PHPmyAdmin. Its name must be `movie_journey_bdd`. Import the `movie_journey_bdd.sql` file contained in `bdd` folder into your newly created database. 
 
-**Second step.** Open `base.php` and modify following informations to match the database profile / user you want :
+**Second step.** Open `base.php` with your text editor and modify following informations to match the database profile / user you want.
 
 
 ```
-// URL of the host
-  $dbhost = "localhost"; 
-  
-  // Name of the database
-  $dbname = "movie_journey_bdd";
-  
-  // Username
-  $dbuser = "root";
-  
-  // Password (not used here)
-  $dbpass = "";
+2  // URL of the host
+3  $dbhost = "localhost"; 
+```  
+
+```  
+8  // Username
+9  $dbuser = "root";
+10  
+11  // Password (not used here)
+12  $dbpass = "";
 ```
 
 
