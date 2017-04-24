@@ -35,7 +35,7 @@
 	<!-- MAIN CONTAINER : all page is contained -->
 	<div class="container-fluid">
 
-		<!-- advertisement or movies -->
+		<!-- advertisement -->
 		<div class="row advertisement">
 		</div>
 
@@ -52,7 +52,7 @@
 			<div class="useraccount col-sm-6 col-sm-offset-3 col-xs-12">
 				<h3 id="username">Bonjour <strong><?php echo $_SESSION['firstname'];?></strong></h3>
 			    <ul class="nav nav-tabs nav-justified" id="mytabs">
-			        <li class="active"><a href="#useracc"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mon compte</a></li>
+			        <li class="active"><a href="#useracc"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Mon compte</a></li>
 			        <li><a href="#userpreferences"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Mes préférences</a></li>
 			    </ul>
 			</div>
@@ -61,48 +61,57 @@
 		    <div class="tab-content useraccount col-sm-6 col-sm-offset-3 col-xs-12">
 		        <div id="useracc" class="tab-pane fade in active text-justify">
 		            <h4>Mes informations</h4>
-					  <div class="form-group row">
-					    <p class="col-xs-2"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></p>
-					    <div class="col-xs-10">
-					    	<?php echo $_SESSION['identifiant']; ?>
+		            <!-- user infos -->
+	            	<div class="media">
+	            		<!-- avatar -->
+						<div class="media-left">
+					    	<img src="image/user.png" alt="Avatar profil"/>
 					    </div>
-					  </div>
-
-					  <!-- formulaire pour modifier le mot de passe ! -->
-					  <div class="form-group row">
-					    <label class="col-xs-2" for="modifPassword"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></label>
-					    <div class="col-xs-10">
-					    	<input type="password" name="modifPassword" class="form-control" id="modifPassword" placeholder="Modifier mon mot de passe">
-					    </div>
-					  </div>
-
-
-
-					  
+					  	<div class="media-body">
+					    	<p>Identité : <?php echo $_SESSION['firstname'] . " "; 
+					    	$sql = "SELECT lastname, birthdate FROM users WHERE email = '".$_SESSION['identifiant']."'";
+							$req = $connection -> query($sql);
+							$data = $req -> fetch();
+							echo $data[0];
+					    	?></p>
+					    	<p>Date de naissance : <?php echo $data[1]; ?></p>
+					    	<p>Adresse e-mail : <?php echo $_SESSION['identifiant']; ?></p>
+					  	</div>
+					</div>
 		        </div>
+
 		        <div id="userpreferences" class="tab-pane fade text-justify">
 		        	<?php 
 		            	$user = $_SESSION['id'];
 		            				
 					?>
-		        	<h4>Mes séjours</h4>
 
-		        	<h4>Genres de films préférés</h4>
-		        	<!-- request : select user's favorite movie types	-->	
-		            <p><?php $sql = "
+					<div class="media">
+	            		<!-- avatar -->
+						<div class="media-left">
+					    	<img src="image/movies_user.png" alt="Movies preferences"/>
+					    </div>
+					  	<div class="media-body">
+					  		<h4 class='media-heading'>Genres de films préférés</h4>
+					    	<!-- request : select user's favorite movie types	-->	
+		            		<p><?php $sql = "
 		            			SELECT type.type 
 		            			FROM type, userstypes, users 
 		            			WHERE '$user' = userstypes.user_id
 		            				AND userstypes.type_id = type.id
 		            			";
-						$req = $connection -> query($sql);
-						$data = $req -> fetchAll();
-						foreach($data as $key){ echo $key[0];} 
-						?></p>
-		            
-
-		            <h4>Mes films favoris</h4>
-		            	<div class="styled-select">
+								$req = $connection -> query($sql);
+								$data = $req -> fetchAll();
+								$i = 0;
+								print_r($data);
+								
+								while($i < count($data)){
+									echo($data[$i]['type']) . " ";
+									$i++;
+								}
+								  ?></p>
+					    			            <h4>Mes films favoris</h4>
+		            	<div>
 			            <?php $sql = "
 			            			SELECT movie.name 
 			            			FROM users, usersfavorite_movies, movie 
@@ -128,14 +137,23 @@
 							} 
 							?>
 		    
-		    				<a href="movies.php" title="Ajouter d'autres films à mes favoris"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> Ajouter d'autres films à mes favoris</a> 
+		    				
 		            	</div>
+		            	<a href="movies.php" title="Ajouter d'autres films à mes favoris"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> Ajouter d'autres films à mes favoris</a> 
+					  	</div>
+					</div>
+		        	
+		        	
+		        	
+		            
+
+
 
 		        </div>
 
-		        <!-- new reservation -->
+		        <!-- new reservation  button-->
 		        <div id="newcircuit">
-		        <a href="circuit.php"><button class="btn btn-default col-xs-12" id="reservation">Nouvelle réservation <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></a>
+		        	<a href="circuit.php"><button class="btn btn-default col-xs-12" id="reservation">Nouvelle réservation <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></a>
 		        </div>
 		        <div id="settings" class="row">
 			        <!-- deconnection button -->
@@ -143,9 +161,10 @@
 						<a href="deconnexion.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Déconnexion </a>
 					</div>
 
+					<!-- allow the user to delete its account -->
 					<div id="delete-account">
 						<form method="post" action="delete-account.php">
-						<button class="col-xs-6 btn" name="deleting_account"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer mon compte</button>
+							<button class="col-xs-6 btn" name="deleting_account"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Supprimer mon compte</button>
 						</form>
 					</div>
 				</div>

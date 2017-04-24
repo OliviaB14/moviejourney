@@ -20,12 +20,12 @@
 		$sql = "SELECT id FROM users WHERE email = '".$_SESSION['identifiant']."'";
 		$req = $connection -> query($sql);
 		$data = $req -> fetch();
-		$_SESSION['id'] = $data['id']; //test de connexion
+		$_SESSION['id'] = $data['id']; //connection test
 	    //On récupère l'identifiant et le mdp dans des variables SUPERGLOBALES
 	   
 	    header('location: account.php'); 
 	    exit;
-	    // renvoie directement vers l'index
+	    // redirection towards account.php
 	  }    
 	}
 	else {

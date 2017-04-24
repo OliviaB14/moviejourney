@@ -34,7 +34,6 @@
 /* account settings */
 
 
-
 #newcircuit{
 	margin: 10px 0px;
 	text-align: center;
@@ -56,4 +55,8 @@
     margin-top: 1%;
     margin-bottom: 1%;
     padding: 1%;
+}
+
+.media-body{
+	padding: 3%;
 }
