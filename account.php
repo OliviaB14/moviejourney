@@ -85,7 +85,7 @@
 		            	$user = $_SESSION['id'];
 		            				
 					?>
-
+					<h4>Activité sur Movie Journey</h4>
 					<div class="media">
 	            		<!-- avatar -->
 						<div class="media-left">
@@ -95,20 +95,23 @@
 					  		<h4 class='media-heading'>Genres de films préférés</h4>
 					    	<!-- request : select user's favorite movie types	-->	
 		            		<p><?php $sql = "
-		            			SELECT type.type 
-		            			FROM type, userstypes, users 
+		            			SELECT type 
+		            			FROM type, userstypes 
 		            			WHERE '$user' = userstypes.user_id
-		            				AND userstypes.type_id = type.id
+		            			AND userstypes.type_id = type.id
 		            			";
 								$req = $connection -> query($sql);
 								$data = $req -> fetchAll();
 								$i = 0;
-								print_r($data);
-								
-								while($i < count($data)){
-									echo($data[$i]['type']) . " ";
-									$i++;
+
+								foreach ($data as $key) {
+									echo " | ".$key[0];
 								}
+									//echo count($data);
+									//print_r($data[0]);
+								
+								//foreach($data[0] as $key){echo $key[0];}
+								
 								  ?></p>
 					    			            <h4>Mes films favoris</h4>
 		            	<div>
