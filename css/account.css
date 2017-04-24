@@ -31,6 +31,10 @@
 }
 
 
+/* account settings */
+
+
+
 #newcircuit{
 	margin: 10px 0px;
 	text-align: center;
@@ -45,5 +49,11 @@
 }
 
 #delete-account .btn{
-	color:red;
+	color:#59b3b3;
+}
+
+.btn.deconnected.col-xs-6, #delete-account .btn {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 1%;
 }

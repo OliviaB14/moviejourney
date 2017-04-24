@@ -12,7 +12,12 @@
 		$delMovies = "DELETE FROM usersfavorite_movies WHERE usersfavorite_movies.user_id = '$user'";
 		$delPlaces = "DELETE FROM usersfavorite_places WHERE usersfavorite_places.user_id = '$user'";
 
-		if(((sqlrequest($delUser)) && (sqlrequest($delTypes))) && (sqlrequest($delMovies) && sqlrequest($delPlaces)){
+		if(
+			(
+				sqlrequest($delUser) && sqlrequest($delTypes)
+			) && (
+				sqlrequest($delMovies) && sqlrequest($delPlaces)
+			)){
 			// this redirection will destroy the session
 			header('location: deconnexion.php');
 		}

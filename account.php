@@ -137,18 +137,18 @@
 		        <div id="newcircuit">
 		        <a href="circuit.php"><button class="btn btn-default col-xs-12" id="reservation">Nouvelle réservation <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button></a>
 		        </div>
+		        <div id="settings" class="row">
+			        <!-- deconnection button -->
+					<div class="btn deconnected col-xs-6">
+						<a href="deconnexion.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Déconnexion </a>
+					</div>
 
-		        <!-- deconnection button -->
-				<div class="btn deconnected col-xs-6">
-					<a href="deconnexion.php"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Déconnexion </a>
+					<div id="delete-account">
+						<form method="post" action="delete-account.php">
+						<button class="col-xs-6 btn" name="deleting_account"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer mon compte</button>
+						</form>
+					</div>
 				</div>
-
-				<div id="delete-account">
-					<form method="post" action="delete-account.php">
-					<button class="col-xs-6 btn" name="deleting_account"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer mon compte</button>
-					</form>
-				</div>
-
 			</div>
 		</div>
 

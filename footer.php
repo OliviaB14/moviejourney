@@ -47,7 +47,7 @@
 				<ul class="footer-list">
 					<li><a href="https://www.facebook.com/MovieJourney2017/"><img src="image/facebook.png" alt="Page Facebook Movie Journey"/></a></li>
 					<li><a href="#"><img src="image/twitter.png" alt="Page Twitter Movie Journey"/></a></li>
-					<li><a href="#"><img src="image/instagram.png" alt="Page Instagram Movie Journey"/></a></li>
+					<li><a href="instagram.com/MovieJourney2017"><img src="image/instagram.png" alt="Page Instagram Movie Journey"/></a></li>
 				</ul>
 				<div class="fb-like" data-href="https://www.facebook.com/MovieJourney2017/" data-width="300" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 			</div>
