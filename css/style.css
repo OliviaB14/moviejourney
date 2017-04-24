@@ -206,6 +206,20 @@ button.btn.btn-default.col-lg-2.col-md-hidden, .search_btn {
     margin-bottom: 15px;
 }
 
+/* recommanded films */
+.row-recommanded-movie, .thumbail-recommanded-movie {
+	background:aliceblue;	
+}
+
+.img-recommanded-movie {
+    height: 280px;
+	margin-top:30px;
+}
+
+.nom-recommanded-movie {
+    height: 70px;
+	background:aliceblue;
+}
 
 /* selected circuits */
 

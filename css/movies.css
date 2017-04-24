@@ -119,3 +119,7 @@ li.typeItem:hover{
 .share_movie li img{
 	width:36px;
 }
+
+.btn.btn-lg.btn-default.button-fav-pink {
+	background:pink;
+}

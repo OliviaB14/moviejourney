@@ -13,10 +13,10 @@ function ajoutfavoris(lieu, prop){ //APPEL AJAX :
 		$("#add_fav").css("background","pink");
 		$(".fav-1").text("Ce lieu vient d'être ajouté à vos favoris !");
 		$(".fav-2").text("");
-		$("#add-fav").addClass('button-fav-pink');
+		$("#add_fav").addClass('button-fav-pink');
 	} else {
 		$("#add_fav").css("background","pink");
-		$("#add-fav").addClass('button-fav-pink');
+		$("#add_fav").addClass('button-fav-pink');
 	}
 }
 

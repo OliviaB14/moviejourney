@@ -170,9 +170,80 @@
 			</div>
 			<!-- END OF DESCRIPTION --> 
 			
-			<!-- ADVERTISEMENTS -->
+			<?php 
+				if(!empty($_SESSION['id'])){
+					$user_id = $_SESSION['id'];
+					
+					$sql = "SELECT movie.name, movie.backdrop_path FROM userstypes, movietype, movie WHERE userstypes.user_id = '$user_id' AND userstypes.type_id = movietype.type_id AND movietype.movie_id = movie.id ORDER BY rand()";
+					$req = $connection->query($sql);
+			?>
 			
-			<!-- SELECTED ITENERARIES -->
+			<!-- RECOMMANDED MOVIES -->
+			<div id="movies_recommanded" class="">
+				<h3 class="text-center line-title lead"><span>Vous pourriez être interessé(e)...</span> </h3>
+				<?php
+					$res = $req->fetch();
+				?>
+				<div class="row row-recommanded-movie">
+					<div class="col-xs-1 col-md-1">
+					</div>
+					<div class="col-xs-5 col-md-2 text-center">
+						<div class="thumbnail thumbail-recommanded-movie"> <img class="img-recommanded-movie" src="<?php echo $res[1] ?>" alt="Réservation d'hôtels partenaires"/>
+							<div class="caption nom-recommanded-movie">
+								<h4><?php echo $res[0] ?></h4>
+							</div>
+						</div>
+					</div>
+				<?php
+					$res = $req->fetch();
+				?>
+					<div class="col-xs-5 col-md-2 text-center">
+						<div class="thumbnail thumbail-recommanded-movie"> <img class="img-recommanded-movie" src="<?php echo $res[1] ?>" alt="<?php echo $res[0] ?>"/>
+							<div class="caption nom-recommanded-movie">
+								<h4><?php echo $res[0] ?></h4>
+							</div>
+						</div>
+					</div>
+				<?php
+					$res = $req->fetch();
+				?>
+					<div class="col-xs-hidden col-md-2 text-center">
+						<div class="thumbnail thumbail-recommanded-movie"> <img class="img-recommanded-movie" src="<?php echo $res[1] ?>" alt="<?php echo $res[0] ?>"/>
+							<div class="caption nom-recommanded-movie">
+								<h4><?php echo $res[0] ?></h4>
+							</div>
+						</div>
+					</div>
+				<?php
+					$res = $req->fetch();
+				?>
+					<div class="col-xs-hidden col-md-2 text-center">
+						<div class="thumbnail thumbail-recommanded-movie"> <img class="img-recommanded-movie" src="<?php echo $res[1] ?>" alt="<?php echo $res[0] ?>"/>
+							<div class="caption nom-recommanded-movie">
+								<h4><?php echo $res[0] ?></h4>
+							</div>
+						</div>
+					</div>
+				<?php
+					$res = $req->fetch();
+				?>
+					<div class="col-xs-hidden col-md-2 text-center">
+						<div class="thumbnail thumbail-recommanded-movie"> <img class="img-recommanded-movie" src="<?php echo $res[1] ?>" alt="<?php echo $res[0] ?>"/>
+							<div class="caption nom-recommanded-movie">
+								<h4><?php echo $res[0] ?></h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-1 col-md-1">
+					</div>
+				</div>
+			</div> 
+			
+			<?php
+				}
+			?>
+			
+			<!-- SELECTED ITINERARIES -->
 			<div id="itinerary" class="row"> 
 				<!-- image 171x180 -->
 				<h3 class="text-center line-title lead"><span>La sélection de l'équipe</span> </h3>
