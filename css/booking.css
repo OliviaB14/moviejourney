@@ -82,6 +82,7 @@ main {
 
 #flight-datepicker {
   margin-top: -20px;
+  margin-left:15px;
 }
 @media screen and (min-width: 400px) {
   #flight-datepicker {
