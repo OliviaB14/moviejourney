@@ -113,21 +113,23 @@
 								//foreach($data[0] as $key){echo $key[0];}
 								
 								  ?></p>
-					    			            <h4>Mes films favoris</h4>
+					    	<h4>Mes films favoris</h4>
 		            	<div>
 			            <?php $sql = "
-			            			SELECT movie.name 
+			            			SELECT name 
 			            			FROM users, usersfavorite_movies, movie 
 			            			WHERE '$user' = usersfavorite_movies.user_id 
 			            				AND usersfavorite_movies.movie_id = movie.id
 			            			";
 							$req = $connection -> query($sql);
 							$data = $req -> fetchAll();
+
 							if(count($data) != 0){
 							?>
 							<select>
 							<?php
 								$i = 1;
+								
 								while($i < count($data) -1){
 									echo "<option>";
 									print_r($data[$i]['name']);

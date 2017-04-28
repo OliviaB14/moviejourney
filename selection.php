@@ -133,7 +133,7 @@
 						
 						<div class="block">
 							<h4>Participez à la campagne Happy Journey !</h4>
-							photos pour illustrer happy journey (widget instagram?)
+							
 							<!-- LightWidget WIDGET --><script src="//lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/150e107d1e33585688a94191fca8b9ca.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width: 100%; border: 0; overflow: hidden;"></iframe>
 
 						</div>
